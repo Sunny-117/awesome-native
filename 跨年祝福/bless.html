@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.333333333vw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title>定制祝福</title>
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/bless.css" />
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.3.4/vconsole.min.js"></script>
+    <script>
+      new VConsole();
+    </script> -->
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="page page1 g-letter-bg">
+        <div class="dossier">
+          <div class="yourname-label"></div>
+          <div class="yourname g-paper">
+            <input
+              id="txtAuthor"
+              maxlength="10"
+              type="text"
+              data-default="true"
+            />
+          </div>
+          <div class="wish-label"></div>
+          <div class="wish g-paper">
+            <pre id="txtContent" contenteditable data-default="true"></pre>
+          </div>
+          <div class="btn-container">
+            <div id="page1Next" data-default="true" class="g-btn prev-next">
+              下一步
+            </div>
+          </div>
+        </div>
+        <div class="pen"></div>
+        <div class="g-seal"></div>
+      </div>
+      <div class="page page2 g-letter-bg">
+        <div class="dossier">
+          <div class="g-tape"></div>
+          <div class="g-paper">
+            <div class="record-label"></div>
+          </div>
+
+          <div class="banner">
+            <div data-default="true" id="btnRecord" class="btn2">录制</div>
+            <div id="btnPlay" data-default="true" class="btn2 press">播放</div>
+            <div id="btnDelete" data-default="true" class="btn2 disabled">
+              删除
+            </div>
+            <p>您可以录制60秒的音频</p>
+          </div>
+
+          <div class="btn-container">
+            <div id="page2Prev" class="g-btn prev-next" data-default="true">
+              上一步
+            </div>
+            <div id="page2Next" class="g-btn prev-next" data-default="true">
+              下一步
+            </div>
+          </div>
+        </div>
+        <div class="pencil"></div>
+        <div class="keyboard"></div>
+        <div class="mouse"></div>
+        <div class="g-seal"></div>
+        <div class="number"></div>
+      </div>
+      <div class="page page3 g-letter-bg">
+        <div class="dossier">
+          <div class="g-paper">
+            <div class="bg-music-label"></div>
+          </div>
+          <div class="headset"></div>
+
+          <div class="banner">
+            <div data-default="true" class="arrow-left"></div>
+            <div class="bg-music">1. 春节序曲1</div>
+            <div data-default="true" class="arrow-right"></div>
+          </div>
+          <div class="btn-container">
+            <div class="g-btn prev-next" data-default="true" id="page3Prev">
+              上一步
+            </div>
+            <div data-default="true" class="g-btn prev-next" id="page3Finish">
+              完成并分享
+            </div>
+          </div>
+        </div>
+        <div class="pencil"></div>
+        <div class="keyboard"></div>
+        <div class="mouse"></div>
+        <div class="g-seal"></div>
+      </div>
+    </div>
+    <audio id="audSound"></audio>
+    <audio id="audBg" loop></audio>
+    <!-- <div class="g-modal">
+      <div class="share-container">
+        <img src="http://mdrs.yuanjin.tech/img/20201230132331.png" alt="" />
+        <div class="g-btn">复制分享图片</div>
+      </div>
+    </div> -->
+    <script src="./js/utils.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/bless.js"></script>
+  </body>
+</html>

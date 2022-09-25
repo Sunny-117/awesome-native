@@ -1,0 +1,135 @@
+.page-container {
+  width: 100%;
+  height: 100%;
+}
+.page-container .page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.page-container .page .hand-up {
+  width: 0.83rem;
+  height: 0.64rem;
+  background: url(../assets/up.png) no-repeat left top / 100% 100%;
+  position: absolute;
+  bottom: 0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.5;
+}
+.page-container .page1 {
+  background: url(../assets/city.png) no-repeat left bottom / 7.5rem 4.1rem, url(../assets/cover-bg.jpg) left top / 7.5rem 13.34rem no-repeat #ae0806;
+}
+.page-container .page1 .g-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 7.4rem;
+}
+.page-container .page2 {
+  text-align: center;
+}
+.page-container .page2 .g-tape {
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+.page-container .page2 .note {
+  width: 5.6rem;
+  font-size: 0.35rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 5.3rem;
+  bottom: 1.3rem;
+  background: #e8d7c6;
+  padding: 0.34rem;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+.page-container .page2 .note::before {
+  position: absolute;
+  content: "";
+  left: 0.4rem;
+  top: -0.1rem;
+  width: 0.43rem;
+  height: 0.8rem;
+  background: url(../assets/note-attach.png) no-repeat left top / 100% 100%;
+}
+.page-container .page2 .note pre {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  margin: 0;
+}
+.page-container .page3 .bless-label {
+  width: 3.2rem;
+  height: 4.92rem;
+  background: url(../assets/bless-label.png) no-repeat left top / 100% 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -1.6rem;
+  top: 3rem;
+  z-index: 2;
+}
+.page-container .page3 .g-paper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 7.62rem;
+  z-index: 1;
+}
+.page-container .page3 .g-paper .paper-content {
+  width: 3.97rem;
+  height: 0.79rem;
+  background: url(../assets/shaken.png) no-repeat left top / 100% 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+.page-container .page3 > .g-btn {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.music {
+  width: 0.59rem;
+  height: 0.59rem;
+  background: url(../assets/music.png) no-repeat left top / 100% 100%;
+  position: fixed;
+  right: 0.3rem;
+  top: 0.7rem;
+  transition: 0.3s;
+  z-index: 9;
+}
+.music.music-close {
+  opacity: 0.3;
+}
+.bless-card {
+  width: 4.95rem;
+  height: 7.26rem;
+  background: url(../assets/bless-card-slogan.png) no-repeat center 0.3rem / 4.09rem 0.41rem, url(../assets/letter-bg.png) repeat-y left top / 7.5rem 0.8rem;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bless-card img {
+  max-width: 4.26rem;
+  max-height: 4.34rem;
+  margin-top: -1rem;
+}
+.bless-card .close {
+  width: 0.63rem;
+  height: 1.19rem;
+  background: url(../assets/bless-card-close.png) no-repeat left top / 100% 100%;
+  position: absolute;
+  top: 100%;
+}
+.bless-card .close .close-btn {
+  border-radius: 50%;
+  width: 0.64rem;
+  height: 0.64rem;
+  margin-top: 0.55rem;
+}
