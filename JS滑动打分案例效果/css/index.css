@@ -1,0 +1,84 @@
+.grade_warp {
+    width: 840px;
+    margin: 50px auto 0
+}
+
+.user-level {
+    width: 420px;
+    margin: auto auto 30px;
+    overflow: hidden;
+    float: left
+}
+
+.user-level .ratings-title {
+    width: 407px;
+    height: auto;
+    font-size: 14px;
+    color: #aaa
+}
+
+.txt-classify {
+    font-size: 18px
+}
+
+.score-desc {
+    color: #7dc234;
+}
+
+.user-level .ratings-bar {
+    width: 407px;
+    height: 27px;
+    margin-top: 10px;
+    font-family: Georgia, times new roman, Times, serif;
+    float: left
+}
+
+.input-container {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border: 1px solid #bfbebe;
+    line-height: 25px;
+    font-size: 14px;
+    float: left;
+    color: #a0a0a0;
+    margin-right: 10px;
+    background: #fff
+}
+
+.user-level .ratings-bar .bars {
+    font-size: 18px;
+    line-height: 25px;
+    float: left;
+    color: #a0a0a0
+}
+
+.scale {
+    width: 299px;
+    height: 13px;
+    float: left;
+    cursor: pointer;
+    margin: 7px 10px auto;
+    position: relative;
+    background: url(../img/progress.png) 0 0 no-repeat
+}
+
+.progress-line {
+    width: 0;
+    position: absolute;
+    width: 0;
+    left: 0;
+    height: 13px;
+    bottom: 0;
+    background: url(../img/progress.png) 0 -14px no-repeat
+}
+
+.scale .btn {
+    width: 10px;
+    height: 26px;
+    position: absolute;
+    left: -2px;
+    top: -7px;
+    cursor: pointer;
+    background: url(../img/btn.png) no-repeat
+}

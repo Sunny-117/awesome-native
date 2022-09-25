@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>繁星</title>
+    <style>
+        body{background-color: black;}
+        body,html{width:100%;height: 100%; overflow: hidden;}
+    </style>
+    <script>
+        //初始化变量
+        var context;//画布对象
+        var arr = new Array();//存star对象的
+        var starCount = 800;//星星数量
+        var rains = new Array();
+        var rainCount = 20;
+
+        function init(){
+            //获取canvas对象
+            var start = document.getElementById('start');
+            //获取当前窗口的高度和宽度
+            windowWidth = window.innerWidth;
+            start.width = windowWidth;
+            start.height = window.innerHeight;
+            //创建2d对象模型
+            context = start.getContext('2d')
+        }
+
+        function drawMoon(){
+            //动态的添加Img对象
+            var moon = new Image();
+            moon.src = 'images/moon.jpg';
+            //重大坑。。。。。
+            moon.onload = function(){
+                context.drawImage(moon,0,0);
+            }
+        }
+
+        function drawStar(){
+            for(var i=0;i<starCount ;i++){
+                //对象来做
+                //创建星星对象
+                var star = new Star();
+                //开始准备
+                star.begin();
+                //绘制
+                star.draw();
+                //把当前star存入
+                arr.push(star);
+            }
+            playStars();
+        }
+
+        //对象基础结构（this）
+        var Star = function(){
+            this.x = windowWidth * Math.random();
+            this.y = 5000 * Math.random();
+            this.text = "*";
+            this.color = "white";
+
+            this.getColor = function(){
+                var _r = Math.random();
+                if(_r < 0.5){
+                    this.color = 'black';
+                }else{
+                    this.color = 'white';
+                }
+            }
+
+            this.begin = function(){
+                this.getColor();
+            }
+
+            this.draw = function(){
+                context.fillStyle = this.color;//配置颜色
+                context.fillText(this.text,this.x,this.y)
+            }
+        }
+
+        //动态星星的闪动
+        function playStars(){
+            
+            //清除选区Rect 
+            //坑2
+            context.clearRect(0,0,window.innerWidth,window.innerHeight);
+            //循环添加
+            for(var n=0;n<starCount;n++){
+                arr[n].getColor();
+                arr[n].draw();
+            }
+
+            //定时器
+            //setTimeout('playStars()',600);
+        }
+
+
+        window.onload = function(){
+            init();//初始化
+            drawMoon();//画月亮
+            drawStar();//画星星
+        }
+
+    </script>
+</head>
+<body>
+    <canvas id='start'></canvas>
+</body>
+</html>

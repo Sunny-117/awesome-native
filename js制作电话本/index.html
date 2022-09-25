@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>webStorage</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+  <body>
+    <h2>简易电话本制作</h2>
+    <div class="main-wp">
+      <div class="item">
+        <label for="">姓名：</label><input type="text" id="userName" />
+      </div>
+      <div class="item">
+        <label for="">电话：</label><input type="text" id="userMobile" />
+      </div>
+      <div class="item">
+        <label for="">地址：</label><input type="text" id="userAddress" />
+        <input type="hidden" id="key" />
+      </div>
+      <div class="item">
+        <button data="add" class="save-btn" id="saveBtn">保存</button>
+        <!--  <button id="resetBtn">重置</button> -->
+      </div>
+    </div>
+    <hr />
+    <table id="table" class="table" border="1">
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>姓名</th>
+          <th>电话</th>
+          <th>地址</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td>1</td>
+          <td>小明</td>
+          <td>13888888888</td>
+          <td>北京市朝阳区</td>
+          <td>
+            <span class="handle-btn delete-btn">删除</span>
+            <span>/</span>
+            <span class="handel-btn update-btn">修改</span>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>李同学</td>
+          <td>13666666</td>
+          <td>南京市新街口</td>
+          <td>
+            <span class="handle-btn delete-btn">删除</span>
+            <span>/</span>
+            <span class="handel-btn update-btn">修改</span>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>李同学</td>
+          <td>13666666</td>
+          <td>昆明市官渡区</td>
+          <td>
+            <span class="handle-btn delete-btn">删除</span>
+            <span>/</span>
+            <span class="handel-btn update-btn">修改</span>
+          </td>
+        </tr>
+      </tbody>
+      <tbody></tbody>
+    </table>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>
