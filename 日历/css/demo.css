@@ -1,0 +1,84 @@
+body{
+    background: #333;
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#wrap{
+    width: 420px;
+    margin: 200px auto 0 auto;
+    border: 1px solid #444;
+    background: #2d2d2d;
+}
+.top{
+    padding: 20px 35px;
+    border-bottom: 1px solid #535353;
+}
+.top .time1{
+    font-size: 40px;
+    color: #efefef;
+}
+.top .time2{
+    font-size: 14px;
+    color: #999;
+}
+
+.bottom{
+    padding: 20px 0;
+    color: #efefef;
+}
+.control{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 20px;
+   padding: 0 35px;
+   margin-bottom: 15px;
+}
+.control div{
+    padding-right: 5px;
+}
+.control div span{
+    font-size: 20px;
+    display: inline-block;
+    transform: scaleX(1.7);
+    margin-left: 33px;
+    cursor: pointer;
+}
+.main{
+    padding: 0 20px;
+}
+.week{
+    display: flex;
+}
+.week span{
+    height: 40px;
+    flex: 1 1 auto;
+    text-align: center;
+}
+.date{
+    display: flex;
+    flex-wrap: wrap;
+}
+.date li{
+    width: 54px;
+    height: 54px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.date li span:nth-child(2){
+    font-size: 14px;
+}
+.date li.color{
+    color: #6e6e6e;
+}
+.date li.active{
+    background: #0078d7;
+}

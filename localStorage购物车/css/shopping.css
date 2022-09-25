@@ -1,0 +1,172 @@
+dl,dd,p{
+	margin: 0;
+}
+table{
+	border-collapse:collapse;
+}
+th,td{
+	padding:0;
+}
+input{
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+label{
+	vertical-align: middle;
+}
+body{
+	font-family: "微软雅黑";
+}
+img{
+	vertical-align: middle;
+}
+a{
+	text-decoration: none;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+
+#shopping{
+	width: 1000px;
+	margin: 100px auto;
+}
+#shopping table{
+	width: 100%;
+}
+/* #shopping th{
+	height: 50px;
+	color: #333;
+	font-size: 16px;
+	font-weight: normal;
+} */
+#shopping img{
+	background: #f4f4f4;
+	border: 1px solid #eaeaea;
+}
+
+.product{
+	border: 1px solid #ddd;
+}
+.product tr{
+	border-bottom: 1px dashed #ddd;
+}
+.product tr:hover,.product tr.active{
+	background: #fffbf0;
+}
+
+.product td{
+	text-align: center;
+	padding: 15px 0;
+}
+.product td:nth-of-type(1){
+	width: 180px;
+}
+.product td:nth-of-type(2){
+	width: 300px;
+	text-align: left;
+}
+.product td:nth-of-type(5) button{
+	height: 50px;
+	padding: 0 20px;
+	background: #cb4a61;
+	color: #fff;
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+.product p{
+	color: #333;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.product .color span{
+	display: inline-block;
+	width: 54px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	color: #666;
+	font-size: 12px;
+	border: 1px solid #ddd;
+	margin-right: 10px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.product .color span.active{
+	border:2px solid #b4a078;
+	line-height: 24px;
+	background: url(../images/ico_02.gif) no-repeat right bottom;
+}
+.product td:nth-of-type(3){
+	color: #d90808;
+	width: 200px;
+}
+.product td:nth-of-type(4){
+	font-size: 0;
+	width: 200px;
+}
+.product td:nth-of-type(4) span{
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	border: 1px solid #ddd;
+	text-align: center;
+	line-height: 24px;
+	font-size: 12px;
+	vertical-align: middle;
+	cursor: pointer;
+	font-size: 14px;
+}
+.product td:nth-of-type(4) strong{
+	width: 58px;
+	height: 24px;
+	line-height: 24px;
+	display: inline-block;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+.product td:nth-of-type(5){
+	color: #d90808;
+	width: 200px;
+}
+
+.selected{
+	border: 1px solid #ddd;
+	margin-top: 30px;
+}
+.selected thead{
+	background: #f5f5f5;
+	border: 1px solid #ddd;
+}
+.selected th{
+	height: 50px;
+}
+.selected th span,.selected th strong{
+	vertical-align: middle;
+}
+.selected th strong{
+	color: #d90808;
+	font-size: 24px;
+}
+.selected tbody{
+	font-size: 14px;
+	color: #999;
+}
+.selected tr{
+	border-bottom: 1px dashed #ddd;
+}
+.selected td{
+	text-align: center;
+	padding: 15px 0;
+}
+

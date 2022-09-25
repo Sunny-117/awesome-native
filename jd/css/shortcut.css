@@ -1,0 +1,124 @@
+.shortcut {
+    height: 30px;
+    line-height: 30px;
+    background-color: #e3e4e5;
+    border-bottom: 1px solid #ddd;
+    color: #999;
+}
+.shortcut a {
+    color: #999;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+a.red {
+    color: red;
+}
+.position {
+    float: left;
+    color: red;
+}
+.navbar {
+    float: right;
+}
+
+.navbar li {
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+
+.spacer {
+    width: 2px;
+    height: 10px;
+    background-color: #ccc;
+    /* margin-top: 10px; */
+    margin: 10px 5px;
+}
+
+.navbar .nav-item > div.dt  {
+    padding: 0 7px;
+    border: 1px solid transparent;
+}
+
+
+.navbar .nav-item:hover .dt-icon {
+    background-color: #fff;
+    border-bottom: none;
+    border-color: #e3e4e5;
+}
+.nav-item:hover .my-dropdown {
+    display: block;
+}
+.nav-item:hover .dt-icon::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 2px;
+    bottom: 1px;
+    left: 0;
+    background-color: #fff;
+    z-index: 101;
+}
+.my-dropdown.my-jd {
+    width: 280px;
+}
+.my-dropdown {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    background-color: #fff;
+    border: 1px solid #e3e4e5;
+    z-index: 100;
+    display: none;
+}
+.my-dropdown dl {
+    padding: 10px 0 10px 15px;
+    border-bottom: 1px solid #eee;
+}
+.my-dropdown dt {
+    font-weight: 900;
+}
+.my-dropdown dd {
+    line-height: 24px;
+    float: left;
+    white-space: nowrap;
+}
+.my-dropdown.my-jd dd {
+    width: 126px;
+}
+
+.my-dropdown.my-company {
+    width: 140px;
+}
+.my-dropdown.my-company dd {
+    width: 56px;
+}
+
+.my-dropdown.my-serve {
+    width: 170px;
+    left: auto;
+    right: 0px;
+}
+.my-dropdown.my-serve dd {
+    width: 70px;
+}
+
+.my-dropdown.app {
+    width: 1190px;
+    right: -84px;
+    left: auto;
+    padding: 15px 0;
+}
+
+.my-dropdown.app dl {
+    width: 340px;
+    border-left: 1px solid #eee;
+    border-bottom: none;
+    float: left;
+}
+.my-dropdown.app dd {
+    width: 85px;
+}
