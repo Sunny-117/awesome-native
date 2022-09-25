@@ -1,0 +1,18 @@
+.my-page, .my-page li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.my-page li {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.my-page li.my-page-current {
+    background-color: #428bca;
+    color: #fff;
+}

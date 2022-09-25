@@ -1,0 +1,183 @@
+@import url(../../assets/font/iconfont.css);
+:root {
+    height: 100%;
+}
+* {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+body{
+    margin: 0;
+    font-size: 14px;
+    background-color: #eee;
+}
+.header {
+    height: 70px;
+    line-height: 70px;
+    background-color: #354457;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    color: #b3bcc5;
+    z-index: 10;
+}
+.header .logo {
+    padding-left: 20px;
+    font-size: 14px;
+}
+.header .logo img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.header .user {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+.header .user li {
+    padding: 0 40px;
+}
+.logout {
+    display: none;
+}
+.header .user:hover {
+    background-color: #fff;
+    color: #354457;
+}
+.header .user:hover .logout {
+    display: block;
+}
+.header .user .logout:hover {
+    background-color: #ddd;
+}
+.left-menu {
+    width: 200px;
+    background-color: #4d5e70;
+    height: calc(100% - 70px);
+    /* margin-top: 70px; */
+    position: fixed;
+    top: 70px;
+    line-height: 40px;
+    color: #b3bcc5;
+}
+.left-menu dt {
+    padding-left: 8px;
+    font-weight: bold;
+}
+.left-menu dd {
+    padding-left: 40px;
+    cursor: pointer;
+}
+.left-menu dd:hover {
+    background-color: rgba(255,255,255, 0.5);
+    color: #354457;
+}
+.right-content {
+    margin-top: 70px;
+    margin-left: 200px;
+    background-color: #eee;
+    position: relative;
+}
+
+.left-menu .active {
+    background-color: #ddd;
+    color: #354457;
+}
+#student-list {
+    width: 100%;
+    /* display: none; */
+}
+#student-list table {
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+}
+table thead {
+    background-color: #e3e8ee;
+    color: #646987;
+}
+table tbody {
+    background-color: #fff;
+}
+
+table .btn {
+    border: none;
+    font-size: 14px;
+    color: #fff;
+    padding: 3px 10px;
+    outline: none;
+    cursor: pointer;
+}
+table .btn.edit {
+    background-color: #5cb85c;
+}
+table .btn.remove{
+    background-color: #d9534f;
+}
+#student-add {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    /* display: none; */
+}
+#add-student-form, #edit-student-form {
+    width: 400px;
+    margin: 50px auto; 
+}
+form {
+    font-size: 16px;
+}
+form label:not(.sex){
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+}
+form div {
+    margin: 10px 0;
+}
+form .btn {
+    padding: 5px 25px;
+}
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* display: none; */
+}
+.modal-content {
+    width: 500px;
+    height: 400px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 20px;
+}
+
+.turn-page {
+    text-align: center;
+}
+.turn-page > div {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: aliceblue;
+}
+

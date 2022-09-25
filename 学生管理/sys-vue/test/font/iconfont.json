@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "722171",
+      "name": "arrow-left",
+      "font_class": "previewleft",
+      "unicode": "e75b",
+      "unicode_decimal": 59227
+    },
+    {
+      "icon_id": "722172",
+      "name": "arrow-right",
+      "font_class": "previewright",
+      "unicode": "e75c",
+      "unicode_decimal": 59228
+    },
+    {
+      "icon_id": "5287658",
+      "name": "错",
+      "font_class": "cuo",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "5466095",
+      "name": "warn",
+      "font_class": "warn",
+      "unicode": "e734",
+      "unicode_decimal": 59188
+    },
+    {
+      "icon_id": "8802648",
+      "name": "对",
+      "font_class": "dui",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    }
+  ]
+}

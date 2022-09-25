@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper"></div>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+      $(".wrapper").turnpage({
+        nowPage: 10,
+        allPage: 10,
+        callback: function (page) {
+          console.log(page);
+        },
+      });
+    </script>
+  </body>
+</html>

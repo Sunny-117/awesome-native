@@ -1,0 +1,22 @@
+form {
+    width: 400px;
+    margin: 100px auto;
+    border: 1px solid #000;
+    padding: 20px;
+    text-align: center;
+}
+form div {
+    margin: 20px auto;
+}
+form label {
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+}
+.btn {
+    padding: 5px 25px;
+}
+h2 > a {
+    font-size: 14px;
+    /* vertical-align: bottom; */
+}

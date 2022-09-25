@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./turnpage/index.css" />
+  </head>
+
+  <body>
+    <!-- 
+        1. 循环迭代项目之js版
+            学生管理系统  html + css + js
+            功能点：
+                1. 新增学生 ---》 表单 form   
+                       - 表单提交功能 需要校验规则    
+                       - 成功提交之后跳转到学生列表的页面 
+                2. 编辑学生
+                    - 点击编辑按钮会有弹窗
+                    - 表单提交功能 需要校验规则    
+                    - 成功提交之后跳转到学生列表的页面
+                    - 点击遮罩层弹窗消失
+                3. 删除学生
+                    - 确认弹窗
+                    - 真正的删除
+                4. 学生列表
+
+        400 Bad Request
+        接口： 
+            数据接口： 网络请求的地址
+            ajax()
+
+        2. jq 
+        3. css3 + h5 
+     -->
+    <div class="header">
+      <img src="./images/logo.png" alt="" />
+      <span>渡一教育</span>
+    </div>
+    <dl class="menu">
+      <dt>学生管理</dt>
+      <dd class="active" data-index="student-list">学生列表</dd>
+      <!-- 除了标签出现就存在的属性（特性）之外 自己定义的属性全部都叫做自定义属性  、
+             含有data-xxx结构的自定义属性 又称之为标签身上的数据  在js中可以通过node.dataset.xxx获取到
+             对于其他的自定义属性 在js中可以通过node.getAttribute()获取到
+        -->
+      <dd data-index="student-add">新增学生</dd>
+    </dl>
+    <div class="content">
+      <div
+        class="student-list student-content active-content"
+        id="student-list"
+      >
+        <table id="student-body">
+          <thead>
+            <tr>
+              <th>学号</th>
+              <th>姓名</th>
+              <th>性别</th>
+              <th>邮箱</th>
+              <th>年龄</th>
+              <th>手机号</th>
+              <th>住址</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0001</td>
+              <td>张三</td>
+              <td>男</td>
+              <td>111111@qq.com</td>
+              <td>18</td>
+              <td>13232323232</td>
+              <td>哈尔滨</td>
+              <td>
+                <button class="btn edit">编辑</button>
+                <button class="btn remove">删除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="page"></div>
+        <div class="modal">
+          <div class="modal-content">
+            <h3>编辑信息</h3>
+            <form class="student-form" id="student-edit-form">
+              <div>
+                <label for="editName">姓名</label
+                ><input type="text" id="editName" name="name" />
+              </div>
+              <div>
+                <label for="">性别</label>
+                <input
+                  type="radio"
+                  id="edit-male"
+                  name="sex"
+                  checked
+                  value="0"
+                /><label for="edit-male" class="sex">男</label>
+                <input
+                  type="radio"
+                  id="edit-female"
+                  name="sex"
+                  value="1"
+                /><label for="edit-female" class="sex">女</label>
+              </div>
+              <div>
+                <label for="edit-email">邮箱</label
+                ><input type="text" id="edit-email" name="email" />
+              </div>
+              <div>
+                <label for="edit-sNo">学号</label
+                ><input type="text" id="edit-sNo" name="sNo" readonly />
+              </div>
+              <div>
+                <label for="edit-birth">出生年</label
+                ><input type="text" id="edit-birth" name="birth" />
+              </div>
+              <div>
+                <label for="edit-phone">手机号</label
+                ><input type="text" id="edit-phone" name="phone" />
+              </div>
+              <div>
+                <label for="edit-address">住址</label
+                ><input type="text" id="edit-address" name="address" />
+              </div>
+              <div>
+                <label for=""></label>
+                <input
+                  class="btn"
+                  id="student-edit-submit"
+                  type="submit"
+                  value="提交"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="student-add student-content" id="student-add">
+        <form class="student-form" id="student-add-form">
+          <div>
+            <label for="name">姓名</label
+            ><input type="text" id="name" name="name" />
+          </div>
+          <div>
+            <label for="">性别</label>
+            <input type="radio" id="male" name="sex" checked value="0" /><label
+              for="male"
+              class="sex"
+              >男</label
+            >
+            <input type="radio" id="female" name="sex" value="1" /><label
+              for="female"
+              class="sex"
+              >女</label
+            >
+          </div>
+          <div>
+            <label for="email">邮箱</label
+            ><input type="text" id="email" name="email" />
+          </div>
+          <div>
+            <label for="sNo">学号</label
+            ><input type="text" id="sNo" name="sNo" />
+          </div>
+          <div>
+            <label for="birth">出生年</label
+            ><input type="text" id="birth" name="birth" />
+          </div>
+          <div>
+            <label for="phone">手机号</label
+            ><input type="text" id="phone" name="phone" />
+          </div>
+          <div>
+            <label for="address">住址</label
+            ><input type="text" id="address" name="address" />
+          </div>
+          <div>
+            <label for=""></label>
+            <input
+              class="btn"
+              id="student-add-submit"
+              type="submit"
+              value="提交"
+            />
+            <input class="btn" type="reset" value="重置" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./mock.js"></script>
+    <script src="./api.js"></script>
+    <script src="./jquery-3.3.1.js"></script>
+    <script src="./turnpage/index.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

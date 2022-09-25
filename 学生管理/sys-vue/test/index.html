@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin="anonymous" integrity="sha512-YXLGLsQBiwHPHLCAA9npZWhADUsHECjkZ71D1uzT2Hpop82/eLnmFb6b0jo8pK4T0Au0g2FETrRJNblF/46ZzQ==" src="https://lib.baomitu.com/vue/2.6.12/vue.js"></script>
+  <style>
+    @import url(./font/iconfont.css);
+    .item {
+      position: fixed;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px;
+      min-width: 200px;
+      border-radius: 5px;
+    }
+
+    .suc {
+      background-color: #f0f9eb;
+      border-color: #e1f3d8;
+      color: #67C23A;
+    }
+    .err {
+      background-color: #fef0f0;
+      border-color: #fde2e2;
+      color: #F56C6C;
+    }
+    .warn {
+      background-color: #fdf6ec;
+      border-color: #faecd8;
+      color: #E6A23C;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        top: 0;
+      }
+      100% {
+        opacity: 1;
+        top: 30px;
+      }
+    }
+
+    @keyframes fadeOut {
+      100% {
+        opacity: 0;
+        top: 0;
+      }
+      0% {
+        opacity: 1;
+        top: 30px;
+      }
+    }
+    .fade-in {
+      animation: fadeIn .5s forwards;
+    }
+
+    .fade-out {
+      animation: fadeOut .5s forwards;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // el 选择元素进行挂载。
+    let i = 1;
+    function createElement(type, msg) {
+      const app = new Vue({
+        el: document.createElement('div'),
+        data() {
+          return {
+            type,
+            msg,
+            flag: true,
+          }
+        },
+        computed: {
+          iconType() {
+            if (this.type === 'suc') {
+              return 'icon-dui'
+            }
+            if (this.type === 'err') {
+              return 'icon-cuo'
+            }
+            if (this.type === 'warn') {
+              return 'icon-warn'
+            }
+            return 'icon-dui'
+          },
+          animate() {
+            return this.flag ? 'fade-in' : 'fade-out'
+          }
+        },
+        template: `<div class="item" :class="[type, animate]">
+                    <i class="iconfont" :class="iconType"></i>
+                    <span style="margin-left: 20px;">{{ msg }}</span>
+                   </div>`
+      });
+      document.body.appendChild(app.$el);
+      setTimeout(() => {
+        app.flag = false;
+      }, 1500)
+      setTimeout(() => {
+        document.body.removeChild(app.$el);
+      }, 2000)
+    }
+    // createElement('err',);
+  </script>
+</body>
+</html>
