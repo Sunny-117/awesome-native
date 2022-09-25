@@ -1,0 +1,78 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.rotation{
+  position: relative;
+  width: 600px;
+  height: 350px;
+  overflow: hidden;
+  margin: 30px auto;
+  text-align: center;
+}
+.rotation .img-ct{
+  position: absolute;
+  /*width: 2400px;*/
+  /*宽度用js动态来写，不写死。图片排成一行*/
+  height: 350px;
+}
+.rotation .img-ct>li{
+  float: left;
+}
+.rotation img{
+  width: 600px;
+  height: 350px;
+}
+.rotation .btn{
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%);
+  border-radius: 50%;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  font-size: 25px;
+  line-height: 40px;
+  background: #4E443C;
+  opacity: 0.7;
+}
+.rotation .btn:hover{
+  opacity: .4;
+}
+.rotation .btn-pre{
+  left: 40px;
+}
+.rotation .btn-next{
+  right: 0px;
+}
+.rotation .slide{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 10px;
+  text-align: center;
+}
+.rotation .slide>li{
+  height: 5px;
+  width: 20px;
+  background: #fff;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.rotation .slide .active{
+  background: #333;
+  opacity: .7;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>简单的图片懒加载</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .wrap {
+        width: 960px;
+        margin: 20px auto;
+        background: rgb(24, 20, 37);
+      }
+      .inner {
+        margin-left: -30px;
+        padding-top: 30px;
+      }
+      .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .inner li {
+        float: left;
+        margin-left: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      img {
+        width: 465px;
+        height: 305px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul class="inner clearfix">
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://ww4.sinaimg.cn/bmiddle/66abaf8fgy1fcr5vllkwuj218g0xc4f0.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://www.deskcar.com/desktop/star/china/200814105136/11.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://wx2.sinaimg.cn/mw690/66d87522gy1fcnqmmjnovj21e00xc7wh.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://img01.cztv.com/201701/18/53c353a73ffd2dc270771946cf080b96.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://tupian.enterdesk.com/2012/0427/1092/0.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://wx1.sinaimg.cn/mw690/006711H3ly1fcj90nffnjj31kw11x7g0.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://ww2.sinaimg.cn/bmiddle/66abaf8fgy1fcr5vn1yj8j20zk0np42y.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://www.bz55.com/uploads/allimg/150605/140-150605091402.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://ww3.sinaimg.cn/bmiddle/66abaf8fgy1fcr5vo56w5j20p00gogn0.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://img2081.poco.cn/mypoco/myphoto/20110905/22/62564813201109052211173383792668644_001.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://www.bz55.com/uploads/allimg/160815/140-160Q5162430.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://ww4.sinaimg.cn/bmiddle/006csB3Ljw1f7vev8dxbvj31qi15ou0y.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://www.bz55.com/uploads/allimg/160810/140-160Q01K338.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="http://img.lanrentuku.com/img/allimg/1609/5-160914192R6.gif"
+              data-src="http://ww2.sinaimg.cn/bmiddle/6717158bjw1f7irykpuhdj21qi15ob2a.jpg"
+          /></a>
+        </li>
+      </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+      // 先调用一次，省得要鼠标滚动才加载
+      check();
+      $(window).on("scroll", check);
+      if ($(".inner img").not(".load")) {
+        $(".wrap").append("<p>图片加载完啦~~~</p>");
+        $("p").css("color", "#fff");
+      }
+      function check() {
+        $(".inner img")
+          .not(".load")
+          .each(function () {
+            if (isVisible($(this))) {
+              showImage($(this));
+            }
+          });
+      }
+
+      function isVisible($node) {
+        var windowHeight = $(window).height(),
+          scrollTop = $(window).scrollTop(),
+          offsetTop = $node.offset().top,
+          nodeHeight = $node.outerHeight(true);
+        if (
+          windowHeight + scrollTop > offsetTop &&
+          scrollTop < offsetTop + nodeHeight
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function showImage($imgs) {
+        $imgs.each(function () {
+          var imgURL = $(this).attr("data-src");
+          $(this).attr("src", imgURL);
+          $(this).addClass("load");
+        });
+      }
+    </script>
+  </body>
+</html>

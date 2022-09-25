@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            position: relative;
+            list-style: none;
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        body {
+            background-image: linear-gradient(to right, red, orange, yellow, green, cyan);
+        }
+
+        img {
+            width: 600px;
+            height: 400px;
+        }
+
+        ul li {
+            position: absolute;
+            width: 600px;
+            height: 400px;
+        }
+
+        li:nth-child(1) {
+            left: 0;
+        }
+
+        li:nth-child(2) {
+            left: 120px;
+        }
+
+        li:nth-child(3) {
+            left: 240px;
+        }
+
+        li:nth-child(4) {
+            left: 360px;
+        }
+
+        li:nth-child(5) {
+            left: 480px;
+        }
+    </style>
+    <!-- 引包 -->
+    <script src="./js/jQuery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <img src="./img/1.jpg" alt="">
+        </li>
+        <li>
+            <img src="./img/2.jpg" alt="">
+        </li>
+        <li>
+            <img src="./img/3.jpg" alt="">
+        </li>
+        <li>
+            <img src="./img/4.jpg" alt="">
+        </li>
+        <li>
+            <img src="./img/5.jpg" alt="">
+        </li>
+    </ul>
+</body>
+
+</html>
+<script>
+    //给节点绑定事件
+    $('li').mouseenter(function () {
+        //获取当前触发这个事件的节点索引值
+        var idx = $(this).index();
+        //小于选择器
+        $("li:lt(" + (idx + 1) + ")").each(function (index, element) {
+            $(element).stop(true).animate({ "left": index * 60 }, 400);
+        });
+        //大于选择器
+        $("li:gt(" + idx + ")").each(function (index, element) {
+            $(element).stop(true).animate({ "left": 400 + index * 60 }, 400);
+        })
+    });
+    //鼠标移除事件
+    $('li').mouseleave(function () {
+
+        $('li').each(function (index, element) {
+            $(element).stop(true).animate({ 'left': index * 120 }, 400);
+        })
+    });
+</script>

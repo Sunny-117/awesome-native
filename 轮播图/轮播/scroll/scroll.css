@@ -1,0 +1,40 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+a{
+	text-decoration: none;
+}
+#scroll{
+	margin: 30px auto;
+}
+#scroll>div{
+	background: #D499B9;
+	text-align: center;
+}
+.btn:hover{
+	opacity: .6;
+}
+.plugin-scroll-index {
+    display: inline-block;
+    padding: 2px 4px;
+    border: 1px solid #FFF;
+    color: #9055A2;
+    margin-right: 6px;
+    font-size: 14px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.plugin-scroll-index:hover,
+.plugin-scroll-tag-sel
+{
+    color: #FFF;
+    border-color: #9055A2;
+    background: #9055A2;
+}
+.plugin-scroll-index-wrap {
+    position: absolute;
+    bottom: 20px;
+    right: 16px;
+    z-index: 99;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>渐变效果的轮播</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+    }
+    .clearfix:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .carousel{
+      position: relative;
+      width: 890px;
+      height: 500px;
+      overflow: hidden;
+      margin: 30px auto 0 auto;
+    }
+    .carousel .img-ct{
+      position: relative;
+      height: 500px;
+    }
+    .carousel .img-ct>li{
+      position: absolute;
+      display: none;
+    }
+    .carousel .img-ct img{
+      width: 890px;
+    }
+    .carousel .btn{
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%);
+      border-radius: 50%;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      color: #fff;
+      font-size: 25px;
+      line-height: 40px;
+      background: #4E443C;
+      opacity: 0.7;
+      text-align: center;
+    }
+    .carousel .btn:hover{
+      opacity: .4;
+    }
+    .carousel .btn-before{
+      left: 40px;
+    }
+    .carousel .btn-after{
+      right: 0px;
+    }
+
+    .thubms{
+      margin: 0 auto 30px auto;
+      width: 870px;
+      height: 80px;
+    }
+    .thubms .sample{
+      height: 80px;
+      padding: 10px 0;
+      margin: 0 -10px;
+      background: #000;
+    }
+    .thubms .sample li{
+      width: 100px;
+      height: 80px;
+      float: left;
+      margin-left: 10px;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+    .thubms .sample li:hover{
+      opacity: 1;
+    }
+    .thubms .sample li img{
+      width: 100px;
+      height: 80px;
+    }
+    .thubms .sample .selected{
+      opacity: 1 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel clearfix">
+    <ul class="img-ct clearfix">
+      <li key="0"><a href="#"><img src="https://pic.500px.me/picurl/vcg63adcf0f48713cd18ae7a92b6c8f6f65?code=f7806b6971148251"></a></li>
+      <li key="1"><a href="#"><img src="https://pic.500px.me/picurl/vcg03b1d9923fac7256c81c17958d4f882e?code=9e888779c4bbdd03"></a></li>
+      <li key="2"><a href="#"><img src="https://pic.500px.me/picurl/vcgf41533b901031336c81c17958d4f882e?code=d9316f73ac0a8ff9"></a></li>
+      <li key="3"><a href="#"><img src="https://pic.500px.me/picurl/vcge8dea73c36c31fdcf5d2686eec1068d1?code=35d9b41a28537e80"></a></li>
+      <li key="4"><a href="#"><img src="https://pic.500px.me/picurl/vcg9b106378ed05cb76e4f983e555d5b23b?code=aec5da3e19ed284c"></a></li>
+      <li key="5"><a href="#"><img src="https://pic.500px.me/picurl/vcgbdb54ca31dfb63298e4319f4fa182909?code=5af55580275e7104"></a></li>
+      <li key="6"><a href="#"><img src="https://pic.500px.me/picurl/vcg92a58021db74f0e5f5d2686eec1068d1?code=ed786d5c917143ad"></a></li>
+      <li key="7"><a href="#"><img src="https://pic.500px.me/picurl/vcg3f74a43608dbf06b8ae7a92b6c8f6f65?code=7f964635407a8312"></a></li>
+    </ul>
+    <a class="btn btn-before" href="#">&lt;</a>
+    <a class="btn btn-after" href="#">&gt;</a>
+  </div>
+  <div class="thubms">
+    <ul class="sample clearfix">
+      <li class="selected"><img src="https://pic.500px.me/picurl/vcg63adcf0f48713cd18ae7a92b6c8f6f65?code=f7806b6971148251"></li>
+      <li><img src="https://pic.500px.me/picurl/vcg03b1d9923fac7256c81c17958d4f882e?code=9e888779c4bbdd03"></li>
+      <li><img src="https://pic.500px.me/picurl/vcgf41533b901031336c81c17958d4f882e?code=d9316f73ac0a8ff9"></li>
+      <li><img src="https://pic.500px.me/picurl/vcge8dea73c36c31fdcf5d2686eec1068d1?code=35d9b41a28537e80"></li>
+      <li><img src="https://pic.500px.me/picurl/vcg9b106378ed05cb76e4f983e555d5b23b?code=aec5da3e19ed284c"></li>
+      <li><img src="https://pic.500px.me/picurl/vcgbdb54ca31dfb63298e4319f4fa182909?code=5af55580275e7104"></li>
+      <li><img src="https://pic.500px.me/picurl/vcg92a58021db74f0e5f5d2686eec1068d1?code=ed786d5c917143ad"></li>
+      <li><img src="https://pic.500px.me/picurl/vcg3f74a43608dbf06b8ae7a92b6c8f6f65?code=7f964635407a8312"></li>
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>
+    var $carousel = $('.carousel .img-ct').children(),
+        $btnBefore = $('.btn-before'),
+        $btnAfter = $('.btn-after'),
+        $thubms = $('.thubms .sample').children(),
+        thubmsNumber = $('.thubms .sample').children().length;
+    var currentKey = 0;
+    var playing = false;
+    play(0);
+    autoPlay();
+    $btnBefore.on('click', playBefore);
+    $btnAfter.on('click', playAfter);
+    $thubms.on('click', function() {
+      var clickIndex = $(this).index();
+      play(clickIndex);
+    })
+
+    function autoPlay() {
+      var beginPlay = setInterval("playAfter()", 3000);
+    }
+
+    function playBefore() {
+      play((thubmsNumber + currentKey - 1)%thubmsNumber);
+    }
+
+    function playAfter() {
+      play((currentKey+1)%thubmsNumber);
+    }
+
+    function play(index) {
+      if(!playing) {
+        playing = true;
+        $carousel.eq(currentKey).fadeOut(400);
+        $carousel.eq(index).fadeIn(400, function() {
+          playing = false; // 动画异步
+        });
+        currentKey = index;
+        setSample(index, currentKey);
+      }
+    }
+
+    function setSample(currentKey) {
+      $thubms.removeClass('selected').eq(currentKey).addClass('selected');
+    }
+  </script>
+</body>
+</html>

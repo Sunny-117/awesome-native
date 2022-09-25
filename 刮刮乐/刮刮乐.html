@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #myCanvas {}
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width=300 height=300></canvas>
+    <script>
+        var myCanvas = document.getElementById('myCanvas'),
+            ctx = myCanvas.getContext('2d'),
+            w = myCanvas.width,
+            h = myCanvas.height,
+            lastPoint = {},
+            nowPoint = {};
+
+
+
+        function init() {
+            ctx.fillStyle = '#ccc';
+            ctx.fillRect(0, 0, w, h);
+
+            ctx.globalCompositeOperation = 'destination-out';
+
+            var img = new Image();
+            img.src = './baozou1.png';
+
+            img.onload = function () {
+                myCanvas.style.background = 'url(' + img.src + ')';
+
+                myCanvas.addEventListener('mousedown', downFunc, false);
+            }
+        }
+        init();
+        function downFunc(e) {
+            lastPoint.x = e.clientX - myCanvas.offsetLeft;
+            lastPoint.y = e.clientY - myCanvas.offsetTop;
+            myCanvas.addEventListener('mousemove', moveFunc, false);
+            document.addEventListener('mouseup', upFunc, false);
+
+        }
+        function moveFunc(e) {
+
+            nowPoint.x = e.clientX - myCanvas.offsetLeft,
+                nowPoint.y = e.clientY - myCanvas.offsetTop;
+
+            ctx.beginPath();
+            ctx.fillStyle = 'red';
+
+            ctx.lineWidth = 40;
+            ctx.lineCap = 'round';
+            ctx.moveTo(lastPoint.x, lastPoint.y);
+            ctx.lineTo(nowPoint.x, nowPoint.y);
+            ctx.stroke();
+
+            ctx.arc(nowPoint.x, nowPoint.y, 20, 0, Math.PI * 2, 0);
+            ctx.closePath();
+            ctx.fill();
+
+            lastPoint.x = nowPoint.x;
+            lastPoint.y = nowPoint.y;
+
+
+        }
+        function upFunc() {
+            myCanvas.removeEventListener('mousemove', moveFunc, false);
+            document.removeEventListener('mouseup', upFunc, false);
+            clearCanvas();
+        }
+
+        function clearCanvas() {
+            var d = ctx.getImageData(0, 0, w, h),
+                c = 0,
+                len = d.data.length;
+            for (var i = 0; i < len; i += 4) {
+                if (d.data[i] === 0) {
+                    c++;
+                }
+            }
+            if (c > len / 4 * 0.7) {
+                ctx.clearRect(0, 0, w, h);
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

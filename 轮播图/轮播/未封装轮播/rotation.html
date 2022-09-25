@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>无限轮播</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+    }
+    .clearfix:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .rotation{
+      position: relative;
+      width: 600px;
+      height: 350px;
+      overflow: hidden;
+      margin: 30px auto;
+      text-align: center;
+    }
+    .rotation .img-ct{
+      position: absolute;
+      /*width: 2400px;*/
+      /*宽度用js动态来写，不写死。图片排成一行*/
+      height: 350px;
+    }
+    .rotation .img-ct>li{
+      float: left;
+    }
+    .rotation img{
+      width: 600px;
+      height: 350px;
+    }
+    .rotation .btn{
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%);
+      border-radius: 50%;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      color: #fff;
+      font-size: 25px;
+      line-height: 40px;
+      background: #4E443C;
+      opacity: 0.7;
+    }
+    .rotation .btn:hover{
+      opacity: .4;
+    }
+    .rotation .btn-pre{
+      left: 40px;
+    }
+    .rotation .btn-next{
+      right: 0px;
+    }
+    .rotation .slide{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      bottom: 10px;
+      text-align: center;
+    }
+    .rotation .slide>li{
+      height: 5px;
+      width: 20px;
+      background: #fff;
+      display: inline-block;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .rotation .slide .active{
+      background: #333;
+      opacity: .7;
+    }
+  </style>
+</head>
+<body>
+  <div class="rotation">
+    <ul class="img-ct clearfix">
+      <li key="0"><a href="#"><img src="http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/04/03/ChMkJ1d6EJSIdN90AAbJX5bgkEEAATOEALty7oABsl3291.jpg"></a></li>
+      <li key="1"><a href="#"><img src="http://www.astrodown.net/images/fullsize/keaids35.jpg.JPG"></a></li>
+      <li key="2"><a href="#"><img src="http://images.cnblogs.com/cnblogs_com/ww21xx/157496/o_%e5%8f%af%e7%88%b1%e5%b0%8f%e7%8b%971.jpg"></a></li>
+      <li key="3"><a href="#"><img src="http://www.rdedu.org/uploads/allimg/161026/2-161026143540331.jpg"></a></li>
+    </ul>
+    <a class="btn btn-pre" href="#">&lt;</a>
+    <a class="btn btn-next" href="#">&gt;</a>
+    <ul class="slide">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>
+    var $imgCt = $('.rotation .img-ct'),
+        $slide = $('.slide'),
+        $btnPre = $('.rotation .btn-pre'),
+        $btnNext = $('.rotation .btn-next');
+    var imgLen = $imgCt.children().length;  // 4
+    var key = 0;
+    var isAnimate = false;
+
+    var $firstImg = $imgCt.find('li').first(),
+        $lastImg = $imgCt.find('li').last();
+
+    $imgCt.append($firstImg.clone());
+    $imgCt.prepend($lastImg.clone());
+
+    $imgCt.width((imgLen+2)*$firstImg.width());
+    $imgCt.css('left', 0-$firstImg.width());
+
+    // 点击左右图标轮播
+    $btnPre.on('click', function(e) {
+      e.preventDefault();
+      playPre();
+      // console.log(key);
+    })
+    $btnNext.on('click', function(e) {
+      e.preventDefault();
+      playNext();
+      // console.log(key);
+    })
+
+    // 点击下面的小横线轮播
+    $slide.find('li').on('click', function(e) {
+      e.preventDefault();
+      var clickIndex = $(this).index();
+      if(clickIndex < key) {
+        playPre(clickIndex);
+      }else if(clickIndex > key){
+        playNext(clickIndex);
+      }else{
+        return;
+      }
+    })
+
+    function playPre(index) {
+      if(isAnimate) {
+        return;
+      }
+      isAnimate = true;
+      switch (typeof index)
+      {
+        case 'undefined':
+          $imgCt.animate({
+            left: '+=600px', // 别写成'+= 600px'
+          }, function() {
+            key--;
+            if(key < 0) {
+              $imgCt.css('left', 0-(imgLen*$firstImg.width()));
+              key = imgLen -1;
+            }
+            setSlide();
+            isAnimate = false;
+          })
+          break;
+        case 'number':
+          clickSlide(index);
+          break;
+      }
+    }
+
+    function playNext(index) {
+      if(isAnimate) {
+        return;
+      }
+      isAnimate = true;
+      switch (typeof index)
+      {
+        case 'undefined':
+          $imgCt.animate({
+            left: '-=600px',
+          }, function() {
+            key ++;
+            if(key == imgLen) {
+              $imgCt.css('left', '-600px');
+              key = 0;
+            }
+            setSlide();
+            isAnimate = false;
+          })
+          break;
+        case 'number':
+          clickSlide(index);
+          break;
+      }
+
+      // setSlide();  动画是异步的，放在这里执行的时候，key还没有改变
+      // isAnimate = false;  动画是异步的！！！！！等动画完成之后再置为false
+    }
+
+    function clickSlide(index) {
+      var leftOffset= -(index+1)*$firstImg.width();
+      $imgCt.animate({
+        'left': leftOffset,
+      }, function() {
+        key = index;
+        setSlide();
+        isAnimate = false;
+      })
+    }
+    function setSlide() {
+      $('.rotation .slide').find('li').removeClass('active').eq(key).addClass('active');
+      console.log('key:' + key);
+    }
+
+    // 代码写的不是很美，但是基本功能都实现了，有待改善。
+  </script>
+</body>
+</html>

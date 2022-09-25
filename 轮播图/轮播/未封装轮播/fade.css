@@ -1,0 +1,87 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.clearfix:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.carousel{
+  position: relative;
+  width: 890px;
+  height: 500px;
+  overflow: hidden;
+  margin: 30px auto 0 auto;
+}
+.carousel .img-ct{
+  position: relative;
+  height: 500px;
+}
+.carousel .img-ct>li{
+  position: absolute;
+  display: none;
+}
+.carousel .img-ct img{
+  width: 890px;
+}
+.carousel .btn{
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%);
+  border-radius: 50%;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  font-size: 25px;
+  line-height: 40px;
+  background: #4E443C;
+  opacity: 0.7;
+  text-align: center;
+}
+.carousel .btn:hover{
+  opacity: .4;
+}
+.carousel .btn-before{
+  left: 40px;
+}
+.carousel .btn-after{
+  right: 0px;
+}
+
+.thubms{
+  margin: 0 auto 30px auto;
+  width: 870px;
+  height: 80px;
+}
+.thubms .sample{
+  height: 80px;
+  padding: 10px 0;
+  margin: 0 -10px;
+  background: #000;
+}
+.thubms .sample li{
+  width: 100px;
+  height: 80px;
+  float: left;
+  margin-left: 10px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+.thubms .sample li:hover{
+  opacity: 1;
+}
+.thubms .sample li img{
+  width: 100px;
+  height: 80px;
+}
+.thubms .sample .selected{
+  opacity: 1 !important;
+}

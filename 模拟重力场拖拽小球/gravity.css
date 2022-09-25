@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to top left,indianred,red,dodgerblue,orangered,gold);
+    border-radius: 50%;
+}

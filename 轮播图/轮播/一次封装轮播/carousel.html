@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无限轮播一次封装</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul, li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.clearfix:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.carousel{
+			width: 600px;
+			height: 360px;
+			margin: 30px auto;
+			overflow: hidden;
+			position: relative;
+		}
+		.carousel .img-ct{
+			position: absolute;
+			height: 360px;
+			top: 0;
+		}
+		.carousel li{
+			float: left;
+		}
+		.carousel img{
+			width: 600px;
+			height: 360px;
+		}
+		.carousel .btn{
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			background: #4E443C;
+			top: 50%;
+			transform: translate(0, -50%);
+			border-radius: 50%;
+			text-align: center;
+			color: #ccc;
+		}
+		.carousel .btn-pre{
+			left: 20px;
+		}
+		.carousel .btn-next{
+			right: 20px;
+		}
+		.carousel .btn:hover{
+			opacity: .6;
+		}
+		.carousel .slide{
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+		.carousel .slide .scroll-index{
+			display: inline-block;
+			height: 7px;
+			width: 30px;
+			margin-left: 5px;
+			border-radius: 5px;
+			background: #fff;
+			cursor: pointer;
+		}
+		/*.slide .scroll-index{
+			background: #fff;
+		}*/
+		.slide .active{
+			background: #333;
+      opacity: .7;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="img-ct clearfix">
+			<li><a href="#"><img src="http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/04/03/ChMkJ1d6EJSIdN90AAbJX5bgkEEAATOEALty7oABsl3291.jpg"></a></li>
+			<li><a href="#"><img src="http://www.astrodown.net/images/fullsize/keaids35.jpg.JPG"></a></li>
+			<li><a href="#"><img src="http://images.cnblogs.com/cnblogs_com/ww21xx/157496/o_%e5%8f%af%e7%88%b1%e5%b0%8f%e7%8b%971.jpg"></a></li>
+			<li><a href="#"><img src="http://www.rdedu.org/uploads/allimg/161026/2-161026143540331.jpg"></a></li>
+		</ul>
+		<a class="btn btn-pre" href="#">&lt;</a>
+		<a class="btn btn-next" href="#">&gt;</a>
+		<ul class="slide">
+			<li key=1 class="scroll-index active"></li>
+			<li key=2 class="scroll-index"></li>
+			<li key=3 class="scroll-index"></li>
+			<li key=4 class="scroll-index"></li>
+		</ul>
+	</div>
+
+	<div class="carousel">
+		<ul class="img-ct clearfix">
+			<li><a href="#"><img src="http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/04/03/ChMkJ1d6EJSIdN90AAbJX5bgkEEAATOEALty7oABsl3291.jpg"></a></li>
+			<li><a href="#"><img src="http://www.astrodown.net/images/fullsize/keaids35.jpg.JPG"></a></li>
+			<li><a href="#"><img src="http://images.cnblogs.com/cnblogs_com/ww21xx/157496/o_%e5%8f%af%e7%88%b1%e5%b0%8f%e7%8b%971.jpg"></a></li>
+			<li><a href="#"><img src="http://www.rdedu.org/uploads/allimg/161026/2-161026143540331.jpg"></a></li>
+		</ul>
+		<a class="btn btn-pre" href="javascript:void(0)">&lt;</a>
+		<a class="btn btn-next" href="javascript:void(0)">&gt;</a>
+		<ul class="slide">
+			<li key=1 class="scroll-index active"></li>
+			<li key=2 class="scroll-index"></li>
+			<li key=3 class="scroll-index"></li>
+			<li key=4 class="scroll-index"></li>
+		</ul>
+	</div>
+	<script>
+		Carousel = function(ct) {
+			// this.ct = document.querySelector(ct);
+			this.ct = ct;
+			this._setContainer();
+			this._supportClick();
+			this._supportIndex();
+			this._autoMove();
+		}
+		Carousel.prototype._setContainer = function() {
+			var me = this;
+			// 默认显示第一张图片
+      me.start = 1;
+      // 默认需要轮播的元素为0个
+      me.nodeCount = 0;
+      me.speed = 300;
+      me.interval = 5;
+      // 默认轮播图片每3秒切换一次
+      me.switchInterval = 3000;
+			me.imgCt = me.ct.getElementsByClassName('img-ct')[0];
+			me.childNodes = me.imgCt.children;
+			me.imgWidth = me.childNodes[0].offsetWidth;
+			me.childCount = me.imgCt.getElementsByTagName('img').length;
+			me.imgCt.appendChild(me.childNodes[0].cloneNode(true));
+			me.imgCt.insertBefore(me.childNodes[me.childCount - 1].cloneNode(true), me.childNodes[0]);
+			me.nodeCount = me.childCount;
+			me.imgCt.style.left = -me.imgWidth + 'px';
+			me.imgCt.style.width = me.imgWidth * (me.childCount + 2) + 'px';
+			me.btnPre = me.ct.getElementsByClassName('btn-pre')[0];
+			me.btnNext = me.ct.getElementsByClassName('btn-next')[0];
+			me.slide = me.ct.getElementsByClassName('slide')[0];
+		}
+		Carousel.prototype._supportClick = function() {
+			var me = this;
+			me.btnPre.addEventListener('click', function(e) {
+				clearInterval(me.stepTimer);
+				clearInterval(me.autoTimer);
+				me._animate('left', 1);
+				me._autoMove();
+			}, false);
+			me.btnNext.addEventListener('click', function(e) {
+				clearInterval(me.stepTimer);
+				clearInterval(me.autoTimer);
+				me._animate('right', 1);
+				me._autoMove();
+			}, false);
+		}
+		Carousel.prototype._animate = function(direction, moveStep) {
+			var me = this;
+			// 轮播图当前左边距
+			var offsetLeft = me.imgCt.offsetLeft;
+			// 轮播图目标左边距
+      var targetLeft;
+      if (direction === 'right') {
+      	me.start === me.nodeCount 
+      	? me.start = moveStep :
+      	me.start += moveStep;
+      	// 当目前显示的是最右边最右一副图且继续向右运动，修正相关参数
+      	if(me.imgCt.style.left === -(me.childCount + 1) * me.imgWidth) {
+      		me.imgCt.style.left = offsetLeft = 0;
+      		me.start = 0;
+      	}
+      }else {
+      	me.start === 0
+      	? me.start = me.nodeCount - 1
+      	: me.start -= moveStep;
+      	// 当目前显示的是最左边第一副图且继续向左边运动，修正相关参数
+        if (me.imgCt.style.left === '0px') {
+          offsetLeft = - me.imgCt.offsetWidth + me.imgWidth;
+          me.imgCt.style.left = offsetLeft + 'px';
+        }
+      }
+      targetLeft = -me.start * me.imgWidth;
+
+      me._go(direction, offsetLeft, targetLeft);
+      me._setIndex(me.start);
+		}
+
+		Carousel.prototype._go = function(direction, offsetLeft, targetLeft) {
+			var me = this;
+			// 轮播图当前位置到目标位置的运动距离
+			var distance = targetLeft - offsetLeft;
+			// 轮播图片每一次移动的距离
+			var step = distance / me.speed * me.interval;
+			clearInterval(me.stepTimer);
+			me.stepTimer = setInterval(function() {
+				// 到达目标位置时强制设置左边距
+				if(direction === 'right' && offsetLeft <= targetLeft
+					|| direction === 'left' && offsetLeft >= targetLeft
+				) {
+					clearInterval(me.stepTimer);
+					me.imgCt.style.left = targetLeft + 'px';
+				}else{
+					// 没有到达目标位置继续移动
+					me.imgCt.style.left += offsetLeft + step + 'px';
+					offsetLeft += step;
+				}
+			}, me.interval);
+		}
+
+		Carousel.prototype._autoMove = function() {
+			var me = this;
+			me.autoTimer = setInterval(function() {
+				me._animate('right', 1);
+			}, me.switchInterval);
+		}
+
+		Carousel.prototype._supportIndex = function() {
+			var me = this;
+			me.slide.addEventListener('click', function(event) {
+				var target = event.target || event.srcElement;
+				clearInterval(me.autoTimer);
+				var dataIndex = target.getAttribute('key');
+				var currentIndex = me._getIndex();
+				dataIndex > currentIndex ? me._animate('right', dataIndex - currentIndex) : me._animate('left', currentIndex - dataIndex);
+				me._autoMove();
+			}, false);
+		}
+
+		Carousel.prototype._setIndex = function(index) {
+			var me = this;
+			var childNodes = me.slide.children;
+			index = index === 0 ? me.childCount : index;
+			for(var i = 0;i < childNodes.length; i++) {
+				childNodes[i].className = 'scroll-index'
+			}
+			childNodes[index - 1].classList.add('active');
+		}
+
+		Carousel.prototype._getIndex = function() {
+			var me = this;
+			var childNodes = me.slide.children;
+			for(var i = 0, c = me.childCount;i < c;i++) {
+				if(/(active)/.test(childNodes[i].className)) {
+					return i + 1;
+				}
+			}
+		
+		}
+
+		new Carousel(document.querySelectorAll('.carousel')[0]);
+		new Carousel(document.querySelectorAll('.carousel')[1]);
+	</script>
+</body>
+</html>
