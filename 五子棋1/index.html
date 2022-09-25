@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>gobang</title>
+    <!-- <link rel="stylesheet" href="asset/icon/iconfont.css"> -->
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="scene" id="scene" style="display: none;">
+        <div class="choose" id="choose">
+          <i id="cross" class="iconfont iconcross cross element"></i>
+          <span class="info">try to get five in a row!</span>
+          <i id="circle" class="iconfont iconcircle circle element"></i>
+        </div>
+        <!-- <div class="loading">
+          <div class="loading-info"></div>
+          <div class="loading-bar"></div>
+        </div> -->
+        <!-- 30x15+1X14=464 + 空隙 -->
+        <canvas id="canvas" class="board">
+            Your browser does not support HTML5 canvas.
+        </canvas>
+        <div class="resize" id="resize">
+          <i id="zoomout" class="iconfont iconzoomin zoomin element"></i>
+          <i id="zoomin" class="iconfont iconzoomout zoomout element"></i>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="gobang.min.js" charset="utf-8"></script> -->
+    <!-- <script type="text/javascript">
+      // 开始游戏
+      new Game()
+    </script> -->
+  </body>
+</html>
