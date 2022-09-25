@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.img-list .img-item {
+  float: left;
+  width: 500px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.img-list .img-item .img-wrap {
+  width: 470px;
+  height: 261px;
+}
+
+.img-list .img-item .img-wrap .list-img {
+  width: 100%;
+  height: 100%;
+}

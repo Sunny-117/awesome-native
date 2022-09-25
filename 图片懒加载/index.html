@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <ul class="img-list J_imgList"></ul>
+    </div>
+
+    <div style="display: none" id="J_data">
+      [ {"img":"img/1.jpg","name": "图片1"}, {"img":"img/2.jpg","name":
+      "图片2"}, {"img":"img/3.jpg","name": "图片3"}, {"img":"img/4.jpg","name":
+      "图片4"}, {"img":"img/5.jpg","name": "图片5"}, {"img":"img/6.jpg","name":
+      "图片6"}, {"img":"img/7.jpg","name": "图片7"}, {"img":"img/8.jpg","name":
+      "图片8"}, {"img":"img/9.jpg","name": "图片9"}, {"img":"img/10.jpg","name":
+      "图片10"}, {"img":"img/11.jpg","name": "图片11"},
+      {"img":"img/12.jpg","name": "图片12"}, {"img":"img/13.jpg","name":
+      "图片13"}, {"img":"img/14.jpg","name": "图片14"},
+      {"img":"img/15.jpg","name": "图片15"}, {"img":"img/16.jpg","name":
+      "图片16"}]
+    </div>
+
+    <script type="text/html" id="J_imgTpl">
+      <li class="img-item">
+           <div class="img-wrap">
+             <img src="img/d.jpg" class="list-img" data-src="{{img}}" alt="{{name}}"/>
+           </div>
+           <div class="img-tt">
+             <h1>{{name}}</h1>
+           </div>
+         </li>
+    </script>
+    <script src="js/utils.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
