@@ -1,0 +1,230 @@
+/* 头部样式内容 */
+
+.header-container {
+    background-color: rgba(25, 25, 25, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 12;
+    padding: 0 40px;
+}
+
+.logo {
+    height: 48px;
+}
+
+.header-nav-main {
+    display: flex;
+    justify-content: space-around;
+    max-width: 848px;
+    width: 848px;
+}
+
+.nav-list-title {
+    font-size: 18px;
+    line-height: 48px;
+    cursor: pointer;
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+    background-size: 18px 10px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.nav-list-title.on {
+    background-image: url(../img/header/arrow_top.png);
+    color: #c2a680;
+}
+
+.nav-list-title.on:nth-child(1) {
+    background-image: none;
+}
+
+.header-nav-setting {
+    height: 48px;
+}
+
+.setting-item-list {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.item-title {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.item-masker-container.classify {
+    width: 80px;
+    height: 70px;
+    border: 1px solid #fff;
+    top: 48px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    display: none;
+    transform: translateX(-50%);
+}
+
+.masker-item:nth-child(1) {
+    border-bottom: 1px solid #fff;
+}
+
+.item-masker-container.classify .masker-item:hover {
+    color: #c2a680;
+}
+
+.setting-item-list:hover .item-masker-container.classify {
+    display: block;
+}
+
+.masker-item {
+    height: 50%;
+    line-height: 34px;
+}
+
+.language {
+    margin: 0 15px;
+    padding: 0 15px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.item-masker-container.search {
+    position: absolute;
+    top: 50px;
+    border: 1px solid #ccc;
+    width: 280px;
+    height: 40px;
+    left: -105px;
+    transform: translateX(-50%);
+    align-items: center;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    display: none;
+}
+
+.search-input {
+    background-color: transparent;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+    color: #fff;
+    flex-grow: 1;
+    text-indent: 20px;
+}
+
+.icon-menu1 {
+    font-size: 20px;
+    border: 1px solid #fff;
+    margin-left: 30px;
+    padding: 0 5px;
+}
+
+
+/* 右侧菜单样式 */
+
+.menu-masker-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/header/masker_bg.jpg);
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+    opacity: 0;
+    /* z-index: 99; */
+    transition: opacity .3s linear;
+}
+
+.menu-masker-container .close-btn:hover {
+    transform: rotate(180deg)
+}
+
+.menu-masker-container .close-btn {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    transition: all 1s linear;
+    cursor: pointer;
+}
+
+.header-masker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-masker-item-title {
+    font-size: 26px;
+    padding-bottom: 26px;
+    background: url(../img/header/full_page_arrow.png) center bottom no-repeat;
+    margin: 150px 0 12px;
+}
+
+.header-masker-item-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    padding: 0 20px;
+    color: #eaa1a1;
+}
+
+.header-masker-item-list span {
+    padding: 4px 16px;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.header-masker-item-list span:hover {
+    color: #fff;
+}
+
+
+/* 导航的隐藏区域样式 */
+
+.nav-list-masker-container {
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    height: 0px;
+    font-size: 15px;
+    width: 100%;
+    background: url(../img/header/header_masker_bg.png) repeat;
+    transition: height .2s ease-out;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list-masker-container span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.nav-list-masker-container span:after {
+    content: "";
+    background-image: url(../img/header/item_before.png);
+    width: 6px;
+    height: 16px;
+    background-size: 100% 100%;
+    margin: 2px 20px 0;
+}
+
+.nav-list-masker-container span:last-child:after {
+    display: none;
+}

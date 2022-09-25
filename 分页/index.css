@@ -1,0 +1,24 @@
+.pager {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.pager a {
+  text-decoration: none;
+  border: 1px solid #ccc;
+  color: #001ac4;
+  padding: 3px 8px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.pager .disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.pager .active {
+  color: #f40;
+  border: none;
+  cursor: auto;
+}

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故宫博物院</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/banner.css">
+    <link rel="stylesheet" href="./css/level1.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+</head>
+
+<body>
+    <!-- 头部结构 -->
+    <div class="header-container">
+        <!-- 可视区域 -->
+        <div class="flex-x-cener">
+            <img class="logo" src="./img/header/logo.png" alt="">
+            <div id="headerNavMain" class="header-nav-main">
+                <span class="nav-list-title">首页</span>
+                <span class="nav-list-title" data="n1">导览</span>
+                <span class="nav-list-title" data="n2">展览</span>
+                <span class="nav-list-title" data="n3">教育</span>
+                <span class="nav-list-title" data="n4">探索</span>
+                <span class="nav-list-title" data="n5">学术</span>
+                <span class="nav-list-title" data="n6">文创</span>
+                <span class="nav-list-title" data="n7">关于</span>
+            </div>
+            <div class="header-nav-setting flex-x-cener">
+                <div class="setting-item-list">
+                    <!-- 可视区域的内容 -->
+                    <div class="item-title nav-classify">
+                        <i class="icon iconfont icon-user2"></i>
+                        <i class="icon iconfont icon-sanjiao"></i>
+                    </div>
+                    <!-- 隐藏区域的内容 -->
+                    <div class="item-masker-container classify">
+                        <div class="masker-item">登录</div>
+                        <div class="masker-item">注册</div>
+                    </div>
+                </div>
+                <div class="setting-item-list">
+                    <!-- 可视区域的内容 -->
+                    <div class="item-title language nav-classify">
+                        <span>CN</span>
+                        <i class="icon iconfont icon-sanjiao"></i>
+                    </div>
+                    <!-- 隐藏区域的内容 -->
+                    <div class="item-masker-container classify">
+                        <div class="masker-item">EN</div>
+                        <div class="masker-item">青少年版</div>
+                    </div>
+                </div>
+                <div class="setting-item-list">
+                    <!-- 可视区域的内容 -->
+                    <div id="searchBtn" class="item-title ">
+                        <i class="icon iconfont icon-Search"></i>
+                        <i class="icon iconfont icon-sanjiao"></i>
+                    </div>
+                    <!-- 隐藏区域的内容 -->
+                    <div class="item-masker-container search">
+                        <input type="text" class="search-input">
+                        <i class="icon iconfont icon-Search"></i>
+                    </div>
+                </div>
+                <div class="setting-item-list">
+                    <!-- 可视区域的内容 -->
+                    <div class="item-title">
+                        <i id="iconMenuBtn" class="icon iconfont icon-menu1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 导航的隐藏区域的内容 -->
+        <div id="navigatorMasker" class="navigator-masker-container">
+            <div class="nav-list-masker-container n1">
+                <span>开放时间</span>
+                <span>票务服务</span>
+                <span>交通路线</span>
+                <span>游览须知</span>
+                <span>全景故宫</span>
+            </div>
+            <div class="nav-list-masker-container n2">
+                <span>近期展览</span>
+                <span>专馆</span>
+                <span>原状陈列</span>
+                <span>赴外展览</span>
+            </div>
+            <div class="nav-list-masker-container n3">
+                <span>教育新闻</span>
+                <span>故宫讲坛</span>
+                <span>故宫博物院教育中心</span>
+                <span>国际博协培训中心</span>
+                <span>故宫志愿者</span>
+            </div>
+            <div class="nav-list-masker-container n4">
+                <span>建筑</span>
+                <span>藏品</span>
+                <span>古籍</span>
+                <span>宫廷历史</span>
+                <span>文物医院</span>
+                <span>文化专题</span>
+                <span>名画记</span>
+                <span>数字多宝阁</span>
+                <span>数字文物库</span>
+                <span>藏品总目</span>
+            </div>
+            <div class="nav-list-masker-container n5">
+                <span>学术资讯</span>
+                <span>专家名录</span>
+                <span>故宫研究院</span>
+                <span>故宫学院</span>
+                <span>其他学术机构</span>
+                <span>故宫博物院院刊</span>
+            </div>
+            <div class="nav-list-masker-container n6">
+                <span>故宫出版</span>
+                <span>文创产品</span>
+                <span>故宫壁纸</span>
+                <span>故宫APP</span>
+                <span>故宫游戏</span>
+            </div>
+            <div class="nav-list-masker-container n7">
+                <span>总说</span>
+                <span>领导</span>
+                <span>资讯</span>
+                <span>院史编年</span>
+                <span>景仁榜</span>
+                <span>机构设置</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- banner结构 -->
+    <div class="banner-container">
+        <!-- 图片容器 -->
+        <div id="imgContainer" class="img-container">
+            <img class="banner-img" src="./img/banner/banner_bg_1.jpg" alt="">
+            <img class="banner-img" src="./img/banner/banner_bg_2.jpg" alt="">
+            <img class="banner-img" src="./img/banner/banner_bg_3.jpg" alt="">
+            <img class="banner-img" src="./img/banner/banner_bg_4.jpg" alt="">
+            <img class="banner-img" src="./img/banner/banner_bg_5.jpg" alt="">
+        </div>
+        <!-- 左右箭头结构 -->
+        <div id="arrowContainer" class="arrow-container">
+            <img class="arrow arrow-left" src="./img/banner/banner_ld_prev.png" alt=" ">
+            <img class="arrow arrow-right" src="./img/banner/banner_ld_next.png" alt=" ">
+        </div>
+        <!-- 底部icon导航结构 -->
+        <div class="nav-icon-container">
+            <div class="nav-icon-list active"></div>
+            <div class="nav-icon-list"></div>
+            <div class="nav-icon-list"></div>
+            <div class="nav-icon-list"></div>
+            <div class="nav-icon-list"></div>
+        </div>
+    </div>
+
+    <!-- 主体内容结构 -->
+    <div id="main" class="main">
+        <div id="firstLevel" class="level1 show">
+            <div class="level1-left">
+                <div class="level1-left-top">
+                    <div class="news-txt">
+                        <div class="top-contianer">
+                            <div class="title">
+                                <div class="top-title">
+                                    <img class="arrow-left" src="./img/main_public-icon1.png" alt="">
+                                    <span class="txt mr-40">故宫</span>
+                                    <span class="txt">资讯</span>
+                                    <img class="arrow-right" src="./img/main_public-icon2.png" alt="">
+                                </div>
+                                <div class="right-fish-wp">
+                                    <img src="./img/main_fish.png" alt="">
+                                    <div class="text-wp">
+                                        <span class="mb_-5">更</span>
+                                        <span>多</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content mt_15">
+                                <div class="ellipsis-wrapper flex-x-cener">
+                                    <img src="./img/main_index-icon2-1.png" alt="">
+                                    <div class="ellipsis-txt ft_16">
+                                        【声明】关于故宫博物院在职、离退休人员参加社会文物鉴定等公务性活动的声明
+                                    </div>
+                                </div>
+                                <div class="ellipsis-wrapper mt_10 mb_20 flex-x-cener">
+                                    <img src="./img/main_index-icon2-1.png" alt="">
+                                    <div class="ellipsis-txt ft_16">
+                                        【严正声明】关于我院依法对“故宫博物院”享有名称权和对已注册商标的商标专用权的严正声明
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="bottom-container mt_20">
+                            <li class="nes-item flex-x-cener">
+                                <div class="news-item-txt ellipsis-txt">
+                                    故宫博物院第九届故宫学高校教师讲习班招收学员启事
+                                </div>
+                                <div class="right-date">
+                                    <span class="ft_22">03</span>
+                                    <span class="small-txt">/ 17</span>
+                                </div>
+                            </li>
+                            <li class="nes-item mt_10 flex-x-cener">
+                                <span class="news-item-txt ellipsis-txt">
+                                  故宫博物院关于“五一”假期期间参观的温馨提示
+                                </span>
+                                <div class="right-date">
+                                    <span class="ft_22">04</span>
+                                    <span class="small-txt">/ 30</span>
+                                </div>
+                            </li>
+                            <li class="nes-item mt_10 flex-x-cener">
+                                <span class="news-item-txt ellipsis-txt">
+                                  故宫博物院2021年度部门预算
+                                </span>
+                                <div class="right-date">
+                                    <span class="ft_22">04</span>
+                                    <span class="small-txt">/ 30</span>
+                                </div>
+                            </li>
+                            <li class="nes-item mt_10 flex-x-cener">
+                                <span class="news-item-txt ellipsis-txt">
+                                  “庙堂仪范——故宫博物院藏历代人物画特展（第一期）”5月1日文华殿开展
+                                </span>
+                                <div class="right-date">
+                                    <span class="ft_22">04</span>
+                                    <span class="small-txt">/ 30</span>
+                                </div>
+                            </li>
+                            <li class="nes-item mt_10 flex-x-cener">
+                                <span class="news-item-txt ellipsis-txt">
+                                  故宫博物院陶瓷馆于“五一”武英殿开馆
+                                </span>
+                                <div class="right-date">
+                                    <span class="ft_22">04</span>
+                                    <span class="small-txt">/ 30</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fish-img-wp">
+                        <img class="scene-bg" src="./img/main_level1_left_img.jpg" alt="">
+                    </div>
+                </div>
+                <div class="level1-left-bottom mt_30">
+                    <!-- canvas替换 -->
+                    <div id="canvasContainer" class="canvas-container"><canvas width="500" height="700" style="width: 500px; height: 700px;"></canvas></div>
+
+                    <!-- <img class="vase-img" src="./img/main_vase.png" alt=""> -->
+                    <img src="./img/main_level1_bottom_bng.jpg" alt="">
+                </div>
+            </div>
+            <div class="level-right">
+                <div class="level1-right-top">
+                    <div class="top-wrapper">
+                        <div class="top-wp">
+                            <div class="date">2021 / 5 / 13</div>
+                            <div class="open-txt">今日开馆</div>
+                            <div class="open-info">
+                                <span>除法定节假日，故宫博物院全年实行周一闭馆</span>
+                                <span>入馆参观需验证健康码，测体温，刷身份证</span>
+                            </div>
+                        </div>
+                        <div id="bottomWp" class="bottom-wp run-animation">
+                            <div class="step-wp">
+                                <span class="date">08:30</span>
+                                <span class="date-desc">开放进馆时间</span>
+                            </div>
+                            <div class="step-wp">
+                                <span class="date">16:00</span>
+                                <span class="date-desc">止票时间 <br>(含钟表馆、珍宝馆)</span>
+                            </div>
+                            <div class="step-wp">
+                                <span class="date">16:10</span>
+                                <span class="date-desc">停止入馆时间</span>
+                            </div>
+                            <div class="step-wp">
+                                <span class="date">17:00</span>
+                                <span class="date-desc">闭馆时间</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-wrapper">
+                        <div class="ticket-web">
+                            <img width="100%" src="./img/main_ticket.png" alt="">
+                            <div class="mt_10 ft_16">官方购票网站</div>
+                        </div>
+                        <div class="scan-code">
+                            <img width="101" src="./img/main_scan_code.png" alt="">
+                            <div class="mt_10 ft_16">官方购票公众号</div>
+                        </div>
+                        <div class="mobile-container">
+                            <div class="mobile-title">
+                                <span> 票务咨询电话 </span>
+                                <span> 服务时间：8:30 — 22:00</span>
+                            </div>
+                            <div class="mobile-number">
+                                <div class="left">
+                                    <span>010-85007057</span>
+                                    <span>010-85007058</span>
+                                    <span>010-85007062</span>
+                                    <span>010-85007063</span>
+                                </div>
+                                <div class="right">
+                                    <span>010-85007966</span>
+                                    <span>010-85007970</span>
+                                    <span>010-85007967</span>
+                                    <span>010-85007968</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="footer-container">
+                        <div class="classify-item-wp">
+                            <i class="icon iconfont icon-weizhi"></i>
+                            <span>导览地图</span>
+                        </div>
+                        <div class="classify-item-wp">
+                            <i class="icon iconfont icon-train"></i>
+                            <span>交通路线</span>
+                        </div>
+                        <div class="classify-item-wp">
+                            <i class="icon iconfont icon-ticket"></i>
+                            <span>票务服务</span>
+                        </div>
+                        <div class="classify-item-wp">
+                            <i class="icon iconfont icon-pingtaixuzhi"></i>
+                            <span>游览须知</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="level1-right-bottom">
+                    <div class="news-txt">
+                        <div class="top-contianer">
+                            <div class="title mb_20">
+                                <div class="top-title">
+                                    <img class="arrow-left" src="./img/main_public-icon1.png" alt="">
+                                    <span class="txt mr-40">开放</span>
+                                    <span class="txt">公告</span>
+                                    <img class="arrow-right" src="./img/main_public-icon2.png" alt="">
+                                </div>
+                                <div class="right-fish-wp">
+                                    <img src="./img/main_fish.png" alt="">
+                                    <div class="text-wp">
+                                        <span class="mb_-5">更</span>
+                                        <span>多</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content mb_10">
+                                <div class="ellipsis-wrapper mb_10 flex-x-cener">
+                                    <img src="./img/main_index-icon2-1.png" alt="">
+                                    <div class="ellipsis-txt ft_16">
+                                        故宫博物院关于暂停城墙开放的公告
+                                    </div>
+                                </div>
+                                <div class="ellipsis-wrapper mb_10 flex-x-cener">
+                                    <img src="./img/main_index-icon2-1.png" alt="">
+                                    <div class="ellipsis-txt ft_16">
+                                        故宫博物院实行全部网络购票
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="bottom-container">
+                            <li class="nes-item mb_10 flex-x-cener">
+                                <div class="news-item-txt ellipsis-txt">
+                                    关于承乾宫青铜器馆暂停开放的公告
+                                </div>
+                                <div class="right-date"> 2021 / 04 / 27</div>
+                            </li>
+                            <li class="nes-item mb_10 flex-x-cener">
+                                <span class="news-item-txt">
+                                 关于故宫博物院典藏如意展恢复开放的公告
+                                </span>
+                                <div class="right-date">2021 / 03 / 10</div>
+                            </li>
+                            <li class="nes-item mb_10 flex-x-cener">
+                                <span class="news-item-txt">
+                                 关于故宫博物院典藏如意展暂停开放的公告
+                                </span>
+                                <div class="right-date">2021 / 03 / 03</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 遮罩层隐藏区域内容 -->
+    <div id="headerRightMasker" class="menu-masker-container">
+        <div class="header-masker-item ">
+            <div class="header-masker-item-title ">导览</div>
+            <div class="header-masker-item-list ">
+                <span>开放时间</span>
+                <span>票务服务</span>
+                <span>交通路线</span>
+                <span>游览须知</span>
+                <span>全景故宫</span>
+            </div>
+        </div>
+        <div class="header-masker-item ">
+            <div class="header-masker-item-title ">展览</div>
+            <div class="header-masker-item-list ">
+                <span>近期展览</span>
+                <span>专馆</span>
+                <span>原状陈列</span>
+                <span>赴外展览</span>
+            </div>
+        </div>
+        <div class="header-masker-item ">
+            <div class="header-masker-item-title ">教育</div>
+            <div class="header-masker-item-list ">
+                <span>教育新闻</span>
+                <span>故宫讲坛</span>
+                <span>故宫博物院教育中心</span>
+                <span>国际博协培训中心</span>
+                <span>故宫志愿者</span>
+            </div>
+        </div>
+        <div class="header-masker-item ">
+            <div class="header-masker-item-title ">探索</div>
+            <div class="header-masker-item-list ">
+                <span>建筑</span>
+                <span>藏品</span>
+                <span>古籍</span>
+                <span>宫廷历史</span>
+                <span>文物医院</span>
+                <span>文化专题</span>
+                <span>名画记</span>
+                <span>数字多宝阁</span>
+                <span>数字文物库</span>
+            </div>
+        </div>
+        <div class="header-masker-item ">
+            <div class="header-masker-item-title ">学术</div>
+            <div class="header-masker-item-list ">
+                <span>学术资讯</span>
+                <span>专家名录</span>
+                <span>故宫研究院</span>
+                <span>故宫学院</span>
+                <span>其他学术机构</span>
+                <span>故宫博物院院刊</span>
+            </div>
+        </div>
+        <div class="header-masker-item ">
+            <div class="header-masker-item-title ">文创</div>
+            <div class="header-masker-item-list ">
+                <span>故宫出版</span>
+                <span>文创产品</span>
+                <span>故宫壁纸</span>
+                <span>故宫APP</span>
+                <span>故宫游戏</span>
+            </div>
+        </div>
+        <div class="header-masker-item ">
+            <div class="header-masker-item-title ">关于</div>
+            <div class="header-masker-item-list ">
+                <span>总说</span>
+                <span>领导</span>
+                <span>资讯</span>
+                <span>院史编年</span>
+                <span>景仁榜</span>
+                <span>机构设置</span>
+            </div>
+        </div>
+        <img id="closeBtn" class="close-btn " src="./img/header/full_page_close.png " alt=" ">
+    </div>
+
+    <script src="./js/header.js "></script>
+    <script src="./js/banner.js"></script>
+    <script src="./js/level1.js"></script>
+    <!-- 花瓶展示的js文件引入 three.js -->
+    <script src="./js/canvas/three.min.js"></script>
+    <script src="./js/canvas/gltfLoader.js"></script>
+    <script src="./js/canvas/rgbLoader.js"></script>
+    <script src="./js/canvas/canvas.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+{
+  "id": "2505124",
+  "name": "duyi",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10707179",
+      "name": "箭头 上 up",
+      "font_class": "jiantoushang",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "785053",
+      "name": "位置",
+      "font_class": "weizhi",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "15188462",
+      "name": "menu",
+      "font_class": "menu1",
+      "unicode": "e6fe",
+      "unicode_decimal": 59134
+    },
+    {
+      "icon_id": "1089767",
+      "name": "三角",
+      "font_class": "sanjiao",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "5317055",
+      "name": "train",
+      "font_class": "train",
+      "unicode": "e73a",
+      "unicode_decimal": 59194
+    },
+    {
+      "icon_id": "5394545",
+      "name": "ticket",
+      "font_class": "ticket",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "6145588",
+      "name": "menu",
+      "font_class": "menu",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "6626184",
+      "name": "Search",
+      "font_class": "Search",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "12134638",
+      "name": "平台须知",
+      "font_class": "pingtaixuzhi",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "20452374",
+      "name": "user",
+      "font_class": "user2",
+      "unicode": "e916",
+      "unicode_decimal": 59670
+    },
+    {
+      "icon_id": "724657",
+      "name": "完成",
+      "font_class": "wancheng",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
+      "icon_id": "7239937",
+      "name": "user",
+      "font_class": "user1",
+      "unicode": "e75f",
+      "unicode_decimal": 59231
+    },
+    {
+      "icon_id": "15890964",
+      "name": "delete",
+      "font_class": "delete",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    }
+  ]
+}

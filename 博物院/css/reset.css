@@ -1,0 +1,72 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+table,
+caption,
+tr,
+th,
+td,
+span,
+p,
+a,
+b,
+u,
+i,
+em,
+img,
+iframe,
+fieldset,
+form,
+label,
+legend,
+input,
+button,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+body {
+    font: 14px/1.5 "Microsoft YaHei", Arial, Tahoma, Helvetica, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased !important;
+    max-width: 1920px;
+    margin: 0 auto;
+    color: #fff;
+    font-family: 微软雅黑, 'Heiti SC', 黑体, Arial;
+    position: relative;
+    font-size: 14px;
+    /* background-color: #333; */
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 13px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    border-radius: 5px;
+    min-height: 28px;
+}

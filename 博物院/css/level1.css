@@ -1,0 +1,348 @@
+.main {
+    max-width: 1600px;
+    box-sizing: border-box;
+    margin: 30px auto 0;
+    position: relative;
+    z-index: 13;
+}
+
+.main>.level1 {
+    display: flex;
+}
+
+
+/* 左半部分主要内容 */
+
+.main>.level1>.level1-left {
+    margin-right: 30px;
+    transition: opacity 0.5s ease-out 0.6s, transform 1s ease-out 0.6s;
+    transform: translateY(50px);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main>.level1 .news-txt {
+    background-color: #7E2625;
+}
+
+.level1-left-top {
+    display: flex;
+    flex-grow: 1;
+}
+
+.level1 .news-txt {
+    padding: 30px;
+    padding-bottom: 35px;
+    height: 100%;
+    box-sizing: border-box;
+    width: 57%;
+}
+
+.level1 .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.level1 .arrow-left {
+    margin-right: 10px;
+}
+
+.level1 .arrow-right {
+    margin-left: 10px;
+}
+
+span.txt {
+    font-size: 28px;
+}
+
+span.txt:nth-child(1) {
+    margin-left: 20px;
+}
+
+.ellipsis-wrapper {
+    justify-content: flex-start;
+}
+
+.ellipsis-wrapper>img {
+    width: 17px;
+    height: 14px;
+}
+
+.level1-left-top .content {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.right-date {
+    flex-shrink: 0;
+}
+
+.level1-left-top .fish-img-wp {
+    cursor: pointer;
+    width: 43%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.level1-left-top .scene-bg {
+    transition: all 1s cubic-bezier(0, 1, 1, 1) 0s;
+    width: 100%;
+    height: 100%;
+}
+
+.level1-left-top .scene-bg:hover {
+    transform: scale(1.3);
+}
+
+
+/* 第一部分左侧底部样式 */
+
+.level1-left-bottom {
+    position: relative;
+    font-size: 0;
+}
+
+.level1-left-bottom>img:last-child {
+    width: 100%;
+}
+
+.vase-img {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    width: 40%;
+    left: 1%;
+    overflow: hidden;
+    top: -42px;
+}
+
+
+/* 右侧部分样式 */
+
+
+/* .level1-right-top {
+    background-image: url(../img/main_right_png5.png);
+    padding: 30px;
+} */
+
+.level-right {
+    width: 40%;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 1s ease-out 0s;
+    display: flex;
+    flex-direction: column;
+}
+
+.level1-right-top .top-wrapper {
+    background-image: url(../img/main_right_png5.png);
+    padding: 30px;
+}
+
+.level1-right-top>.top-wrapper>.top-wp {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.open-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.level1-right-top>.top-wrapper>.top-wp .date {
+    color: #8fb6d9;
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial;
+}
+
+.level1-right-top>.top-wrapper>.top-wp .open-txt {
+    font-size: 42px;
+    line-height: 1;
+}
+
+.level1-right-top>.top-wrapper>.bottom-wp {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+/* 时钟动画 */
+
+.level1-right-top>.top-wrapper>.bottom-wp>.step-wp {
+    transform: translateX(-100px);
+    transition: all 1s ease-out 0s;
+    opacity: 0;
+}
+
+.level1-right-top>.top-wrapper>.bottom-wp.run-animation>.step-wp {
+    transform: none;
+    opacity: 1;
+}
+
+.level1-right-top>.top-wrapper>.bottom-wp>*:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.level1-right-top>.top-wrapper>.bottom-wp>*:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.level1-right-top>.top-wrapper>.bottom-wp>*:nth-child(4) {
+    transition-delay: 0.6s;
+}
+
+
+/* 时钟动画结束 */
+
+.level1-right-top>.top-wrapper>.bottom-wp>.step-wp {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.level1-right-top>.top-wrapper>.bottom-wp>.step-wp>.date {
+    font-family: Impact, Arial;
+    margin-bottom: 10px;
+    color: inherit;
+    font-size: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.level1-right-top>.top-wrapper>.bottom-wp>.step-wp:last-child .date:after {
+    display: none;
+}
+
+.level1-right-top>.top-wrapper>.bottom-wp>.step-wp>.date:after {
+    content: "";
+    width: 31px;
+    height: 6px;
+    background-image: url('../img/main_concat.png');
+    margin-left: 20px;
+}
+
+.level1-right-top>.top-wrapper>.bottom-wp>.step-wp>.date-desc {
+    color: #8fb6d9;
+}
+
+.level1-right-top .bottom-wrapper,
+.level1-right-top .footer-container {
+    background-image: url(../img/main_png6.png);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.spacer {
+    border-top: 1px solid #1c2e3d;
+    border-bottom: 1px solid #487398;
+}
+
+.level1-right-top .bottom-wrapper .ticket-web,
+.level1-right-top .bottom-wrapper .scan-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 115px;
+    justify-content: space-around;
+}
+
+.mobile-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-title>span:first-child {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.mobile-title>span:last-child {
+    color: #a3c9ea;
+}
+
+.mobile-number {
+    display: flex;
+}
+
+.mobile-number .left,
+.mobile-number .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 20px 0 0;
+}
+
+.level1-right-top .footer-container {
+    padding: 10px 30px;
+}
+
+.footer-container .classify-item-wp {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.footer-container .classify-item-wp .icon {
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.footer-container .classify-item-wp span {
+    font-size: 16px;
+}
+
+.level1-right-bottom {
+    margin-top: 30px;
+    flex-grow: 1;
+}
+
+.level1-right-bottom .news-txt {
+    width: 100%;
+    background-color: transparent;
+    background-image: url('../img/main_level1_png8.png')
+}
+
+
+/* 配合JS执行动画 */
+
+.level1.show .level1-left {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.level1.show .level-right {
+    transform: none;
+    opacity: 1;
+}
+
+
+/* canvas样式 */
+
+.canvas-container {
+    position: absolute;
+    left: 0;
+    bottom: 0%;
+    width: 58%;
+    left: 1%;
+    padding-top: 38%;
+}
+
+canvas {
+    width: 500px;
+    height: 700px;
+    position: absolute;
+    left: 50%;
+    bottom: -72px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}

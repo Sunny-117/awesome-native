@@ -1,0 +1,110 @@
+.top-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: url('../img/main_title_dot.png') no-repeat center center
+}
+
+.top-title>img {
+    width: 24px;
+    height: auto;
+}
+
+.ellipsis-txt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.flex-x-cener {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mr-40 {
+    margin-right: 40px;
+}
+
+.mr-70 {
+    margin-right: 70px;
+}
+
+.mr_10 {
+    margin-right: 10px;
+}
+
+.mb_-5 {
+    margin-bottom: -5px;
+}
+
+.mt_10 {
+    margin-top: 10px;
+}
+
+.mt_15 {
+    margin-top: 10px;
+}
+
+.mt_20 {
+    margin-top: 20px;
+}
+
+.mt_30 {
+    margin-top: 30px;
+}
+
+.mt_40 {
+    margin-top: 40px;
+}
+
+.mb_20 {
+    margin-bottom: 20px;
+}
+
+.ft_16 {
+    font-size: 16px;
+}
+
+.ft_22 {
+    font-size: 22px;
+}
+
+.ft_18 {
+    font-size: 18px;
+}
+
+.mb_10 {
+    margin-bottom: 10px;
+}
+
+.w_252 {
+    width: 252px;
+}
+
+.ft-b {
+    font-weight: bold;
+}
+
+
+/* 小鱼动画公共样式 */
+
+.right-fish-wp {
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.right-fish-wp .text-wp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+}
+
+.right-fish-wp:hover img {
+    transition: all 0.5s linear;
+    transform: rotate(-180deg);
+}
