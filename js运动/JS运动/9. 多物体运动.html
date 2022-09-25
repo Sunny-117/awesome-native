@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        opacity: 1;
+        margin-bottom: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      var timer = null;
+      var oDivArray = document.getElementsByTagName("div");
+      for (var i = 0; i < oDivArray.length; i++) {
+        oDivArray[i].onmouseenter = function () {
+          startMove(this, 400);
+        };
+        oDivArray[i].onmouseleave = function () {
+          startMove(this, 100);
+        };
+      }
+
+      function getStyle(dom, attr) {
+        if (window.getComputedStyle) {
+          return window.getComputedStyle(dom, null)[attr];
+        } else {
+          return dom.currentStyle[attr];
+        }
+      }
+      function startMove(dom, target) {
+        clearInterval(timer);
+        var iSpeed = null,
+          iCur = null;
+        timer = setInterval(function () {
+          iCur = parseInt(getStyle(dom, "width")); //转换成整数
+
+          iSpeed = (target - iCur) / 7;
+          iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+          if (iCur == target) {
+            clearInterval(timer);
+          } else {
+            dom.style.width = iCur + iSpeed + "px";
+          }
+        }, 30);
+      }
+    </script>
+  </body>
+</html>

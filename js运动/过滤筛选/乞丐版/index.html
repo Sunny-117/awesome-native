@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/index.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="search">
+            <input type="text"></input>
+            <span class='btn' sex='m'>Male</span>
+            <span class='btn' sex='f'>Female</span>
+            <span class='btn active' sex='a'>All</span>
+            <!-- Male:<input type='radio' class='btn mBtn' name='sex'></button>
+            Female:<input type='radio' class='btn fBtn' name='sex'></button>
+            All:<input type="radio" checked='checked' class='btn aBtn' name='sex'></input>  -->
+        </div>
+        <div class='friendList'>
+            <ul>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var personArr = [{
+                name: '王港',
+                src: './src/img/3.png',
+                des: '颈椎不好',
+                sex: 'm'
+            },
+            {
+                name: '刘莹',
+                src: './src/img/5.png',
+                des: '我是谁',
+                sex: 'f'
+            },
+            {
+                name: '王秀莹',
+                src: './src/img/4.png',
+                des: '我很好看',
+                sex: 'f'
+            }, {
+                name: '刘金雷',
+                src: './src/img/1.png',
+                des: '你没有见过陌生的脸',
+                sex: 'm'
+            }, {
+                name: '刘飞翔',
+                src: './src/img/2.png',
+                des: '瓜皮刘',
+                sex: 'm'
+            }
+        ];
+        var oUl = document.getElementsByTagName('ul')[0]
+        var state = {
+            text: '',
+            sex: 'a'
+        }
+
+        function renderList(arr) {
+            let htmlStr = ""
+            arr.forEach((ele, index) => {
+                htmlStr += '<li><img src="' + ele.src + '"/><div class="desc"><p class="name">' + ele.name +
+                    '</p><p class="des">' + ele.des + '</p></div></li>';
+                oUl.innerHTML = htmlStr;
+            })
+
+        }
+        renderList(personArr)
+        const oInput = document.getElementsByTagName('input')[0]
+        oInput.oninput = function () {
+
+            // console.log(this.value)
+            state.text = this.value
+            var newArr = filterArrByText(personArr, state.text)
+            renderList(filterArrBySex(newArr, state.sex))
+        }
+
+        function filterArrByText(data, text) {
+            if (!text) {
+                return data;
+            }
+            return data.filter((ele, index, self) => {
+                // if (ele.name.indexOf(text) !== -1) {
+                //     return true
+                // }
+                // return false
+                return ele.name.indexOf(text) !== -1
+            })
+        }
+        // console.log(filterArrByText(personArr, '王'))
+        var oButtonArr = document.getElementsByClassName('btn')
+        oButtonArr = Array.from(oButtonArr)
+
+        var lastActiveBtn = oButtonArr[oButtonArr.length - 1]
+
+        function changeActive(ele) {
+            ele.className = 'active btn'
+            lastActiveBtn.className = 'btn'
+            lastActiveBtn = ele
+        }
+        oButtonArr.forEach((ele, index, self) => {
+            ele.onclick = function () {
+                changeActive(this)
+                var sex = this.getAttribute('sex')
+                state.sex = sex;
+                var newArr = filterArrBySex(personArr, state.sex)
+
+                renderList(filterArrByText(newArr, state.text))
+            }
+        })
+
+        function filterArrBySex(data, sex) {
+            if (sex === 'a') {
+                return data
+            }
+            return data.filter((ele, index, self) => {
+                return ele.sex === sex
+            })
+        }
+    </script>
+    <ul>
+        <li>
+            <img src="" alt="">
+            <p></p>
+            <p></p>
+        </li>
+    </ul>
+</body>
+
+</html>

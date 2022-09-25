@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+            left: 500px;
+            top: 0;
+        }
+
+        button {
+            margin-top: 150px;
+        }
+
+        span {
+            position: absolute;
+            left: 300px;
+            top: 0;
+            width: 1px;
+            height: 100px;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <button id='btn'>run</button>
+    <script>
+        var oDiv = document.getElementsByTagName('div')[0]; //不加[0]就错了
+        var oBtn = document.getElementById('btn');
+        var timer = null;
+        oBtn.onclick = function () {
+            clearInterval(timer);
+            var iSpeed = 300 - oDiv.offsetLeft > 0 ? 7 : -7;
+            timer = setInterval(function () {
+                if (Math.abs(300 - oDiv.offsetLeft) < Math.abs(iSpeed)) {
+                    clearInterval(timer);
+                    oDiv.style.left = '300px';
+                } else {
+                    oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+                }
+            }, 30);
+        }
+    </script>
+</body>
+
+</html>

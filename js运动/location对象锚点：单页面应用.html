@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo1 {
+            background: orange;
+        }
+
+        .demo2 {
+            background: red;
+        }
+
+        .demo3 {
+            background: green;
+        }
+
+        .wrapper {
+            margin: 100px auto 0px;
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .wrapper div {
+            display: none;
+        }
+
+        .wrapper div.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="demo1">1</div>
+        <div class="demo2">2</div>
+        <div class="demo3">3</div>
+    </div>
+    <button id='left'>left</button>
+    <button id='right'>right</button>
+    <script>
+
+
+        // 1. 根据锚点的信息来选择对应要展示的内容   
+        // 2. 切换还内容时我们映射到锚点之中
+        // 3. 检测锚点修改，修改以后再映射内容
+
+        var num, oDivArray, lastDiv;
+        function init() {
+            var str = location.hash.indexOf('/') != -1 ? location.hash.slice(2) : location.hash.slice(1);
+
+            num = str == '' ? 0 : parseInt(str);
+            // console.log(num)
+
+            oDivArray = document.getElementsByClassName('wrapper')[0].getElementsByTagName('div');
+
+            lastDiv = oDivArray[num];
+
+            clear();
+
+            lastDiv.className = 'demo' + (num + 1) + ' active';
+
+        }
+        function clear() {
+            for (var i = 0; i < oDivArray.length; i++) {
+                oDivArray[i].className = lastDiv.className.split(' ')[0];
+            }
+        }
+
+        init();
+
+        left.onclick = function () {
+            lastDiv.className = lastDiv.className.split(' ')[0];
+            oDivArray[--num].className = 'demo' + (num + 1) + ' active';
+            lastDiv = oDivArray[num];
+            location.hash = '/' + (num == 0 ? '' : num);
+        }
+        right.onclick = function () {
+            lastDiv.className = lastDiv.className.split(' ')[0];
+            oDivArray[++num].className = 'demo' + (num + 1) + ' active';
+            lastDiv = oDivArray[num];
+            location.hash = '/' + (num == 0 ? '' : num);
+        }
+
+        window.onhashchange = function () {
+            init();
+        }
+
+    </script>
+</body>
+
+</html>

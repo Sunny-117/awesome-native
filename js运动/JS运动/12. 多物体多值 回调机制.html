@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        position: absolute;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        background: red;
+        opacity: 1;
+      }
+
+      #topDiv {
+        top: 200px;
+      }
+
+      #bottomDiv {
+        top: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="topDiv"></div>
+    <div id="bottomDiv"></div>
+    <script>
+      var oBottomDiv = document.getElementById("bottomDiv");
+      var oTopDiv = document.getElementById("topDiv");
+      oTopDiv.onclick = function () {
+        startMove(
+          this,
+          { width: 400, height: 400, left: 200, top: 300, opacity: 50 },
+          function () {
+            startMove(
+              oBottomDiv,
+              { width: 400, height: 400, left: 200, top: 300, opacity: 50 },
+              function () {
+                alert("over");
+              }
+            );
+          }
+        );
+      };
+      function getStyle(dom, attr) {
+        if (window.getComputedStyle) {
+          return window.getComputedStyle(dom, null)[attr];
+        } else {
+          return dom.currentStyle[attr];
+        }
+      }
+      function startMove(dom, attrObj, callback) {
+        clearInterval(dom.timer);
+        var iSpeed = null,
+          iCur = null;
+        dom.timer = setInterval(function () {
+          var bStop = true;
+          for (var attr in attrObj) {
+            // 'width' 'height'
+            if (attr == "opacity") {
+              iCur = parseFloat(getStyle(dom, attr)) * 100;
+            } else {
+              iCur = parseInt(getStyle(dom, attr));
+            }
+            iSpeed = (attrObj[attr] - iCur) / 7;
+            iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+            if (attr == "opacity") {
+              dom.style.opacity = (iCur + iSpeed) / 100;
+            } else {
+              dom.style[attr] = iCur + iSpeed + "px";
+            }
+            if (iCur != attrObj[attr]) {
+              bStop = false;
+            }
+          }
+          if (bStop) {
+            clearInterval(dom.timer);
+            typeof callback == "function" && callback();
+          }
+        }, 30);
+      }
+    </script>
+  </body>
+</html>

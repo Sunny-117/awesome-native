@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      background: orange;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+
+  <body>
+    <!-- 多方向运动+碰撞检测+重力加速度+能量损失 -->
+    <div id="demo"></div>
+    <script>
+      var oDiv = document.getElementById("demo");
+
+      oDiv.onclick = function () {
+        startMove(this);
+      };
+
+      function startMove(dom) {
+        clearInterval(dom.timer);
+        var iSpeedX = 6;
+        var iSpeedY = 8;
+        var g = 3;
+        dom.timer = setInterval(function () {
+          iSpeedY += g;
+          var newTop = dom.offsetTop + iSpeedY;
+          var newLeft = dom.offsetLeft + iSpeedX;
+          if (
+            newTop >=
+            document.documentElement.clientHeight - dom.clientHeight
+          ) {
+            iSpeedY *= -1;
+            iSpeedY *= 0.8;
+            iSpeedX *= 0.8;
+            newTop = document.documentElement.clientHeight - dom.clientHeight;
+          }
+
+          if (newTop <= 0) {
+            iSpeedY *= -1;
+            iSpeedY *= 0.8;
+            iSpeedX *= 0.8;
+            newTop = 0;
+          }
+
+          if (
+            newLeft >=
+            document.documentElement.clientWidth - dom.clientWidth
+          ) {
+            iSpeedX *= -1;
+            iSpeedY *= 0.8;
+            iSpeedX *= 0.8;
+            newLeft = document.documentElement.clientWidth - dom.clientWidth;
+          }
+
+          if (newLeft <= 0) {
+            iSpeedX *= -1;
+            iSpeedY *= 0.8;
+            iSpeedX *= 0.8;
+            newLeft = 0;
+          }
+
+          if (Math.abs(iSpeedX) < 1) {
+            iSpeedX = 0;
+          }
+
+          if (Math.abs(iSpeedY) < 1) {
+            iSpeedY = 0;
+          }
+          if (
+            iSpeedX == 0 &&
+            iSpeedY == 0 &&
+            newTop == document.documentElement.clientHeight - dom.clientHeight
+          ) {
+            clearInterval(dom.timer);
+            console.log("over");
+          } else {
+            dom.style.top = newTop + "px";
+            dom.style.left = newLeft + "px";
+          }
+        }, 30);
+      }
+    </script>
+  </body>
+</html>

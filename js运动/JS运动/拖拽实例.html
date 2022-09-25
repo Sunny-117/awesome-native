@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      div {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        background: orange;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="demo"></div>
+    <script>
+      var oDiv = document.getElementById("demo");
+      var lastX = 0;
+      var lastY = 0;
+      var iSpeedX = 0;
+      var iSpeedY = 0;
+      oDiv.onmousedown = function (e) {
+        clearInterval(this.timer);
+        var event = event || e;
+        var disX = event.clientX - this.offsetLeft;
+        var disY = event.clientY - this.offsetTop;
+        var self = this;
+        document.onmousemove = function (e) {
+          var event = event || e;
+          var newLeft = event.clientX - disX;
+          var newTop = event.clientY - disY;
+          // 判断松手时候的方向速度
+          iSpeedX = newLeft - lastX;
+          iSpeedY = newTop - lastY;
+          lastX = newLeft;
+          lastY = newTop;
+          // var oSpan = document.createElement('span');
+          // oSpan.style.position = 'absolute';
+          // oSpan.style.left = newLeft + 'px';
+          // oSpan.style.top = newTop + 'px';
+          // oSpan.style.width = '5px';
+          // oSpan.style.height = '5px';
+          // oSpan.style.backgroundColor = 'black';
+          // document.body.appendChild(oSpan);
+          self.style.left = newLeft + "px";
+          self.style.top = newTop + "px";
+        };
+        document.onmouseup = function () {
+          document.onmouseup = null;
+          document.onmousemove = null;
+          startMove(self, iSpeedX, iSpeedY);
+        };
+      };
+
+      // 利用封装好的startMove()函数(startMove(oDiv, 10, 10))
+      function startMove(dom, iSpeedX, iSpeedY) {
+        clearInterval(dom.timer);
+        var g = 3;
+        dom.timer = setInterval(function () {
+          iSpeedY += g;
+          var newTop = dom.offsetTop + iSpeedY;
+          var newLeft = dom.offsetLeft + iSpeedX;
+          if (
+            newTop >=
+            document.documentElement.clientHeight - dom.clientHeight
+          ) {
+            iSpeedY *= -1;
+            iSpeedY *= 0.8;
+            iSpeedX *= 0.8;
+            newTop = document.documentElement.clientHeight - dom.clientHeight;
+          }
+
+          if (newTop <= 0) {
+            iSpeedY *= -1;
+            iSpeedY *= 0.8;
+            iSpeedX *= 0.8;
+            newTop = 0;
+          }
+
+          if (
+            newLeft >=
+            document.documentElement.clientWidth - dom.clientWidth
+          ) {
+            iSpeedX *= -1;
+            iSpeedY *= 0.8;
+            iSpeedX *= 0.8;
+            newLeft = document.documentElement.clientWidth - dom.clientWidth;
+          }
+
+          if (newLeft <= 0) {
+            iSpeedX *= -1;
+            iSpeedY *= 0.8;
+            iSpeedX *= 0.8;
+            newLeft = 0;
+          }
+
+          if (Math.abs(iSpeedX) < 1) {
+            iSpeedX = 0;
+          }
+
+          if (Math.abs(iSpeedY) < 1) {
+            iSpeedY = 0;
+          }
+
+          if (
+            iSpeedX == 0 &&
+            iSpeedY == 0 &&
+            newTop == document.documentElement.clientHeight - dom.clientHeight
+          ) {
+            clearInterval(dom.timer);
+            console.log("over");
+          } else {
+            dom.style.top = newTop + "px";
+            dom.style.left = newLeft + "px";
+          }
+        }, 30);
+      }
+      // 加上清理定时器就算房开后也可以在拿住div
+    </script>
+  </body>
+</html>

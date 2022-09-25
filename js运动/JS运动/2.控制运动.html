@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        button {
+            margin-top: 150px;
+        }
+
+        span {
+            position: absolute;
+            left: 300px;
+            top: 0;
+            width: 1px;
+            height: 100px;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <button id='btn'>run</button>
+    <script>
+        // js div
+        var oDiv = document.getElementsByTagName('div')[0];
+        var oBtn = document.getElementById('btn');
+        var timer = null;
+        oBtn.onclick = function () {
+            clearInterval(timer);
+            var iSpeed = 4;
+            timer = setInterval(function () {
+                if (oDiv.offsetLeft == 300) { //正好加到300才可以，如果speed改成7就不会停止了
+                    clearInterval(timer);
+                } else {
+                    oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px'; //快速点击，代码会在同一时间内执行更多
+                }
+            }, 30);
+        }
+        // 优化：实现各种速度都能停止
+        /*   timer = setInterval(function () {
+              if (300 - oDiv.offsetLeft < iSpeed) {
+                  clearInterval(timer);
+                  oDiv.style.left = '300px';
+              } else {
+                  oDiv.style.left = oDiv.offsetLeft + iSpeed + 'px';
+              }
+          } */
+    </script>
+</body>
+
+</html>

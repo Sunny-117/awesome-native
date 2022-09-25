@@ -1,0 +1,62 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.wrapper {
+  padding: 10px 15px;
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 100px auto 0px;
+}
+
+.wrapper .search {
+  margin-bottom: 20px;
+}
+
+.wrapper .search input {
+  width: 230px;
+  height: 25px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  outline: none;
+  padding-left: 10px;
+}
+.wrapper .search span {
+  color: #3c8dff;
+  padding: 0px 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.wrapper .search .active {
+  color: #fff;
+  background-color: #3c8dff;
+}
+
+.wrapper .friendList ul li {
+  position: relative;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #999;
+}
+
+.wrapper .friendList ul li img {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.wrapper .friendList ul li .name {
+  margin-bottom: 10px;
+}
+
+.wrapper .friendList ul li .des {
+  font-size: 12px;
+  color: #666;
+}

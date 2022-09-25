@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/index.css">
+    </link>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="search">
+            <input type="text"></input>
+            <span class='btn' sex='m'>Male</span>
+            <span class='btn' sex='f'>Female</span>
+            <span class='btn active' sex='a'>All</span>
+            <!-- Male:<input type='radio' class='btn mBtn' name='sex'></button>
+            Female:<input type='radio' class='btn fBtn' name='sex'></button>
+            All:<input type="radio" checked='checked' class='btn aBtn' name='sex'></input>  -->
+        </div>
+        <div class='friendList'>
+            <ul>
+            </ul>
+        </div>
+    </div>
+
+    <script src='./src/js/filter/filterBySex.js'></script>
+    <script src='./src/js/filter/filterByText.js'></script>
+    <script src='./src/js/filter/lastFilter.js'></script>
+    <script src='./src/js/createStore.js'></script>
+
+    <script>
+        // view init
+        // 1.
+        var personArr = [{
+            name: '王港',
+            src: './src/img/3.png',
+            des: '颈椎不好',
+            sex: 'm'
+        }, {
+            name: '刘莹',
+            src: './src/img/5.png',
+            des: '我是谁',
+            sex: 'f'
+        }, {
+            name: '王秀莹',
+            src: './src/img/4.png',
+            des: '我很好看',
+            sex: 'f'
+        }, {
+            name: '刘金雷',
+            src: './src/img/1.png',
+            des: '你没有见过陌生的脸',
+            sex: 'm'
+        }, {
+            name: '刘飞翔',
+            src: './src/img/2.png',
+            des: '瓜皮刘',
+            sex: 'm'
+        }];
+
+        // 2.
+        var oUl = document.getElementsByTagName('ul')[0];
+
+        // 3. 根据数组内的对象来展示信息条目
+        function renderList(arr) {
+            var htmlStr = '';
+            arr.forEach(function (ele, index) {
+                htmlStr += '<li><img src="' + ele.src + '"/><p class="name">' + ele.name +
+                    '</p><p class="des">' + ele.des + '</p></li>';
+            });
+            oUl.innerHTML = htmlStr;
+        }
+
+        renderList(personArr);
+
+
+
+        // 创建数据仓库
+        var store = createStore({
+            text: '',
+            sex: 'a'
+        });
+
+        // combine filterByText filterBySex
+        function update() {
+            renderList(lastFilter(personArr));
+        }
+
+        // 订阅
+        store.subscribe(update);
+
+
+
+        // input
+        var oInp = document.getElementsByTagName('input')[0];
+
+        // 防抖
+        function debounce(handler, delay) {
+            var timer = null;
+            return function (e) {
+                var _self = this,
+                    _arg = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    handler.apply(_self, _arg);
+                }, delay);
+            }
+        }
+
+        // 6.oninput事件
+        oInp.oninput = debounce(deal, 500);
+
+        function deal() {
+            store.dispatch({
+                type: 'text',
+                text: this.value
+            });
+        }
+
+
+
+        // 5.过滤数组
+
+        var oRadioArr = Array.prototype.slice.call(document.getElementsByClassName('btn'), 0);
+        var lastRadio = oRadioArr[oRadioArr.length - 1];
+
+        function changeActive(e) {
+            var dom = e.target;
+            lastRadio.className = 'btn';
+            dom.className = 'active';
+            lastRadio = dom;
+        }
+
+        oRadioArr.forEach(function (ele, index) {
+            ele.onclick = function (e) {
+                changeActive(e);
+                store.dispatch({
+                    type: 'sex',
+                    text: this.getAttribute('sex')
+                })
+                // renderList(  lastFilter(personArr) );
+            }
+        });
+    </script>
+
+</body>
+
+</html>

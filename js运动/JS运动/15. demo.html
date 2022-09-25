@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      div {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100px;
+        height: 100px;
+        background: orange;
+      }
+
+      #btn {
+        margin-top: 150px;
+      }
+
+      span {
+        position: absolute;
+        left: 300px;
+        top: 0px;
+        background: black;
+        width: 2px;
+        height: 100px;
+      }
+
+      * {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+      }
+
+      ul {
+        position: relative;
+        margin: 100px auto;
+        width: 800px;
+        height: 100px;
+      }
+
+      .ele {
+        float: left;
+        width: 198px;
+        border: 1px solid black;
+        height: 98px;
+        line-height: 98px;
+        text-align: center;
+        background: orange;
+      }
+
+      .bg {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 200px;
+        height: 100px;
+        opacity: 0.5;
+        background: deeppink;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li class="ele">CST</li>
+      <li class="ele">CG</li>
+      <li class="ele">LD</li>
+      <li class="ele">DCG</li>
+      <li class="bg"></li>
+    </ul>
+    <script>
+      var oLiArray = document.getElementsByTagName("li");
+      var oBg = oLiArray[oLiArray.length - 1];
+      var timer = null;
+
+      for (var i = 0; i < oLiArray.length - 1; i++) {
+        oLiArray[i].onmouseenter = function () {
+          console.log(this.offsetLeft);
+          startMove(oBg, this.offsetLeft);
+        };
+      }
+      function startMove(dom, target) {
+        clearInterval(timer);
+        var iSpeed = 0;
+        var a = 1;
+        var u = 0.8;
+        timer = setInterval(function () {
+          a = (target - dom.offsetLeft) / 5;
+          iSpeed += a;
+          iSpeed *= u;
+          // console.log(iSpeed, target - dom.offsetLeft);
+          if (Math.abs(iSpeed) < 1 && Math.abs(target - dom.offsetLeft) < 1) {
+            clearInterval(timer);
+            dom.style.left = target + "px";
+          } else {
+            dom.style.left = dom.offsetLeft + iSpeed + "px";
+          }
+        }, 30);
+      }
+    </script>
+  </body>
+</html>

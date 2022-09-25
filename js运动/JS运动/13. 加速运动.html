@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        position: absolute;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        background: red;
+        opacity: 1;
+      }
+
+      #topDiv {
+        top: 200px;
+      }
+
+      #bottomDiv {
+        top: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="topDiv"></div>
+    <div id="bottomDiv"></div>
+    <script>
+      // v = v + at;
+      var oDiv = document.getElementsByTagName("div")[0];
+      var timer = null;
+      oDiv.onclick = function () {
+        startMove(this);
+      };
+      // 加速度不变的加速运动 运动方向是向右
+      // 加速度不变的减速运动   加速不变的加速运动 向左
+      function startMove(dom) {
+        clearInterval(timer);
+        var a = -2;
+        var iSpeed = 20;
+        timer = setInterval(function () {
+          iSpeed = iSpeed + a;
+          oDiv.style.left = oDiv.offsetLeft + iSpeed + "px";
+        }, 30);
+      }
+    </script>
+  </body>
+</html>

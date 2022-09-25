@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        position: absolute;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        background: red;
+        opacity: 1;
+      }
+
+      #topDiv {
+        top: 200px;
+      }
+
+      #bottomDiv {
+        top: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="topDiv"></div>
+    <div id="bottomDiv"></div>
+    <script>
+      var oDiv = document.getElementsByTagName("div")[0];
+      var timer = null;
+      oDiv.onclick = function () {
+        startMove(this, 300);
+      };
+
+      // 位置
+      // f
+      // a
+
+      function startMove(dom, target) {
+        clearInterval(timer);
+        // 正 -> 负 <-
+        var a = 3;
+        var iSpeed = 0;
+        var u = 0.8;
+        timer = setInterval(function () {
+          a = (target - dom.offsetLeft) / 5;
+          iSpeed += a;
+          iSpeed *= 0.8;
+          //近似吧绝对值为小于 1 看成是速度为0
+          if (Math.abs(iSpeed) < 1 && Math.abs(target - dom.offsetLeft) < 1) {
+            clearInterval(timer);
+            dom.style.left = target + "px";
+          } else {
+            dom.style.left = dom.offsetLeft + iSpeed + "px";
+          }
+        }, 30);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="demo"></div>
+    <script>
+      var timer = null;
+      var oDiv = document.getElementById("demo");
+      oDiv.onclick = function () {
+        startMove(this, 0.5);
+      };
+
+      function getStyle(dom, attr) {
+        if (window.getComputedStyle) {
+          return window.getComputedStyle(dom, null)[attr];
+        } else {
+          return dom.currentStyle[attr];
+        }
+      }
+
+      function startMove(dom, target) {
+        clearInterval(timer);
+        var iSpeed = null,
+          iCur = null;
+        timer = setInterval(function () {
+          iCur = parseFloat(getStyle(dom, "opacity"));
+          iSpeed = (target - iCur) / 7;
+          iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+          if (iCur == target) {
+            clearInterval(timer);
+          } else {
+            dom.style.opacity = iCur + iSpeed;
+          }
+        }, 200);
+      }
+    </script>
+  </body>
+</html>

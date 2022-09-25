@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            opacity: 1;
+            margin-bottom: 100px;
+            border: 5px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var timer = null;
+        var oDivArray = document.getElementsByTagName('div');
+        oDivArray[0].onclick = function () {
+            startMove(this, 'width', 400);
+        }
+        oDivArray[1].onclick = function () {
+            startMove(this, 'height', 400);
+        }
+        oDivArray[2].onclick = function () {
+            startMove(this, 'borderWidth', 200);
+        }
+        oDivArray[3].onclick = function () {
+            startMove(this, 'opacity', 50);
+        }
+        function getStyle(dom, attr) {
+            if (window.getComputedStyle) {
+                return window.getComputedStyle(dom, null)[attr];
+            } else {
+                return dom.currentStyle[attr];
+            }
+        }
+
+        function startMove(dom, attr, target) {
+            clearInterval(dom.timer);
+            var iSpeed = null, iCur = null;
+            dom.timer = setInterval(function () {
+                if (attr == 'opacity') {
+                    iCur = parseFloat(getStyle(dom, attr)) * 100;
+                } else {
+                    iCur = parseInt(getStyle(dom, attr));
+                }
+                iSpeed = (target - iCur) / 7;
+                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                if (iCur == target) {
+                    clearInterval(dom.timer);
+                }
+                if (attr == 'opacity') {
+                    dom.style.opacity = (iCur + iSpeed) / 100;
+                } else {
+                    dom.style[attr] = iCur + iSpeed + 'px';
+                }
+            }, 30)
+        }
+    </script>
+</body>
+
+</html>
