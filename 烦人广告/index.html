@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #msg {
+        width: 200px;
+        height: 200px;
+        position: fixed;
+        /* fixed定位使得bottom不产生滚动。固定定位，不在文档流 */
+        right: 30px;
+        bottom: -200px;
+        background-color: LightBlue;
+      }
+
+      #msg > a {
+        float: right;
+        padding: 5px 10px;
+        border: 1px solid black;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="msg">
+      <a href="javascript:adv.moveDown();">X</a>
+    </div>
+    <script>
+      var adv = {
+        DISTANCE: 0, //保存移动的总距离
+        DURATION: 1000, //保存动画的总时长
+        STEPS: 50, //保存总步数
+        moved: 0, //保存每步的步长
+        interval: 0, //保存每步的步频
+        WAIT: 5000, //保存下落后，等待上升的时间
+        step: 0, //保存每步的步长
+        timer: null, //定时器序号
+        init: function () {
+          // 获得id为msg的元素计算后的样式中的height，转为浮点数后，保存在DISTANCE属性中
+          this.DISTANCE = parseFloat(getComputedStyle(msg).height);
+          console.log(this.DISTANCE);
+          //计算interval属性：DURATION/STEPS
+          this.interval = this.DURATION / this.STEPS;
+          //计算step属性：DISTANCE/STEPS
+          this.step = this.DISTANCE / this.STEPS;
+          this.timer = setTimeout(
+            // this->adv
+            // this.moveUp.bind(this), this.interval);// 启动首次上移
+            this.move.bind(this, 1),
+            this.interval
+          );
+        },
+        // moveUp: function () {//作为向上移动一步的任务函数
+        move: function (n) {
+          //参数控制上下移动
+          //获得id为msg的元素计算后的样式中的bottom属性，转为浮点数后，保存在变量bottom中
+          var bottom = parseFloat(getComputedStyle(msg).bottom);
+          // 将msg元素的 bottom属性设置为 bottom+step+"px"
+          // msg.style.bottom = bottom + this.step + "px";
+          msg.style.bottom = bottom + n * this.step + "px";
+          this.moved++; //移动步数+1
+          if (this.moved < this.STEPS) {
+            //如果还能移动
+            //启动一个一次性定时器，每隔interval执行一次moveUp
+            this.timer = setTimeout(
+              // this.moveUp.bind(this), this.interval
+              this.move.bind(this, n),
+              this.interval //这里的n不能写死，因为当前次数传的是1，下次连续传还得是1
+            );
+          } else {
+            clearTimeout(this.timer); //停止定时器
+            this.timer = null; //清空timer
+            this.moved = 0; //moved归0
+            //如果n = -1
+            if (n == -1) {
+              //启动一次性定时器，等待WAIT时间，再调用move上移
+              setTimeout(this.move.bind(this, 1), this.WAIT); //这里的1一定写死，因为你明确要上移
+            }
+          }
+        },
+        moveDown: function () {
+          // 上移的时候不能点击关闭,可怕的是动画叠加
+          //如果timer = null的时候
+          if (this.timer == null) {
+            //调用move（）方法，传-1 作为参数   即n
+            this.move(-1);
+          }
+        },
+      };
+      window.onload = function () {
+        adv.init();
+      };
+    </script>
+  </body>
+</html>

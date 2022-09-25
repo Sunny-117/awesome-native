@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,body{
+  height: 100%;
+}
+
+body {
+  background-image: url(../imgs/bg.jpg);
+  background-size: cover;
+  font-family: 'PingFang SC';
+}
+
+.blessing-wall {
+  width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.blessing-list {
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.blessing-card {
+  width: 100px;
+  height: 100px;
+  background-image: url(../imgs/cardbg-1.png);
+  background-size: cover;
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(10deg);
+  user-select: none;
+  cursor: pointer;
+}
+
+.bessing-button{
+  text-align: center;
+  padding: 20px;
+}
+
+.bessing-button button {
+  background-color: #f67b93;
+  color: #fff;
+  font-size: 30px;
+  padding: 10px;
+  border: 1px solid pink;
+  border-radius: 10px;
+  cursor:pointer;
+}
+
+.mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.pop-box{
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 500px;
+  height: 300px;
+  padding: 10px;
+  background-color: #c52947;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.pop-box h1{
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
+  margin: 5px 10px;
+}
+
+.pop-box textarea {
+  display: block;
+  width: 440px;
+  height: 140px;
+  padding: 10px;
+  margin: 20px auto;
+  resize: none;
+  font-size: 16px;
+  color: #691323;
+}
+
+.pop-box .send{
+  width: 100px;
+  margin: 0 auto;
+  padding: 8px 0;
+  text-align: center;
+  color: white;
+  background-color: #780a1f;
+  font-weight: bolder;
+  cursor: pointer;
+}

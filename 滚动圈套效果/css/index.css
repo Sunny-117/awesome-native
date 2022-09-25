@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+}
+
+body {
+    background-color: #000;
+    overflow: hidden;
+}
+
+.start-btn {
+    position: absolute;
+    z-index: 999;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 30px;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: aqua;
+    color: #fff;
+    outline: none;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九宫格抽奖游戏</title>
+    <style>
+        .wrap {
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        
+        .main {
+            width: 600px;
+            height: 600px;
+        }
+        
+        .num {
+            width: 200px;
+            height: 200px;
+            float: left;
+            text-align: center;
+            line-height: 200px;
+            font-size: 40px;
+            box-sizing: border-box;
+            border: solid 1px red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="main">
+            <div class="num">1</div>
+            <div class="num">2</div>
+            <div class="num">3</div>
+            <div class="num">4</div>
+            <div class="num" id="start">抽奖</div>
+            <div class="num">5</div>
+            <div class="num">6</div>
+            <div class="num">7</div>
+            <div class="num">8</div>
+        </div>
+    </div>
+</body>
+
+<script>
+    //9大div元素
+    var divNum = document.getElementsByClassName("num");
+    var startBtn = document.getElementById("start");
+    //结束（第一次的停止位）1-8
+    var stoPosition = Math.floor(Math.random * 8 + 1);
+    //元素数组
+    var divList = [];
+    //索引数组
+    var arr = [0, 1, 2, 5, 8, 7, 6, 3];
+    for (let i = 0; i < divNum.length; i++) {
+        divList.push(divNum[arr[i]])
+    }
+    console.log(divList);
+
+    //改变颜色(index是元素的索引)
+    function animation(index) {
+        divList[index].style.background = "red";
+        //选择当前的，把上一个初始化
+        if (index == 0) {
+            divList[7].style.background = "#fff";
+        } else {
+            divList[index - 1].style.background = "#fff";
+        }
+    }
+
+    //按钮的点击事件
+    startBtn.onclick = function() {
+        //清理所有的颜色
+        for (let i = 0; i < divNum.length - 1; i++) {
+            divList[i].style.background = "#fff";
+        }
+        //重新赋值
+        stoPosition = Math.floor(Math.random() * 8 + 1);
+        startBtn.innerText = "抽奖中...";
+        var roundNum = 0; //转多少之后停止
+        var currntIndex = 0; //当前选中
+
+        //加速器(speed数值)
+        speedFun(500)
+
+        function speedFun(speed) {
+            //圈数未结束
+            if (roundNum != 50) {
+                //还要继续跑
+                if (speed != 100) {
+                    speed -= 50; //加速
+                }
+                roundNum++;
+            } else {
+                //已经跑完了
+                if (speed != 500) {
+                    speed += 50; //减速
+                } else {
+                    if (currntIndex == stoPosition) {
+                        //系统选中的停止位  == 设定好的停止为
+                        //停止操作
+                        stopLuck();
+                        return
+                    }
+                }
+            }
+            //改变当前所在位置
+            currntIndex = currntIndex > 7 ? 0 : currntIndex;
+            animation(currntIndex);
+            currntIndex++;
+            //定时器
+            setTimeout(function() {
+                speedFun(speed)
+            }, speed)
+        }
+
+        //停止
+        function stopLuck() {
+            startBtn.innerText = "抽奖";
+        }
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo{
+            width:320px;
+            margin: 10px auto 20px;
+            min-height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <canvas></canvas>
+    </div>
+    <script type="text/javascript">
+        var bodyStyle = document.body.style;
+
+        var img = new Image();
+        var canvas = document.querySelector("canvas");
+        canvas.style.backgroundColor = "transparent";
+        canvas.style.position = "absolute";
+        var imgs = ['p_0.jpg',"p_1.jpg"];
+        var num = Math.floor(Math.random()*2);
+        img.src =  imgs[num];
+
+        // 事件
+        img.addEventListener("load",function(){
+            var ctx;
+            var w = img.width,
+                h = img.height;
+            var offsetX = canvas.offsetLeft,
+                offsetY = canvas.offsetTop;
+            var mousedown = false;//鼠标状态
+
+            //层填充
+            function layer(ctx){
+                ctx.fillStyle = "gray";
+                ctx.fillRect(0,0,w,h);
+            }
+
+            //按下
+            function eventDown(e){
+                e.preventDefault();//停止默认方法
+                mousedown = true;
+            }
+
+            //释放
+            function eventUp(e){
+                e.preventDefault();
+                mousedown = false;
+            }
+
+            //鼠标移动事件
+            function eventMove(e){
+                console.log(e.clientX)
+                e.preventDefault();
+                //查看鼠标状态
+                if(mousedown){
+                    //按下
+                    //
+                    var x = e.clientX - offsetX,
+                    y = e.clientY - offsetY;
+                    with(ctx){
+                        beginPath()
+                        arc(x,y,10,0,Math.PI * 2);
+                        fill();
+                    }
+                }
+            }
+
+            canvas.width = w;
+            canvas.height = h;
+            canvas.style.backgroundImage = 'url('+img.src+')';
+
+            ctx = canvas.getContext("2d");
+            ctx .fillStyle = "transparent";
+            ctx.fillRect(0, 0, w, h);
+            layer(ctx);
+
+            ctx.globalCompositeOperation = "destination-out";
+            //在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。
+            canvas.addEventListener("touchstart", eventDown);
+            canvas.addEventListener("touchend",eventUp);
+            canvas.addEventListener('touchmove', eventMove);
+            canvas.addEventListener("mousedown", eventDown);
+            canvas.addEventListener("mouseup", eventUp);
+            canvas.addEventListener("mousemove", eventMove)
+        })
+    </script>
+</body>
+</html>

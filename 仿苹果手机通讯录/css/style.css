@@ -1,0 +1,74 @@
+html, body{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  font-family: "PingFang SC";
+  font-weight: bolder;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+.contacts-group{
+  position: relative;
+  padding-top: 30px;
+}
+
+.contacts-group-title {
+  width: 100%;
+  background-color: #ccc;
+  line-height: 30px;
+  padding: 0 10px;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+
+.contacts-group-item{
+  background-color: #fff;
+  padding: 0 10px;
+  line-height: 40px;
+}
+
+.contacts-group-item div{
+  border-bottom: 1px solid #ccc;
+}
+
+.contacts-group-item div:nth-last-child(1){
+  border-bottom: none;
+}
+
+.contacts-nav{
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  color: blue;
+}
+
+.contacts-header {
+  width: 100%;
+  background-color: #ccc;
+  line-height: 30px;
+  padding: 0 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.is-animated> .contacts-group-title{
+  top: auto;
+  bottom: 0;
+}
+
+.is-hidden{
+  opacity: 0;
+}

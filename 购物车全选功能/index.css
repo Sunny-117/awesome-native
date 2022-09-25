@@ -1,0 +1,157 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.radio {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+.radio.radio--active {
+  background-color: #f40;
+  background-image: url('./image/check.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-color: transparent;
+}
+
+.cart-box {
+  position: relative;
+}
+
+.title-box {
+  padding: 10px;
+  height: 130px;
+  background-color: #f40;
+  background-image: linear-gradient(to right, #f40, #ea3f26);
+  color: #fff;
+}
+
+.title-box .title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.title-box .sub-title {
+  font-size: 12px;
+}
+
+.cart {
+  position: absolute;
+  top: 90px;
+  right: 10px;
+  left: 10px;
+  padding: 10px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.radio {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+.radio.active {
+  background-color: #f40;
+  background-image: url('./image/check.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-color: transparent;
+}
+
+.cart .store-name {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.goods {
+  margin-top: 10px;
+}
+
+.goods .radio,
+.goods .goods-title,
+.goods .poster {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 8px;
+}
+
+.goods .radio {
+  margin-top: 20px;
+}
+
+.goods .poster {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.goods .poster img {
+  vertical-align: middle;
+}
+
+.goods-title {
+  width: 208px;
+  font-size: 14px;
+}
+
+.goods-title .title {
+  margin-bottom: 10px;
+}
+
+.goods-title .price {
+  color: #f40;
+}
+
+.total-price {
+  /* bfc */
+  position: fixed; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  font-size: 12px;
+}
+
+.total-price .select {
+  float: left;
+}
+
+.total-price .price-box {
+  float: right;
+}
+
+
+.price-box .price {
+  color: #f40;
+}
+
+.price-box .count {
+  display: inline-block;
+  width: 70px;
+  height: 30px;
+  margin-left: 10px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 15px;
+  color: #fff;
+  background-image: linear-gradient(to right, #f40, #ea3f26);
+}
