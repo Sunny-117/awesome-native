@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flappy bird</title>
+  <link rel="icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div id="game">
+    <div class="bird"></div>
+    <div class="start start--white">开始游戏</div>
+    <div class="score">0</div>
+    <div class="mask"></div>
+    <div class="end">
+      <p class="over">Game Over</p>
+      <p class="result">Your Results：</p>
+      <p class="final-score">0</p>
+      <ul class="rank-list"></ul>
+      <div class="restart">重新开始</div>
+    </div>
+  </div>
+  <script src="./utils.js"></script>
+  <script src="./index.js"></script>
+  <script>
+    bird.init();
+  </script>
+</body>
+
+</html>
