@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    background-image: url(./img/bg.png);
+    /* background-repeat: no-repeat; */
+}
+
+#score {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    line-height: 200px;
+    color: #fff;
+    font-size: 28px;
+}
+
+#time {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    line-height: 100px;
+    font-size: 28px;
+}
