@@ -1,0 +1,33 @@
+.pager {
+    text-align: center;
+}
+
+/* 正常分页的样式 */
+
+.pager a {
+    border: 1px solid #e1e2e3;
+    color: #001ac4;
+    height: 34px;
+    display: inline-block;
+    line-height: 34px;
+    padding: 0 12px;
+    margin: 8px;
+    cursor: pointer;
+    user-select: none;
+    /* 不允许用户选择 */
+}
+
+/* 当前页样式 */
+
+.pager a.active {
+    border: none;
+    color: #f40;
+    cursor: auto;
+}
+
+/* 不可使用样式 */
+
+.pager a.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}

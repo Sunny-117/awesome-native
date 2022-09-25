@@ -1,0 +1,61 @@
+/* 容器整体样式 */
+
+.container{
+    width: 1000px;
+    height: 700px;
+    margin: 0 auto;
+    display: flex;
+}
+
+/* 容器左边的样式 */
+
+.container .board{
+    width: 350px;
+    height: 100%;
+}
+
+/* 魔盘样式 */
+.board .panel{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background: url('../images/bg.gif') no-repeat;
+    background-position: center;
+}
+
+/* 魔盘中心样式 */
+.board .panel .result{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* 下方游戏说明样式 */
+.board .tip p{
+    font-weight: 100;
+    text-align: center;
+}
+
+/* 右侧字典表样式 */
+.container .dictionary{
+    width: 650px;
+    display: grid;
+    grid-template: repeat(20, 35px)/repeat(5, 130px);
+    grid-auto-flow: column;
+    font-weight: 100;
+}
+
+.container .dictionary .number{
+    display: inline-block;
+    width: 40px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.container .dictionary img{
+    height: 30px;
+    vertical-align: -5px;
+}

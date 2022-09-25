@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>读心术2</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+    <!-- 外层容器 -->
+    <div class="container">
+        <!-- 左侧部分 -->
+        <div class="board">
+            <!-- 左上的魔盘 -->
+            <div class="panel">
+                <!-- 魔盘圆心 -->
+                <img src="../images/round.png" alt="魔盘圆心" class="result" id="initImg">
+                <!-- 显示最终结果的图片 -->
+                <img src="../images/values/0.png" style="opacity: 0" alt="结果图片" class="result" id="resultImg">
+            </div>
+            <!-- 左下的游戏说明 -->
+            <div class="tip">
+                <p>在心中任意选择一个两位数</p>
+                <p>（或者说，从10~99之间任意选择一个数）</p>
+                <p>把这个数字分别减去其十位数和个位数</p>
+                <p>（例如你选择的是71,那就：71-7-1=63）</p>
+                <p>在右边图表中找出与最后得出的数所相应的图形，并把这个图形牢记心中。</p>
+                <p>然后点击上方的阵型。</p>
+                <p>你会发现，阵型所显示出来的图形就是你刚刚心里记下的那个图形。</p>
+            </div>
+        </div>
+        <!-- 右侧部分，这一个部分的内容由 js 动态生成 -->
+        <div class="dictionary"></div>
+    </div>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

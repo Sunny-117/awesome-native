@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transition: all 0.5s linear;
+            position: absolute;
+            left: 0;
+        }
+
+        .box:hover {
+            left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn">点击进行动画移动</button>
+    <div class="box"></div>
+
+
+    <script>
+        var box = document.getElementsByClassName('box')[0]
+        document.getElementsByClassName('btn')[0].addEventListener('click', function () {
+            box.style.left = '100px'
+        })
+    </script>
+</body>
+
+</html>

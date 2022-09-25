@@ -1,0 +1,106 @@
+<mxfile host="65bd71144e">
+    <diagram id="tnzNllKzkknKBV63RN6f" name="第 1 页">
+        <mxGraphModel dx="1234" dy="626" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="700" background="#FFFFFF" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="24" value="carousel-list" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1214" y="122" width="119" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="包裹图片的容器，宽度取决于内部图片的数量" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="1122" y="152" width="290" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="函数：moveTo(newIndex)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="104" width="212" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="newIndex 为要切换到的图片索引" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="139" width="256" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="计算图片容器新的 marginLeft" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="174" width="244" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="将图片容器从当前的 marginLeft &lt;br&gt;变化到新的 marginLeft" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="202" width="260" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="可见区域" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Roboto Mono;fontSize=14;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="48" width="192" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="全局变量：curIndex" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=16;labelBackgroundColor=none;fontFamily=Roboto Mono;" parent="1" vertex="1">
+                    <mxGeometry x="394" y="20" width="167" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="指示当前显示的是第几张图片（索引）" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=16;fontFamily=Roboto Mono;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="474" y="51" width="282" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Roboto Mono;fontSize=14;strokeColor=#6c8ebf;strokeWidth=2;fillColor=#dae8fc;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="877" y="360" width="242" height="39" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="" style="endArrow=none;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;verticalAlign=top;strokeColor=#FF3333;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="953" y="382" as="sourcePoint"/>
+                        <mxPoint x="978" y="382" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="57" value="" style="endArrow=none;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;verticalAlign=top;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="984" y="382" as="sourcePoint"/>
+                        <mxPoint x="1009" y="382" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="58" value="" style="endArrow=none;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;verticalAlign=top;fillColor=#f8cecc;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1015" y="382" as="sourcePoint"/>
+                        <mxPoint x="1040" y="382" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" value="更新 curIndex 的值" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="254" width="170" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="更改指示器状态" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="287" width="122" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="函数：next()" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="329" width="116" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="无缝切换到下一张图片" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="364" width="170" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="调用 moveTo 函数进行切换即可" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="399" width="247" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="最后一张图片切换完成后回归到第一张" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="439" width="282" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="函数：prev()" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="428" y="479" width="116" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="无缝切换到上一张图片" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="478" y="514" width="170" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="调用 moveTo 函数进行切换即可" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="478" y="549" width="247" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="从第一张图片开始切换时，先跳到最后一张的位置，再进行切换" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=16;" parent="1" vertex="1">
+                    <mxGeometry x="478" y="589" width="458" height="23" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="" style="group" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="880" y="171" width="792" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Roboto Mono;fontSize=14;strokeColor=#b85450;strokeWidth=2;fillColor=#f8cecc;verticalAlign=top;" parent="71" vertex="1">
+                    <mxGeometry width="792" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Roboto Mono;fontSize=14;verticalAlign=middle;" parent="71" vertex="1">
+                    <mxGeometry x="11" y="10" width="192" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Roboto Mono;fontSize=14;verticalAlign=middle;" parent="71" vertex="1">
+                    <mxGeometry x="203" y="10" width="192" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;span&gt;3&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Roboto Mono;fontSize=14;verticalAlign=middle;" parent="71" vertex="1">
+                    <mxGeometry x="395" y="10" width="192" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="&lt;span&gt;1&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Roboto Mono;fontSize=14;verticalAlign=middle;" parent="71" vertex="1">
+                    <mxGeometry x="587" y="10" width="192" height="111" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

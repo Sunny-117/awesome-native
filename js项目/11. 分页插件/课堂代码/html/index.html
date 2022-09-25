@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分页2</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <!-- 我们要进行一个分页组件的封装 -->
+    <!-- 所以在结构这个部分，我们只需要有一个容器即可 -->
+
+    <!-- 分页容器 -->
+    <div id="pagercontainer" class="pagercontainer"></div>
+
+    <script src="../js/index.js"></script>
+    <script>
+        var pagercontainer = document.getElementById('pagercontainer');
+        // 1. 当前页码  2. 总页码数 3. 中间的分页项目的个数 4. 放入哪个容器
+        createPager(13, 50, 10, pagercontainer)
+    </script>
+</body>
+</html>

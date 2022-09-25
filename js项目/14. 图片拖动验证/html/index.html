@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片拖动验证</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <!-- 最外层的容器 -->
+    <div class="container">
+        <!-- 上方的切换图片部分 -->
+        <p class="changeImg">图片不好看？换一张吧</p>
+        <!-- 图片容器 -->
+        <div class="imgContainer">
+            <!-- 标题 -->
+            <h3>请完成图片验证</h3>
+            <!-- 图片区域 -->
+            <div class="imgBox">
+                <!-- 可以拖动的图片块 -->
+                <div class="imgBlock"></div>
+                <!-- 需要填补的图片缺口 -->
+                <div class="imgGap"></div>
+            </div>
+            <!-- 滑动块 -->
+            <div class="slider">
+                <span>拖动滑块完成拼图</span>
+                <button type="button" id="btn"></button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  width: 1000px;
+  height: 600px;
+  margin: 50px auto;
+  font-size: 0;
+}
+
+.left-img {
+  width: 490px;
+  height: 510px;
+  margin-right: 16px;
+  border: 1px solid #eee;
+  display: inline-block;
+  /* 图片 */
+  background-image: url(./images/imgA_2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* 遮罩层相对我进行定位 */
+  position: relative;
+}
+.mask {
+  width: 230px;
+  height: 230px;
+  background-image: url(./images/bg.png);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.right-img {
+  width: 490px;
+  height: 510px;
+  border: 1px solid #eee;
+  display: inline-block;
+  background-image: url(./images/imgA_3.jpg);
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+
+.img-list-wrapper {
+  width: 490px;
+  text-align: center;
+  margin-top: 10px;
+}
+.img-list {
+  display: inline-block;
+}
+.img-list li {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin: 0 5px;
+  cursor: pointer;
+  /* background-image: url(./images/imgA_1.jpg); */
+  background-repeat: no-repeat;
+  /* border: 2px solid #000; */
+  border: 1px solid #eee;
+}

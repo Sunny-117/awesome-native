@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        background: #f40;
+        width: 100px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item"></div>
+
+    <script src="./animate.js"></script>
+    <script>
+      var div = document.querySelector('.item');
+      div.onclick = function () {
+        createAnimation({
+          from: 300,
+          to: 100,
+          totalMS: 3000,
+          onmove: function (n) {
+            div.style.height = n + 'px';
+          },
+          onend: function () {
+            div.style.background = '#008c8c';
+          },
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 可视区域 */
+
+.main-container {
+    height: 546px;
+    background-image: url('../img/banner-bg.jpg');
+    position: relative;
+}
+
+.main-content-container {
+    width: 874px;
+    height: 458px;
+    background-image: url('../img/center_bg.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.prize-list {
+    position: absolute;
+    background: #622230;
+    border: 1px solid #722536;
+    border-radius: 5px;
+    width: 270px;
+    box-sizing: border-box;
+    height: 100px;
+}
+
+.prize-list.active {
+    background-color: #ffb100;
+}
+
+.prize-list.active>span {
+    color: #622230;
+}
+
+.prize-list>img {
+    max-width: 75px;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prize-list>span {
+    font-weight: bold;
+    font-size: 19px;
+    color: #ffb100;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 164px;
+    text-align: center;
+    right: 0;
+}
+
+.prize-list:nth-child(1) {
+    top: 22px;
+    left: 26px;
+}
+
+.prize-list:nth-child(2) {
+    top: 22px;
+    left: 302px;
+}
+
+.prize-list:nth-child(3) {
+    top: 22px;
+    right: 26px;
+}
+
+.prize-list:nth-child(4) {
+    top: 129px;
+    right: 26px;
+    width: 100px;
+    height: 200px;
+}
+
+.prize-list:nth-child(4)>img,
+.prize-list:nth-child(8)>img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+}
+
+.prize-list:nth-child(4)>span,
+.prize-list:nth-child(8)>span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 36px;
+    top: auto;
+}
+
+.prize-list:nth-child(5) {
+    bottom: 22px;
+    right: 26px;
+}
+
+.prize-list:nth-child(6) {
+    bottom: 22px;
+    left: 302px;
+}
+
+.prize-list:nth-child(7) {
+    bottom: 22px;
+    left: 26px;
+}
+
+.prize-list:nth-child(8) {
+    top: 129px;
+    left: 26px;
+    width: 100px;
+    height: 200px;
+}
+
+
+/* 控制区域 */
+
+.handler-container {
+    width: 614px;
+    height: 198px;
+    background-image: url(../img/middle-bg.png);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.handler-container>* {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo {
+    left: 20px;
+}
+
+.start-btn {
+    right: 20px;
+    cursor: pointer;
+}
+
+.number-container {
+    color: #ffd200;
+    font-size: 30px;
+    font-weight: bold;
+    left: 116px;
+}
+
+
+/* 弹窗样式 */
+
+.masker-dialog {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: none;
+}
+
+.masker-dialog-content {
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 400px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.dialog-header {
+    height: 50px;
+    line-height: 50px;
+    background-color: #e99c3d;
+    box-sizing: border-box;
+    padding: 0 20px;
+    color: #fff;
+}
+
+.header-left {
+    float: left;
+    font-size: 18px;
+}
+
+.close-btn {
+    float: right;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+.dialog-content {
+    margin: 20px 0;
+    color: #622230;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.confirm-btn {
+    background-color: #fca825;
+    height: 28px;
+    line-height: 28px;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}

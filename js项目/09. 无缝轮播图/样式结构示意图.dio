@@ -1,0 +1,160 @@
+<mxfile host="65bd71144e">
+    <diagram id="tnzNllKzkknKBV63RN6f" name="第 1 页">
+        <mxGraphModel dx="994" dy="626" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="700" background="#FFFFFF" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Roboto Mono;fontSize=14;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="329" y="265" width="192" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="carousel-container" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="135" y="293" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="整个容器，宽高固定，溢出隐藏" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="95" y="321" width="210" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Roboto Mono;fontSize=14;fillColor=none;strokeWidth=2;dashed=1;dashPattern=1 1;strokeColor=#999999;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="273" width="172" height="93" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="endArrow=none;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;verticalAlign=top;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="377" y="359" as="sourcePoint"/>
+                        <mxPoint x="402" y="359" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="" style="endArrow=none;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;verticalAlign=top;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="408" y="359" as="sourcePoint"/>
+                        <mxPoint x="433" y="359" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="" style="endArrow=none;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;verticalAlign=top;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="439" y="359" as="sourcePoint"/>
+                        <mxPoint x="464" y="359" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="&amp;lt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;strokeColor=none;fillColor=#000000;opacity=10;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="329" y="265" width="32" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;strokeColor=none;fillColor=#000000;opacity=10;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="489" y="265" width="32" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="endArrow=classic;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;strokeColor=#999999;verticalAlign=top;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="367" y="343" as="sourcePoint"/>
+                        <mxPoint x="367" y="424" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Roboto Mono;fontSize=14;strokeColor=#b85450;strokeWidth=2;fillColor=#f8cecc;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="318" y="428" width="600" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="carousel-item&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Roboto Mono;fontSize=14;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="329" y="438" width="192" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="carousel-item" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Roboto Mono;fontSize=14;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="521" y="438" width="192" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;span&gt;carousel-item&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Roboto Mono;fontSize=14;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="713" y="438" width="192" height="111" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="图片，定宽高，左浮动" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="346" y="508" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="图片，定宽高，左浮动" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="538" y="508" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="图片，定宽高，左浮动" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="729" y="508" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="carousel-list" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="176" y="473" width="119" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="包裹图片的容器，宽度取决于内部图片的数量" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontFamily=Roboto Mono;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="11" y="504" width="290" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="endArrow=classic;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;strokeColor=#999999;verticalAlign=top;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="420" y="360" as="sourcePoint"/>
+                        <mxPoint x="686" y="360" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="420" y="398"/>
+                            <mxPoint x="686" y="398"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Roboto Mono;fontSize=14;strokeColor=#6c8ebf;strokeWidth=2;fillColor=#dae8fc;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="567" y="314" width="242" height="39" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="endArrow=none;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;verticalAlign=top;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="643" y="336" as="sourcePoint"/>
+                        <mxPoint x="668" y="336" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="" style="endArrow=none;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;verticalAlign=top;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="674" y="336" as="sourcePoint"/>
+                        <mxPoint x="699" y="336" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="" style="endArrow=none;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;verticalAlign=top;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="705" y="336" as="sourcePoint"/>
+                        <mxPoint x="730" y="336" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="indicator" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="641" y="244" width="86" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="指示器容器，绝对定位，内容居中" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="574" y="273" width="220" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="" style="endArrow=classic;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;strokeColor=#999999;verticalAlign=top;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="717" y="341" as="sourcePoint"/>
+                        <mxPoint x="787" y="396" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="717" y="396"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" value="indicator-item" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="796" y="364" width="128" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="指示器项，行块盒，可能会具有激活样式" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="800" y="389" width="262" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="" style="endArrow=classic;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;strokeColor=#999999;verticalAlign=top;exitX=0.469;exitY=0.153;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="11">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="393" y="166" as="sourcePoint"/>
+                        <mxPoint x="400" y="205" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="344" y="236"/>
+                            <mxPoint x="400" y="236"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="41" value="" style="endArrow=classic;html=1;fontFamily=Roboto Mono;fontSize=14;strokeWidth=2;strokeColor=#999999;verticalAlign=top;exitX=0.469;exitY=0.153;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="508.00800000000004" y="281.98299999999995" as="sourcePoint"/>
+                        <mxPoint x="452" y="206" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="508" y="237"/>
+                            <mxPoint x="452" y="237"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="43" value="arrow-left" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="323" y="179" width="94" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="arrow-right" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="435" y="179" width="102" height="21" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="箭头区域，绝对定位，半透明" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=14;fontFamily=Roboto Mono;" vertex="1" parent="1">
+                    <mxGeometry x="332" y="154" width="192" height="21" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
