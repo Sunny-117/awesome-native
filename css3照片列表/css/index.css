@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+/* 土方法 
+body,
+html,
+#wrap {
+  width: 100%;
+  height: 100%;
+}*/
+#wrap {
+  /* 新方法 */
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  /* 居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrap ul {
+  /* 百分比实现响应式 */
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  /* 两端对齐 */
+  align-items: center;
+}
+
+#wrap li {
+  /* 如果加上ul就出现权重覆盖了，导致transition覆盖 */
+  width: 16%;
+  height: 100%;
+  background: #333;
+  border-radius: 20px;
+  /* 动的是div,li默认看不到 */
+  overflow: hidden;
+  transition: width 0.5s linear, height 0.5s linear 0.5s;
+  /* 0.5延迟 */
+}
+
+#wrap li .inner {
+  /* 父级来个相对定位 */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: 0.5s linear;
+}
+
+#wrap .init .inner {
+  transform: translateY(100%);
+  /* 这是移动图片的核心init 设置class */
+}
+
+#wrap li:nth-child(1) .inner {
+  transition-delay: 0.1s;
+}
+
+#wrap li:nth-child(2) .inner {
+  transition-delay: 0.2s;
+}
+
+#wrap li:nth-child(3) .inner {
+  transition-delay: 0.3s;
+}
+
+#wrap li:nth-child(4) .inner {
+  transition-delay: 0.4s;
+}
+
+#wrap li:nth-child(5) .inner {
+  transition-delay: 0.5s;
+}
+
+#wrap li:nth-child(6) .inner {
+  transition-delay: 0.6s;
+}
+
+#wrap li .inner .bg {
+  height: 100%;
+  /* 图片的核心 */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+
+  transition: 0.2s;
+}
+
+#wrap li:nth-child(1) .inner .bg {
+  background-image: url(../images/1.jpg);
+}
+
+#wrap li:nth-child(2) .inner .bg {
+  background-image: url(../images/2.jpg);
+}
+
+#wrap li:nth-child(3) .inner .bg {
+  background-image: url(../images/3.jpg);
+}
+
+#wrap li:nth-child(4) .inner .bg {
+  background-image: url(../images/4.jpg);
+}
+
+#wrap li:nth-child(5) .inner .bg {
+  background-image: url(../images/5.jpg);
+}
+
+#wrap li:nth-child(6) .inner .bg {
+  background-image: url(../images/6.jpg);
+}
+
+#wrap li:hover .inner .bg {
+  opacity: 1;
+}
+
+#wrap li h2 {
+  font-size: 16px;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  transition: opacity 0.2s linear 1s;
+  /* 延迟 */
+}
+
+#wrap li:hover h2 {
+  font-size: 24px;
+}
+
+#activeWrap li.active {
+  width: 100%;
+}
+
+#activeWrap li:not(.active) {
+  /* 其他兄弟节点消失 */
+  width: 0;
+  height: 0;
+}
+
+#activeWrap li {
+  /* 先后顺序的核心：兄弟节点先走高，后走宽 */
+  transition: height 0.5s linear, width 0.5s linear 0.5s;
+}
+
+#activeWrap li h2 {
+  opacity: 0;
+  transition: 0.2s linear;
+}
+
+#wrap li .direction {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 30px;
+  line-height: 30px;
+
+  position: absolute;
+  top: 50px;
+  opacity: 0;
+}
+
+#wrap li .header {
+  color: #fff;
+  font-size: 24px;
+}
+
+#wrap li .close {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+#wrap li .close:after,
+#wrap li .close:before {
+  content: "";
+  width: 30px;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  margin-top: -2px;
+  background: #fff;
+}
+
+#wrap li .close:after {
+  transform: rotate(45deg);
+}
+
+#wrap li .close:before {
+  transform: rotate(-45deg);
+}
+
+#activeWrap li .direction {
+  opacity: 1;
+  transition: 0.5s linear 1s;
+}
+
+#activeWrap li .close {
+  transform: rotate(360deg);
+  transition: 0.5s linear 1s;
+}
+
+/* 编程逻辑：经验 */
