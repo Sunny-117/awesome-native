@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="nav">
+            <a href="#" class="nav_blod nav_1">综艺</a>
+            <a href="#" class="Tw">腾讯自制</a>
+            <a href="#">独播</a>
+        </div>
+        <div class="nav">
+            <a href="#" class="nav_blod nav_2">动漫</a>
+            <a href="#" class="Tw">国漫</a>
+            <a href="#">日漫</a>
+        </div>
+        <!-- //弹窗的部分 -->
+        <div class="nav_mask_area">
+            <div class="nav_mask_title">
+                <a href="">全部综艺</a>
+            </div>
+            <div class="nav_mask_content">
+                <a href="#">演员请就位</a>
+                <a href="#">幸福三重奏</a>
+                <a href="#">心动的信号</a>
+                <a href="#">潮玩人类在哪里</a>
+                <a href="#">明日之子乐团季</a>
+                <a href="#">脱口秀大会3</a>
+                <a href="#">超新星运动会</a>
+                <a href="#">认真的嘎嘎们</a>
+                <a href="#">女人30+</a>
+                <a href="#">青春环游记2</a>
+                <a href="#">极限挑战6</a>
+                <a href="#">炙热的我们</a>
+                <a href="#">创造营2020</a>
+                <a href="#">德云斗笑社</a>
+                <a href="#">认真的嘎嘎们</a>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        (function () {//代码块 函数的作用域 命名空间
+            // setInterval(function(){
+            //     // this  window
+            // })
+            // var obj = {}
+            var timer = null;
+            var mask = document.getElementsByClassName('nav_mask_area')[0];
+            var btn1 = document.getElementsByClassName('nav_1')[0];
+            var btn2 = document.getElementsByClassName('nav_2')[0];
+
+            btn1.onmouseenter = function () {
+                mask.style.display = 'block';
+                mask.style.bottom = '106px';
+                clearTimeout(timer);
+                mask.onmouseenter = function () {
+                    clearTimeout(timer);
+                }
+                mask.onmouseleave = function () {
+                    mask.style.display = 'none';
+                }
+                this.onmouseleave = function () {
+                    timer = setTimeout(function () {
+                        mask.style.display = 'none';
+                    }, 250)
+
+                }
+            }
+
+            btn2.onmouseenter = function () {
+                mask.style.display = 'block';
+                mask.style.bottom = '50px';
+                clearTimeout(timer);
+                mask.onmouseenter = function () {
+                    clearTimeout(timer);
+                }
+                mask.onmouseleave = function () {
+                    mask.style.display = 'none';
+                }
+                this.onmouseleave = function () {
+                    timer = setTimeout(function () {
+                        mask.style.display = 'none';
+                    }, 250)
+
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+        })()
+
+
+//   es6   块级作用域
+// {
+//  let abc = 'abc'
+// }   nodejs  ---  javascript
+//  js之后 该学习什么？
+
+//  1 ，浏览器的BOM  
+//  2， 网络的部分  （http协议 各种网络协议 ajax 跨域）
+//  3， 第三方的工具库  （jquery ，bootstrap）
+//  4， HTML5  +  CSS3  移动端的适配 
+//  5， ES6  7  8 语法
+//  6， 模块化开发  commonjs  amd cmd  es6模块化
+//  7， nodejs npm  
+//  8， webpack  预编译器 less sass   
+//  9， svn ---  git  --- github
+//  10，框架  mvvm 框架  vuejs 3.0全家桶 脚手架 vuex 。。。   reactjs  angluarjs
+//  11，后nodejs + 数据库 深入   （前提  设计模式  + 前端算法+数据结构  ）
+//  12， vuejs 底层源码分析 mvvm（）
+
+
+    </script>
+</body>
+
+</html>

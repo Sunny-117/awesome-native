@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+	<!--声明当前页面编码集(中文编码<gbk,gb2312>,国际编码<utf-8>)-->
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<!--声明当前页面的三要素-->
+	<title>jie_</title>
+	<meta name="Keywords" content="关键字,关键词">
+	<meta name="Description" content="">
+	<link type="text/css" rel="stylesheet" href="css/common.css">
+	<style>
+		/*将所有元素，默认内外边距取消*/
+		* {
+			padding: 0;
+			margin: 0
+		}
+		/* 给a标签去掉下划线，给定默认颜色 */
+		a {
+			text-decoration: none;
+			color: #fff
+		}
+		/* 对当前表格进行样式设定 */
+		td {
+			padding: 5px 10px;
+			border: 1px solid #ccc;
+			background: #111;
+			color: #fff;
+			white-space: nowrap;/*white-space 属性设置如何处理元素内的空白。 规定段落中的文本不进行换行：*/
+		}
+
+		body {
+			font-size: 12px;
+			font-family: "微软雅黑";
+			padding: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 数字输入位置 -->
+	<input type="text" value="9" id="num" />
+	<!-- 生成乘法表按钮 -->
+	<input type="button" onclick="result()" value="生成乘法表" />
+	<!-- 自动累加生成乘法表按钮 -->
+	<input type="button" onclick="startResult()" value="自动生成" />
+	<!-- 停止自动生成乘法表按钮 -->
+	<input type="button" onclick="clearResult()" value="停止生成" />
+	<!-- 存放乘法表的 表格 -->
+	<table id="tab">
+		<tbody id="tbody">
+		</tbody>
+	</table>
+
+	<script type="text/javascript">
+		//结果方法
+		function result() {
+			// 获取当前输入框输入内容
+			var num = document.getElementById("num").value;
+			// 判断如果未空，获取焦点时候
+			if (!num) {
+				document.getElementById("num").focus();//获取焦点
+				alert("请输入一个值吧...");
+				return;//结束判断
+			}
+			// 判断输入的是否是数字
+			if (isNaN(num)) {
+				document.getElementById("num").value;
+				alert("请输入一个数字吧...");
+				return;
+			}
+			// 创建一个空文本 ，存放表格内容
+			var html = "";
+			for (var i = 1; i <= num; i++) {//外层循环就控制里面循环的次数
+				// 表格生成
+				html += "<tr>";
+				for (var j = 1; j <= i; j++) {
+					// 两层循环计算 乘法表
+					html += "<td>" + j + " * " + i + " = " + (i * j) + "</td>";
+				}
+				html += "</tr>";
+			};
+			// 将乘法表添加至表格中
+			document.getElementById("tbody").innerHTML = html;
+		}
+		//自动生成
+		var timer = null;
+		// 起点数值
+		var num = 0;
+		function startResult() {
+			// 多长时间执行一行表格
+			timer = setInterval(function () {
+				// 每次数字累加
+				num++;
+				// 将num传给 输入框
+				document.getElementById("num").value = num;
+				// 调用生成方法
+				result();
+			}, 600);
+		}
+		//停止生成	
+		function clearResult() {
+			clearInterval(timer);
+			//num = 0;
+		};
+	</script>
+</body>
+
+</html>

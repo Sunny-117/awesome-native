@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机抽奖</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="main">
+        <!-- 可视区域结构 -->
+        <div class="content-container">
+            <div class="prize-list">
+                <img src="./img/prize_1.png" alt="">
+                <span>IphoneX</span>
+            </div>
+            <div class="prize-list">
+                <img src="./img/prize_2.png" alt="">
+                <span>现金50元</span>
+            </div>
+            <div class="prize-list">
+                <img src="./img/prize_3.png" alt="">
+                <span>HUAWEI</span>
+            </div>
+            <div class="prize-list">
+                <img src="./img/prize_4.png" alt="">
+                <span>现金10元</span>
+            </div>
+            <div class="prize-list">
+                <img src="./img/prize_5.png" alt="">
+                <span>谢谢参与</span>
+            </div>
+            <div class="prize-list">
+                <img src="./img/prize_6.png" alt="">
+                <span>手机优惠券</span>
+            </div>
+            <div class="prize-list">
+                <img src="./img/prize_7.png" alt="">
+                <span>电脑优惠券</span>
+            </div>
+            <div class="prize-list">
+                <img src="./img/prize_8.png" alt="">
+                <span>U盘</span>
+            </div>
+            <!-- 中心内容部分 -->
+            <div class="handler-container">
+                <img class="logo" src="./img/center_1.png" alt="">
+                <div class="handler-container-middle">
+                    还可以抽奖 <span id="prizeNumber" class="prize-number">0</span> 次
+                </div>
+                <div id="startBtn" class="handler-container-btn"></div>
+            </div>
+        </div>
+
+        <!-- 对话框结构 -->
+        <div id="dialogContainer" class="dialog-container">
+            <div class="dialog-main">
+                <div class="head-container">
+                    <span class="title">温馨提示</span>
+                    <span id="closeBtn" class="close">&times;</span>
+                </div>
+                <div id="prizeContent" class="content">
+                    获奖文案
+                </div>
+                <div id="confirmBtn" class="confirm-btn">再来一次</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

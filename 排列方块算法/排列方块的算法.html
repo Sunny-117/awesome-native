@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#box {
+			width: 1018px;
+			height: 916px;
+
+			position: relative;
+			border: 1px solid #000;
+		}
+
+		#box div {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+
+			opacity: .2;
+			background: green;
+
+			transition: .5s;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="box"></div>
+
+	<script>
+		var box = document.getElementById('box');
+
+		var row = 9;	//行
+		var col = 10;	//列
+
+		var str = '';	//所有的小方块
+
+		/*
+			一个for循环实现横着排，竖着排 
+				横着排
+					top值		top=parseInt(当前索引/列数)*方块的高度
+						第一行
+							当前索引		0 1 2 3 4 5 6 7 8 9	（除个10）
+							要变成的索引	0 0 0 0 0 0 0 0 0 0
+
+						第二行
+							当前索引		10 11 12 13 14 15 16 17 18 19
+							要变成的索引	1  1  1  1   1  1  1  1  1  1
+
+					left值		left=当前的索引%列数*方块的宽度
+						第一行
+							当前索引		0 1 2 3 4 5 6 7 8 9	（%个10）
+							要变成的索引	0 1 2 3 4 5 6 7 8 9
+
+						第二行
+							当前索引		10 11 12 13 14 15 16 17 18 19
+							要变成的索引	0   1  2  3  4  5  6  7  8  9
+				
+				竖着排
+					top值		top=当前索引%行数*方块的高度
+						第一行
+							当前索引		0  9 18 27 36 45 54 63 72 81（%9）
+							要变成的索引	0  0  0  0  0  0  0  0  0  0
+
+						第二行
+							当前索引		1 10  19 28 37 46 55 64 73 82
+							要变成的索引	1  1  1  1   1  1  1  1  1  1
+
+					left值		left=parseInt(当前索引/行数)*方块的宽度
+						第一行
+							当前索引		0  9 18 27 36 45 54 63 72 81（除个9）
+							要变成的索引	0  1  2  3  4  5  6  7  8  9
+
+						第二行
+							当前索引		1 10  19 28 37 46 55 64 73 82
+							要变成的索引	0  1  2  3  4  5  6  7  8  9
+
+
+			两个for循环实现横着排，竖着排 
+				横着排
+					外层的循环代表行（i），里层的循环代表列（j）
+					每一行的i的值都一样		top=i*方块的高度
+					每一列的j的值都一样		left=j*方块的宽度
+
+				竖着排 
+					外层的循环代表列（i），里层的循环代表行（j）
+					每一列的i的值都一样		left=i*方块的宽度
+					每一行的j的值都一样		top=j*方块的高度
+		 */
+
+		/* for(var i=0;i<row*col;i++){
+			//横着排
+			// var t=parseInt(i/col);
+			// var l=i%col;
+
+			//竖着排
+			var t=i%row;
+			var l=parseInt(i/row);
+
+			str+='<div style="left:'+l*(100+2)+'px;top:'+t*(100+2)+'px;background:url(images/pic.jpg) -'+l*100+'px '+-t*100+'px"></div>';
+		} */
+
+
+		/* for(var i=0;i<row;i++){
+			for(var j=0;j<col;j++){
+				str+='<div style="left:'+j*(100+2)+'px;top:'+i*(100+2)+'px;background:url(images/pic.jpg) -'+j*100+'px '+-i*100+'px"></div>';
+			}
+		} */
+
+		for(var i=0;i<col;i++){
+			for(var j=0;j<row;j++){
+				str+='<div style="left:'+i*(100+2)+'px;top:'+j*(100+2)+'px;background:url(images/pic.jpg) -'+i*100+'px '+-j*100+'px"></div>';
+			}
+		}
+
+		box.innerHTML=str;
+
+		var divs=box.children;
+		for(var i=0;i<divs.length;i++){
+			divs[i].onmouseover=function(){
+				this.style.opacity=1;
+				this.style.transform='scale(1.5)';
+				this.style.zIndex=2;
+			};
+			divs[i].onmouseout=function(){
+				this.style.opacity=1;
+				this.style.transform='scale(1)';
+				this.style.zIndex=0;
+			};
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+:root {
+  --textColor: #666;
+  --mainBgColor: #EEE;
+  --hColor: #333;
+  --h3Color: #999;
+  --tabsShadow: #0000001A;
+  --hoverColor: #66B1F1CC;
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--textColor);
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+.intro,
+.content {
+  height: 100vh;
+  outline: 1px dashed purple;
+  text-align: center;
+  background-color: var(--mainBgColor);
+}
+h1,
+h2,
+h3 {
+  letter-spacing: 8px;
+  margin-bottom: 30px;
+  color: var(--hColor);
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 26px;
+}
+h3{
+  font-size: 16px;
+  color: var(--h3Color);
+}
+.intro {
+  padding-top: calc(50vh - 58px);
+}
+.content {
+  padding-top: calc(50vh - 44px);
+}
+.tabWrap {
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  /* 解决空白折叠 */
+  font-size: 0;
+  opacity: .3;
+}
+.tabWrap .tab {
+  width: 20%;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 70px;
+  text-align: center;
+}
+.tabWrap .tab:hover {
+  color: #fff;
+  background-color: var(--hoverColor);
+}
+.tabWrap .line {
+  position: absolute;
+  height: 6px;
+  background-color: var(--hoverColor);
+  bottom: 0;
+  transition: .5s;
+
+  /* left: 60%;
+  width: 20%; */
+}
+.fixed {
+  position: fixed;
+  top: 0;
+}

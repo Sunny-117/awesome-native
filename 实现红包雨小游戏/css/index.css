@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.stage{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #282828;
+    overflow: hidden;
+}
+
+.redEnvelope{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url(../img/redEnvelope.png);
+    background-position: center;    
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+
+.score{
+    color: white;
+}
+
+
+.mask{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: yellowgreen;
+    z-index: 99;
+    left: 0;
+    top: 0;
+
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 500px;
+
+}

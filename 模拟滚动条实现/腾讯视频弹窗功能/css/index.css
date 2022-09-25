@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+.wrapper{
+    position: relative;
+    width: 205px;
+    margin:  400px auto;
+}
+.wrapper .nav{
+    padding: 0 12px;
+    background: #f8f8f8;
+    border-radius: 24px;
+    margin-bottom: 16px;
+    font-size: 0;
+}
+.wrapper .nav a{
+    display: inline-block;
+    font-size: 15px;
+    line-height: 42px;
+    margin: 0 10px;
+    color: #666;
+}
+
+.wrapper .nav a.nav_blod{
+    position: relative;
+    font-weight: 700;
+    color: #000;
+    margin: 0 15px 0 6px ;
+}
+.wrapper .nav a.nav_blod::after{
+    position: absolute;
+    /* display: block; */
+    content: "";
+    width: 1px;
+    height: 12px;
+    background-color: #ccc;
+    top:16px;
+    right: -12px;
+}
+.Tw{
+    width: 60px;
+}
+.wrapper .nav a.nav_blod:hover{
+    color: #ff5c38;
+}
+
+/* 弹出窗口部分 */
+
+.nav_mask_area{
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 106px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 28px 50px rgba(25,24,40,.35);
+    width: 360px;
+    padding: 28px 0 28px 28px;
+}
+.nav_mask_area::after{
+    position: absolute;
+    /* display: block; */
+    content: "";
+    left: 60px;
+    bottom: -14px;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    /* border的颜色是透明的; */
+    border-top-color:#fff;
+}
+.nav_mask_area .nav_mask_title{
+
+}
+.nav_mask_area .nav_mask_title a{
+    display: inline-block;
+    color: #ff5c38;
+    line-height: 18px;
+    text-align: left;
+}
+
+.nav_mask_area .nav_mask_content{
+    font-size: 0;
+}
+.nav_mask_area .nav_mask_content a{
+    display: inline-block;
+    font-size: 13px;
+    margin: 15px 15px 0 0;
+    line-height:18px ;
+    color: #111111;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    /* 不换行 */
+    text-overflow: ellipsis;
+    /* 超出部分打点 */
+
+}
+.nav_mask_area .nav_mask_content a:hover{
+    color: #ff5c38;
+}

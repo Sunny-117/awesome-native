@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀑布流</title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+        } 
+        #PicList{
+            width:1200px;
+            height: 1px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #PicList ul li{
+            width:210px;
+            list-style: none;
+            padding: 10px;
+            background: #fff;
+            box-shadow: 0px 0px 0px #666;
+            position: absolute;
+            transition: all 1s ease;
+        }
+        #PicList ul li h3{
+            font-size:14px;
+            color:#666;
+            font-weight: 100;
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div id="PicList">
+        <ul>
+            <li><img src="images/1.jpg"><h3>这是一个图片的标题</h3></li>
+            <li><img src="images/2.jpg"><h3>这是一个图片的标题</h3></li>
+            <li><img src="images/3.jpg"><h3>这是一个图片的标题</h3></li>
+            <li><img src="images/4.jpg"><h3>这是一个图片的标题</h3></li>
+            <li><img src="images/5.jpg"><h3>这是一个图片的标题</h3></li>
+            <li><img src="images/6.jpg"><h3>这是一个图片的标题</h3></li>
+            <li><img src="images/7.jpg"><h3>这是一个图片的标题</h3></li>
+            <li><img src="images/8.jpg"><h3>这是一个图片的标题</h3></li>
+            <li><img src="images/8.jpg"><h3>这是一个图片的标题</h3></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="jQuery/jquery-3.1.1.min.js"></script>
+<script>
+    var lineNum = 5;//定值一行的图片数（可以在移动端当获取到屏幕宽度是进行计算）
+    var margin = 10;//设置间距
+    var li = $("#PicList li");//获取一个数据集合li
+    var li_W = li[0].offsetWidth + margin;//获取第一个元素的宽度+间距的总距离
+    function PuBu(n){//n代表一行有多少张图片
+        var h = [];//记录每个li的高度,(经过5轮修改后，h的定义变成5列值得高度)
+        var n = n; //第一个n就是变量操作，接受或者保存第二个n的值
+        for(var i=0;i<li.length;i++){//循环整个li
+            //获取当前此元素的高度
+            var li_H = li[i].offsetHeight;
+            //判断是在第一行
+            if(i < n){
+                //把图片放入高度数据（h）
+                h[i] = li_H;
+                //第一行你就直接加载,靠css
+                li.eq(i).css("top",0);
+                li.eq(i).css("left",li_W * i);
+            }else{
+                //你需要获取当前图片中高度最短的那个，然后再它下面追加
+                //获取到最低的那个高度值
+                var min_H = Math.min.apply(null,h);//小技巧：获取在数值数组中最低(高)的方法
+                //去找到h数组中的最小的那个值
+                var minKey = getArrayKey(h,min_H);
+                h[minKey] += li_H + margin//!!!!!!!!!!!!!!!!!!
+                li.eq(i).css('top',min_H+margin);
+                li.eq(i).css('left',minKey * li_W);
+            }
+
+        }
+    }
+
+    function getArrayKey(s,v){
+        for(var k in s){
+            if(s[k] == v){
+                return k;
+            }
+        }
+    }
+
+    window.onload = function(){
+        PuBu(lineNum);
+    }
+</script>

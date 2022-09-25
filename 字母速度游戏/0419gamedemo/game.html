@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #000;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 400px;
+            color: orangered;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 40px;
+            color: peru;
+        }
+        
+        P {
+            text-align: center;
+            color: royalblue;
+            font-size: 40px;
+        }
+        
+        u {
+            color: teal
+        }
+        
+        h3 {
+            text-align: center;
+            font-size: 50px;
+            color: tomato;
+        }
+        
+        i {
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+    <h2>按下按钮</h2>
+    <p>正确率:<u></u></p>
+    <h3>你的级别：<i>操作一下?</i></h3>
+</body>
+
+</html>
+
+<script>
+    var h1 = document.querySelector('h1');
+    var h2 = document.querySelector('h2');
+    var u = document.querySelector('u');
+    var i = document.querySelector('i');
+    var zmcode; //字母的code(ascii)
+
+    //显示字母
+    function showzm() {
+        //A 65 B 66
+        zmcode = 65 + Math.floor(Math.random() * 26);
+        var zm = String.fromCharCode(zmcode);
+        h1.innerHTML = zm;
+    }
+    //页面显示一个随机字母
+    showzm();
+    //正确的次数
+    var zc = 0;
+    //错误的次数
+    var cw = 0;
+    //事件
+    document.onkeydown = function(e) {
+        //获取事件对象
+        e = e || window.event;
+        //让字母随机颜色
+        h1.style.color = "#" + Math.random().toString(16).substr(-6);
+
+        //测试
+        console.log(e.keyCode);
+        console.log(zmcode);
+        //如果按下的键code和随机生成的code一样就显示正确率，并显示下一个字母
+        if (e.keyCode == zmcode) {
+            //增加正确的次数
+            zc++;
+            h2.innerText = 'true';
+            showzm();
+            //正确率的计算 正确/总值 * 100
+            u.innerText = (zc / (zc + cw) * 100).toFixed(2) + '%'
+        } else {
+            cw++;
+            h2.innerText = 'false';
+            h1.style.color = 'red';
+            u.innerText = (zc / (zc + cw) * 100).toFixed(2) + '%'
+        }
+        //等级判断：正确率等于正确次数除以（正确的次数+错误的次数）
+        zql = (zc / (zc + cw) * 100);
+        if (zql > 99) {
+            i.innerHTML = '无敌'
+        } else if (zql > 95) {
+            i.innerHTML = '无敌'
+        } else if (zql > 80) {
+            i.innerHTML = '就这？'
+        } else if (zql > 60) {
+            i.innerHTML = '也就一般'
+        } else {
+            i.innerHTML = '太菜了还得多练练'
+        }
+
+    }
+</script>

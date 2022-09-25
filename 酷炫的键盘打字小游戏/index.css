@@ -1,0 +1,112 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+}
+.row{
+  list-style: none;
+  display: flex;
+}
+.row li {
+  width: 3em;
+  height: 3em;
+  /* border: 1px solid red; */
+  border-radius: .4em;
+  line-height: 3em;
+  text-align: center;
+  font-size: 1em;
+  margin: .4em;
+  padding: 0;
+  color: rgba(0, 0, 0, .6)
+}
+#tab {
+  width: 5em;
+}
+#caps {
+  width: 6em;
+}
+#leftShift,
+#rightShift {
+  width: 8em;
+}
+#back {
+  width: 5em;
+}
+#enter {
+  width: 6em;
+}
+.little {
+  background-color: crimson;
+  border: 2px solid crimson;
+}
+.little.selected {
+  color: crimson;
+}
+.ring {
+  background-color: coral;
+  border: 2px solid coral;
+}
+.ring.selected {
+  color: coral;
+}
+.middle {
+  background-color: darkorange;
+  border: 2px solid darkorange;
+}
+.middle.selected {
+  color: darkorange;
+}
+.forefinger1st {
+  background-color: gold;
+  border: 2px solid gold;
+}
+.forefinger1st.selected {
+  color: gold;
+}
+.forefinger2nd {
+  background-color: khaki;
+  border: 2px solid khaki;
+}
+.forefinger2nd.selected {
+  color: khaki;
+}
+
+.selected {
+  background-color: transparent;
+  animation: selected .3s infinite;
+}
+
+/* 创建动画 */
+@keyframes selected {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+.press {
+  animation: press .3s;
+}
+@keyframes press {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

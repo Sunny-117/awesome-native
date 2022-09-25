@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./javascript/index.js"></script>
+</head>
+<body>
+  <canvas id="cas">
+    您的浏览器不支持Canvas标签，推荐使用谷歌浏览器。
+  </canvas>
+
+  <script>
+    // canvas的基本使用
+
+    // 画图的标签，可以理解为画布
+
+    // canvas标签本身只是一张画布
+    // 要在canvas上面画图，我们需要获取到这个画布对应的画图工具（绘图上下文）
+
+    var cas = document.querySelector("#cas");
+    // 通过 getContext 方法就可以获取到画图工具
+    var ctx = cas.getContext("2d");
+
+    // // 要在画布上划一个直线
+    // // 落笔 指定一个点
+    // // ctx.moveTo(x, y);
+    // ctx.moveTo(100, 100);
+    // // 线段的终点
+    // ctx.lineTo(100, 150);
+
+    // // 我们需要把这个线画出来
+    // ctx.stroke();
+
+    // 画一个正方形
+    // ctx.moveTo(20, 20);
+    // ctx.lineTo(20, 50);
+    // ctx.lineTo(50, 50);
+    // ctx.lineTo(50, 20);
+    // ctx.lineTo(20, 20);
+
+    // closePath就是将 最后一次lineTo的点 和最后一次moveTo的点 连接起来
+    // ctx.closePath();
+
+    // ctx.rect 方法 可以用来画矩形
+
+    // ctx.rect(x, y, w, h)
+
+    // ctx.rect(100, 100, 10, 20);
+
+    // stroke是用来描边的
+    // ctx.stroke();
+
+    // fill是用来填充的
+    // ctx.fill();   // 非零环绕原则
+
+
+
+    // strokeStyle可以用来设置划线的颜色，颜色的格式和css样式的颜色格式一样
+    // ctx.strokeStyle = '#ff0000'
+
+    // ctx.moveTo(100, 100);
+    // ctx.lineTo(150, 100);
+    // ctx.stroke();
+
+
+    // ctx.strokeStyle = '#0000ff'
+    // // beginPath 就是相当于换了一张草稿纸
+    // // 当我们需要绘制不同的内容的时候，一般都需要重开路径，调用beginPath方法
+    // ctx.beginPath();
+
+    // ctx.moveTo(100, 130);
+    // ctx.lineTo(150, 130);
+    // ctx.stroke();
+
+    // ctx.moveTo(100, 80);
+    // ctx.lineTo(150, 80);
+    // ctx.stroke();
+
+
+
+    // ctx.arc(x, y, r, startAngle, stopAngle, antiClockWise)
+    // x,y 就是圆心坐标
+    // r 圆弧的半径
+    // startAngle 指的是弧的起始角度
+    // stopAngle 指的是弧的结束角度
+    // antiClockWise 布尔值，代表是否要按照逆时针的方向算角度
+
+    // 角度不是0-360的角度，而是需要换算成弧度
+    // 360 = 2PI
+    // 角度/360 = 对应的弧度/2PI
+    // 对应的弧度 = 角度 / 360 * 2PI
+    // 对应的弧度 = 角度 / 180 * PI
+
+    // ctx.arc(100, 100, 30, 0, Math.PI * 2);
+
+    // 清除某个矩形区域
+    // ctx.clearRect(x, y, w, h)
+
+    // ctx.fill();
+
+    // ctx.clip();
+
+    // ctx.clearRect(0, 0, 300, 150);
+
+    // ctx.rect(100, 100, 10, 10);
+    ctx.arc(100, 100, 10, 0, Math.PI * 2);
+    // clip 相当于把画布缩小到一个规定的范围内了。
+    ctx.clip();
+
+    ctx.rect(100, 100, 50, 50);
+    ctx.fill();
+  </script>
+</body>
+</html>

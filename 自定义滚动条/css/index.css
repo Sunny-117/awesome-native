@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #666;
+}
+
+#box {
+    width: 400px;
+    overflow: hidden;
+    margin: 100px auto;
+    background: #fff;
+    box-shadow: 0 0 20px #333;
+}
+
+#text {
+    float: left;
+    width: 380px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    line-height: 26px;
+}
+
+#text div {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+}
+
+#bar {
+    width: 20px;
+    float: right;
+    position: relative;
+    height: 500px;
+}
+
+#bar span {
+    width: 100%;
+    height: 20px;
+    background: #ccc;
+    display: block;
+    position: relative;
+    background: linear-gradient(rgba(204, 204, 204, 0.8), rgba(153, 153, 153, 0.8));
+    border-radius: 10px 10px 0 0;
+    cursor: default;
+}
+
+#bar span:first-child:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0;
+    left: 0;
+    margin: auto;
+
+    width: 0;
+    height: 0;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+}
+
+#bar span:first-child.active {
+    background: linear-gradient(rgba(179, 179, 179, 0.8), rgba(128, 128, 128, 0.8));
+}
+
+#bar span:last-child:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 0;
+    margin: auto;
+
+    width: 0;
+    height: 0;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+    margin-bottom: 3px;
+}
+
+#bar span:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+#bar span:last-child.active {
+    background: linear-gradient(rgba(179, 179, 179, 0.8), rgba(128, 128, 128, 0.8));
+}
+
+#bar>div {
+    width: 100%;
+    height: 460px;
+    position: relative;
+    background: rgba(153, 153, 153, 0.3);
+}
+
+.slide {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(#84d2ff, #3299FF);
+    box-shadow: 1px 2px 3px rgba(51, 51, 51, 0.8);
+}
+
+.slide:hover {
+    background: linear-gradient(#529bff, #026cff);
+}
+
+.slide.active {
+    background: linear-gradient(#026cff, #529bff);
+}

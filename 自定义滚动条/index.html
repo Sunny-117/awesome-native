@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div id="box">
+        <div id="text">
+            <div>
+                成长是一种必然的经历，也是一种必受的折磨。青春~张扬喜欢青春肆意挥霍的激情，喜欢青春无拘无束的浪漫心境，喜欢青春洁白无瑕的美丽面容，喜欢青春孩子般阳光灿烂的笑脸，喜欢青春想哭就哭想笑就笑的疯狂岁月，喜欢青春拼搏无惧的年轻的心……青春的一切都那么美好，像清泉潺潺划过心底，清净了渐渐烦乱的心，像几十年的佳酿，芳香甘醇地醉人~也许青春中不止有阳光，还有阴霾。月有阴晴圆缺，人有悲欢离合，细想一下，不完美或许更完美。成长是一种必然的经历，也是一种必受的折磨。青春~张扬喜欢青春肆意挥霍的激情，喜欢青春无拘无束的浪漫心境成长是一种必然的经历，也是一种必受的折磨。青春~张扬喜欢青春肆意挥霍的激情，喜欢青春无拘无束的浪漫心境，喜欢青春洁白无瑕的美丽面容，喜欢青春孩子般阳光灿烂的笑脸，喜欢青春想哭就哭想笑就笑的疯狂岁月，喜欢青春拼搏无惧的年轻的心……青春的一切都那么美好，像清泉潺潺划过心底，清净了渐渐烦乱的心，像几十年的佳酿，芳香甘醇地醉人~也许青春中不止有阳光，还有阴霾。月有阴晴圆缺，人有悲欢离合，细想一下，不完美或许更完美。成长是一种必然的经历，也是一种必受的折磨。青春~张扬喜欢青春肆意挥霍的激情，喜欢青春无拘无束的浪漫心境成长是一种必然的经历，也是一种必受的折磨。青春~张扬喜欢青春肆意挥霍的激情，喜欢青春无拘无束的浪漫心境，喜欢青春洁白无瑕的美丽面容，喜欢青春孩子般阳光灿烂的笑脸，喜欢青春想哭就哭想笑就笑的疯狂岁月，喜欢青春拼搏无惧的年轻的心……青春的一切都那么美好，像清泉潺潺划过心底，清净了渐渐烦乱的心，像几十年的佳酿，芳香甘醇地醉人~也许青春中不止有阳光，还有阴霾。月有阴晴圆缺，人有悲欢离合，细想一下，不完美或许更完美。成长是一种必然的经历，也是一种必受的折磨。青春~张扬喜欢青春肆意挥霍的激情，喜欢青春无拘无束的浪漫心境
+            </div>
+        </div>
+        <div id="bar">
+            <span></span>
+            <div>
+                <div class="slide"></div>
+            </div>
+            <span></span>
+        </div>
+    </div>
+
+    <script>
+        var slide = document.querySelector('.slide');
+        var slideWrap = slide.offsetParent;
+        var text = document.querySelector('#text');
+        var textCon = text.children[0];
+        var box = document.querySelector('#box');
+        var btns = document.querySelectorAll('#bar span');
+        var timer = null;
+
+        //滑块拖拽
+        var scrollTop = 0;    //拖动的距离 
+        var maxHeight = slideWrap.offsetHeight - slide.offsetHeight;    //滑块能走的最大距离 
+        slide.onmousedown = function (ev) {
+            var disY = ev.clientY - slide.offsetTop;    //鼠标按下的点离盒子边界的距离
+
+            document.onmousemove = function (ev) {
+                scrollTop = ev.clientY - disY;
+                scroll();
+            };
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+
+            ev.stopPropagation();   //阻止事件冒泡
+            ev.preventDefault();    //阻止了默认事件
+        };
+
+        function scroll() {
+            // console.log(scrollTop);
+
+            if (scrollTop < 0) {
+                scrollTop = 0;
+            } else if (scrollTop > maxHeight) {
+                scrollTop = maxHeight;
+            }
+
+            var scaleY = scrollTop / maxHeight; //走的比例
+
+            slide.style.top = scrollTop + 'px';
+
+            textCon.style.top = scaleY * (text.offsetHeight - textCon.offsetHeight) + 'px';
+        }
+
+        //上下箭头点击
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].index = i;    //给按钮身上添加一个属性指向索引值
+            btns[i].onmousedown = function () {
+                var n = this.index;
+                timer = setInterval(function () {
+                    //如果n的值为0表示按下的是上箭头，如果n的值为1表示按下的是下箭头
+                    scrollTop = n ? scrollTop + 5 : scrollTop - 5;
+
+                    scroll();
+                }, 16)
+            }
+
+            btns[i].onmouseup = function () {
+                clearInterval(timer);
+            };
+        }
+
+        //console.log(slide.getBoundingClientRect());
+
+        //滑块区域点击
+        slideWrap.onmousedown = function (ev) {
+            timer = setInterval(function () {
+                var slideTop = slide.getBoundingClientRect().top + slide.offsetHeight / 2;  //滑块中心点离可视区上面的距离
+
+                if (ev.clientY < slideTop) {
+                    //这个条件成立说明现在鼠标在滑块的上面，滚动条要往上走
+                    scrollTop -= 5;
+                } else {
+                    scrollTop += 5;
+                }
+
+                if (Math.abs(ev.clientY - slideTop) <= 5) {
+                    //这个条件成立的话，我们就可以认为滑块已经到了鼠标的位置了
+                    clearInterval(timer);
+                }
+
+                scroll();
+
+                /*
+                    getBoundingClientRect() 返回盒模型的尺寸位置信息
+                    {
+                        width:,
+                        height:,
+                        left:,
+                        right:,
+                        top:,
+                        bottom:,
+                        x:,
+                        y:,
+                    } 
+                 */
+            }, 16);
+        }
+        slideWrap.onmouseup = function () {
+            clearInterval(timer);
+        };
+
+        //鼠标滚轮功能
+        box.addEventListener('wheel', function (ev) {
+            if (ev.deltaY > 0) {
+                //这个条件成立说明滚轮的方向是往下走
+                scrollTop += 10;
+            } else {
+                scrollTop -= 10;
+            }
+
+            clearInterval(timer);
+            scroll();
+        })
+    </script>
+</body>
+
+</html>

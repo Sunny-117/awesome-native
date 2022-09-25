@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标点击礼花爆炸效果</title>
+</head>
+<body  style="background-color:#000;overflow:hidden">
+    <canvas id='canvas'>您的浏览器不支持canvas</canvas>  
+</body>
+<script>
+    var canvas = document.getElementById('canvas')  
+    canvas.width = window.screen.width  
+    canvas.height = window.screen.height  
+    var context = canvas.getContext('2d')  
+    var x,y     
+    items = []  
+    fires = []  
+
+    setInterval(loop, 20)  
+  
+    function loop() {  
+        context.clearRect(0, 0, canvas.width, canvas.height)  
+        itemsmove()
+        firesmove()
+    }
+
+    function itemsmove(){  
+        items.forEach(function(item) {  
+            context.beginPath()
+            context.arc(item.x, item.y, item.radius, 0, Math.PI * 2, false) 
+            context.fillStyle = 'hsla(' + Math.random() * 360 + ',80%,50%,'+ item.Alpha +')'
+            context.fill()
+
+            item.speedY += 0.2  //0.3为重力加速度  
+            item.y += item.speedY;
+            //如果礼花弹运动到鼠标点击位置则创建爆炸的圆形组并隐藏礼花弹  
+            if(item.y<item.boomY&&!item.isBoom){  
+                addfire(item.x,item.boomY)  
+                item.isBoom=true  
+                item.Alpha=0  
+            }  
+            //如果礼花弹运动到鼠标点击位置前已经开始落下，则创建爆炸的圆形组并隐藏礼花弹  
+            if(item.speedY>0&&!item.isBoom){  
+                addfire(item.x,item.y)  
+                item.isBoom=true  
+                item.Alpha=0  
+            }  
+        })
+    }
+
+    function firesmove(){
+        fires.forEach(function(fire) {  
+            context.beginPath()  
+            context.arc(fire.x, fire.y, fire.radius, 0, Math.PI * 2, false)  
+            //context.fillStyle = 'hsla(' + Math.random() * 360 + ',80%,50%,'+ fire.Alpha +')'  //HSLA(H,S,L,A)  
+            context.fillStyle='#' + Math.random().toString(16).substr(2, 6).toUpperCase();
+            context.fill()  
+  
+            //circle对象运动及半径、透明度变化  
+            fire.x += fire.speedX  
+            fire.speedY += 0.2  //0.3为重力加速度  
+            fire.y += fire.speedY  
+            fire.radius = fire.radius *0.98  
+            fire.Alpha -= 0.01  
+        })  
+    }
+
+    //跟踪鼠标坐标  
+    canvas.onmousemove = function(e) {  
+        //var position = canvas.getBoundingClientRect()  
+        //x = e.clientX - position.left * (canvas.width / position.width)  
+        //console.log(x)
+        //y = e.clientY - position.top * (canvas.height / position.height)  
+        x= e.clientX;
+        y= e.clientY;
+
+        //console.log(x)
+    };  
+
+    canvas.onmousedown = function() {  
+        additem()  
+    }  
+
+    
+    function additem(){  
+        //爆炸前的礼花弹  
+        var item = {  
+            x: x,  
+            y: window.screen.height,  
+            boomY: y,  
+            isBoom: false,  
+            speedY: -17,  
+            radius: 12,  
+            Alpha:0.9  
+        }  
+        items.push(item)  
+        
+        if (items.length > 10) {  
+            items.shift()  
+        }  
+        
+    }  
+    
+    
+    
+    function addfire(a,b){  
+        fire = []  
+        for (var i = 0; i < 60; i++) {  
+            //创建i个爆炸后运动的圆对象  
+            fire[i] = {  
+                x: a,  
+                y: b,  
+                speedX: Math.random() * 11 - 5,  
+                speedY: Math.random() * 10 - 6,  
+                radius: 12,  
+                Alpha: 0.6  
+            }  
+            fires.push(fire[i])  
+            //如果实体fires太多，删除旧的对象,避免浏览器卡顿  
+            if (fires.length > 600) {  
+                fires.shift()  
+            }  
+        }  
+    }  
+    
+</script>
+</html>

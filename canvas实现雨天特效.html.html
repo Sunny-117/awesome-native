@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #cavs {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cavs"></canvas>
+    <script>
+        var cavs = document.getElementById('cavs');//画布
+        var w = cavs.width = window.innerWidth;
+        var h = cavs.height = window.innerHeight;
+        window.onresize = function () {//跟随浏览器窗口变化
+            var w = cavs.width = window.innerWidth;
+            var h = cavs.height = window.innerHeight;
+        }
+        var ctx = cavs.getContext('2d');//canvasRenderingContext2d 3d webgl
+        var count = 30;
+        var rainArr = [];
+
+        //类 class   
+        function Rain() { } //构造函数    
+
+        Rain.prototype = {
+            init: function () {//初始化的状态
+                this.x = random(1, w);//坐标x
+                this.y = 0;//坐标y
+                this.r = 0;//圆的半径
+                this.t = 1;//透明度
+                this.ySpeed = random(4, 7);//向下的加速度
+                this.rSpeed = 1;// 半径的速度
+                this.tS = 0.96;//透明的系数
+                this.l = random(h * 0.8, h * 0.9);
+                this.rMax = 50;//最大半径
+            },
+            draw: function () {
+                if (this.y > this.l) {
+                    ctx.beginPath();//开启一条路径
+                    ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false)
+                    //  圆心x，y，半径，起始角度，2*Math.PI，false 顺时针，true逆时针；
+                    ctx.strokeStyle = "rgba(0,255,255," + this.t + ")";
+                    ctx.closePath();//闭合路径
+                    ctx.stroke();
+                } else {
+                    ctx.fillStyle = colorRandom(this.t);//随机变化的颜色
+                    ctx.fillRect(this.x, this.y, 2, 10);// x y  坐标   w宽 h高
+                }
+                this.update();//位置更新
+            },
+            update: function () {
+                if (this.y > this.l) {
+                    this.r += this.rSpeed;
+                    // this.round();
+                    if (this.r > this.rMax) {
+                        this.t *= this.tS;
+                        // console.log(init.t);
+                        if (this.t < 0.02) {
+                            this.init();//最后再次初始化
+                        }
+                    }
+                } else {
+                    this.y += this.ySpeed;
+                }
+
+            },
+            // random:function(min, max){
+            //     return Math.floor(Math.random() * (max - min) + min);
+            // } flash : 强大的动画补间+矢量图+as3.0  swf    flash player 
+            //   HTML5+ CSS3  == 替代了flash 
+
+        
+        };
+
+        function random(min, max) {//随机的函数
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        function colorRandom(t){//随机rgb
+            var r = Math.floor(Math.random()*255);
+            var g = Math.floor(Math.random()*255);
+            var b = Math.floor(Math.random()*255);
+            return "rgba("+ r +","+ g +","+ b +","+ t +")";
+        }
+
+        // var rain =  new Rain();
+        // rain.init();
+        creatRain();//创建30个雨滴 把雨滴放进数组
+        function creatRain() {
+            for (var i = 0; i < count; i++) {
+                (function (j) {
+                    setTimeout(function () {
+                        var rain = new Rain();
+                        rain.init();
+                        rainArr.push(rain);
+                        console.log(rainArr)
+                    }, j * 200)
+                })(i)
+            }
+        }
+
+        function move() {//动画函数
+            ctx.fillStyle = 'rgba(0,0,0,0.1)';
+            ctx.fillRect(0, 0, w, h);// 画一个蒙层
+            for (var i = 0; i < rainArr.length; i++) {
+                rainArr[i].draw();
+            }
+            window.requestAnimationFrame(move);
+        }
+        move();
+
+        // 动画的原理:
+
+        // ctx.beginPath();//开启一条路径
+        // ctx.arc(200,200,50,0,2*Math.PI,false) 
+        // //  圆心x，y，半径，起始角度，2*Math.PI，false 顺时针，true逆时针；
+        // ctx.strokeStyle="red";
+        // ctx.closePath();//闭合路径
+        // ctx.stroke();
+
+        // ctx.fillStyle = '#ffffff';
+        // ctx.fillRect(200, 0, 30, 50);// x y  坐标   w宽 h高
+
+        // setInterval(function () {
+        //     y = y + 2;
+        //     ctx.fillRect(x, y, 30, 50);// x y  坐标   w宽 h高
+        // },)
+
+        // var init = {
+        //     x: 200,
+        //     y: 0,
+        //     r: 0,
+        //     t:1,
+        //     drawRect: function () {
+        //         ctx.fillStyle = '#ffffff';
+        //         ctx.fillRect(this.x, this.y, 2, 10);// x y  坐标   w宽 h高
+        //     },
+        //     round: function () {
+        //         ctx.beginPath();//开启一条路径
+        //         ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false)
+        //         //  圆心x，y，半径，起始角度，2*Math.PI，false 顺时针，true逆时针；
+        //         ctx.strokeStyle = "rgba(0,255,255," + this.t + ")";
+        //         ctx.closePath();//闭合路径
+        //         ctx.stroke();
+
+        //     }
+
+        // }
+
+        // function move() {
+        //     ctx.fillStyle = 'rgba(0,0,0,0.1)';
+        //     ctx.fillRect(0, 0, w, h);// 画一个蒙层
+
+
+        //     if (init.y > (h - 300)) {
+        //         init.r += 1;
+        //         init.round();
+        //         if (init.r > 50) {
+        //             init.t*=0.96;
+        //             console.log(init.t);
+        //             if(init.t<0.02){
+        //                 return;
+        //             }
+        //         }
+
+        //     } else {
+        //         init.y += 2;
+        //         init.drawRect();
+        //     }
+
+        //     window.requestAnimationFrame(move);
+        // }
+        // move();
+
+ //  window.requestAnimationFrame(move);通过我们屏幕的刷新率 来自动调用的函数 60HZ  75HZ  144hz
+ //  1 每秒60次刷新屏幕    1000/60 =约等于  16.7ms
+ //  2 setTimeout   低端机 卡顿 和 抖动的现象 
+
+ //   举个例子 
+ //如果设置 setTimeout  每隔10ms   图像div left == 1px
+
+ //              屏幕HZ        setTimeout
+
+ // 0ms的时候     未刷新        未执行
+ // 10ms的时候    未刷新        left =  1px
+ // 16.7ms       left =  1px   未执行
+ // 20ms         未刷新         left =  2px
+ // 30ms         未刷新        left =  3px
+ // 33.4ms       left =3px     未执行
+
+// / window.requestAnimationFrame(move) 优势:系统决定了16.7   13.3ms 
+
+    </script>
+</body>
+
+</html>
