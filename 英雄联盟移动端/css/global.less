@@ -1,0 +1,97 @@
+img {
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+// 轮播图
+.g_carousel-container {
+  width: 100%;
+  height: 4.3rem;
+  position: relative;
+  background: #fff;
+  .g_carousel-list {
+    height: 100%;
+    transition: 0.5s;
+
+    li {
+      float: left;
+      width: 7.5rem;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .g_carousel-indicator {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    bottom: 0.2rem;
+    height: 0.17rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+      margin-right: 0.15rem;
+      width: 0.17rem;
+      height: 0.17rem;
+      background: #67b1ff;
+      transform: rotate(45deg);
+      &.selected {
+        background: #202629;
+      }
+    }
+  }
+
+  .g_carousel-prev,
+  .g_carousel-next {
+    width: 0.6rem;
+    height: 1.2rem;
+    background: url(../assets/btn-lefRight.png) no-repeat;
+    background-size: 7.03rem 1.2rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    &.disabled {
+      opacity: 0.35;
+    }
+  }
+  .g_carousel-prev {
+    left: 10px;
+  }
+  .g_carousel-next {
+    background-position: -6.43rem 0;
+    right: 10px;
+  }
+}
+// 箭头
+.g_arrow {
+  background: url(../assets/down.png) no-repeat;
+  background-size: 0.48rem 0.27rem;
+  width: 0.48rem;
+  height: 0.27rem;
+  position: absolute;
+  bottom: 0.2rem;
+  left: 50%;
+  margin-left: -0.24rem;
+  z-index: 9;
+  animation: point-down 2s infinite;
+}
+
+@keyframes point-down {
+  50% {
+    // 向下偏移0.1rem
+    transform: translateY(0.1rem);
+  }
+}

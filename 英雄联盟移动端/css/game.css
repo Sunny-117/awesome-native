@@ -1,0 +1,116 @@
+.game_container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  background: #fff;
+}
+.game_container #gameCarousel {
+  height: 7.91rem;
+}
+.game_container #gameCarousel .g_carousel-indicator li {
+  width: 0.77rem;
+  height: 0.08rem;
+  background: #f7d82e;
+  border-radius: 0;
+  transform: none;
+}
+.game_container #gameCarousel .g_carousel-indicator li.selected {
+  background: #fffcee;
+}
+.game_container .game_desc {
+  width: 6.8rem;
+  height: 0.6rem;
+  font-size: 0.22rem;
+  line-height: 0.45rem;
+  color: #757e7f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 auto;
+  padding: 0.6rem 0.1rem 0 0.2rem;
+  position: relative;
+}
+.game_container .game_desc::before,
+.game_container .game_desc::after {
+  content: "";
+  width: 0.22rem;
+  height: 0.19rem;
+  position: absolute;
+  top: 0.6rem;
+  background: url(../assets/pop_tit_spr.png) no-repeat;
+  background-position: -1.92rem -5.93rem;
+  background-size: 6.5rem 6.5rem;
+}
+.game_container .game_desc::before {
+  left: 0;
+}
+.game_container .game_desc::after {
+  background-position: -2.56rem -5.93rem;
+  right: 0;
+}
+.game_container .game_detail {
+  background: url(../assets/pop_btn_spr.png) no-repeat;
+  background-size: 3.81rem 9.65rem;
+  width: 1.46rem;
+  height: 0.48rem;
+  background-position: 0 -7.5rem;
+  margin: 0 auto;
+}
+.game_container .game_brand {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.3rem;
+}
+.game_container .game_brand .game_brand-item {
+  display: block;
+  background: url(../assets/btn-brand.png) no-repeat;
+  background-size: 1.45rem 7.91rem;
+  width: 1.45rem;
+  height: 1.31rem;
+}
+.game_container .game_brand .game_brand-item:nth-child(1) {
+  background-position: 0 0;
+}
+.game_container .game_brand .game_brand-item:nth-child(2) {
+  background-position: 0 -2.64rem;
+}
+.game_container .game_brand .game_brand-item:nth-child(3) {
+  background-position: 0 -3.96rem;
+}
+.game_container .game_brand .game_brand-item:nth-child(4) {
+  background-position: 0 -1.32rem;
+}
+.game_container .game_brand .game_brand-item:nth-child(5) {
+  background-position: 0 -5.28rem;
+}
+.game_container .game_footer {
+  color: #777;
+  font-size: 0.24rem;
+  line-height: 0.36rem;
+  text-align: center;
+  background: url(../assets/page3_bottom.png) center bottom no-repeat;
+  background-size: 100%;
+  padding-top: 0.9rem;
+  padding-bottom: 0.2rem;
+  margin-top: -0.3rem;
+}
+.game_container .game_footer .game_logo {
+  width: 2.74rem;
+  height: 0.52rem;
+  display: inline-block;
+  background: url(../assets/footer_logo.png) no-repeat;
+  background-size: 2.74rem 1.16rem;
+  vertical-align: middle;
+  margin: 0.5rem 0.3rem;
+}
+.game_container .game_footer .game_riot {
+  width: 1.37rem;
+  height: 0.42rem;
+  float: none;
+  display: inline-block;
+  background: url(../assets/footer_logo.png) no-repeat;
+  background-size: 2.74rem 1.16rem;
+  background-position: 0 -0.64rem;
+  vertical-align: middle;
+  margin: 0.5rem 0.3rem;
+}

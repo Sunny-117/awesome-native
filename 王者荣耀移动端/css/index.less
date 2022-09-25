@@ -1,0 +1,300 @@
+@gray: #888;
+@orange: #db9e3f;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+body {
+  color: #333;
+  font-size: 0.26rem;
+  line-height: 1.5;
+  background: #f1f1f1;
+  overflow-x: hidden;
+}
+// 广告区域
+.adv {
+  position: fixed;
+  background: #000;
+  width: 100%;
+  height: 0.9rem;
+  color: #fff;
+  display: flex;
+  padding: 0 0.34rem;
+  align-items: center;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  .title {
+    flex-grow: 1;
+    h1 {
+      font-size: 0.26rem;
+      font-weight: normal;
+      margin-top: 0.1rem;
+    }
+    p {
+      color: @gray;
+    }
+  }
+  .logo {
+    // margin-top: 0.16rem;
+    margin-right: 0.2rem;
+  }
+  .spr_download {
+    // margin-top: 0.18rem;
+  }
+}
+
+// 导航栏
+.nav {
+  margin-top: 0.9rem;
+  height: 0.9rem;
+  background: @orange;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    text-align: center;
+    flex-grow: 1;
+    span {
+      position: relative;
+    }
+    // &.active span::after {
+    //   content: '';
+    //   position: absolute;
+    //   width: 100%;
+    //   height: 2px;
+    //   background: #fff;
+    //   left: 0;
+    //   bottom: -0.1rem;
+    // }
+    &.active span {
+      border-bottom: 2px solid #fff;
+    }
+  }
+}
+
+// 通用滚动区域
+.slider-container {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  align-items: flex-start;
+  transition: 0.3s;
+  .slider-item {
+    width: 100%;
+    flex-shrink: 0; // 压缩比例，默认为1
+  }
+}
+
+.banner {
+  position: relative;
+  img {
+    width: 7.5rem;
+    height: 3.38rem;
+  }
+  .dots {
+    position: absolute;
+    bottom: 0.2rem;
+    right: 0.2rem;
+    display: flex;
+    span {
+      background: #fff;
+      margin-right: 0.2rem;
+      width: 0.2rem;
+      height: 0.2rem;
+      border-radius: 0.03rem;
+      &.active {
+        background: @gray;
+      }
+    }
+  }
+}
+.menu {
+  background: #fff;
+  margin-top: 0.24rem;
+  .menu-list {
+    display: flex;
+    overflow-x: scroll;
+    text-align: center;
+    padding: 0.2rem 0;
+    .item {
+      width: 25%;
+      border-right: 1px solid #eee;
+      margin: 0.15rem 0;
+    }
+  }
+  .expand {
+    text-align: center;
+    background: #f9f9f9;
+    padding: 0.15rem 0;
+  }
+}
+
+// 通用的样式
+.block-container {
+  background: #fff;
+  margin-top: 0.26rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 0.34rem;
+  .block-title {
+    display: flex;
+    padding: 0.3rem 0;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    h2 {
+      font-size: 0.32rem;
+      font-weight: normal;
+      flex-grow: 1;
+      margin-left: 0.2rem;
+    }
+  }
+  .block-main {
+    .block-menu {
+      padding: 0.2rem 0;
+      display: flex;
+      justify-content: space-between;
+      span.active {
+        padding-bottom: 0.1rem;
+        border-bottom: 3px solid @orange;
+        color: @orange;
+      }
+    }
+  }
+}
+
+// 特殊的样式
+.news-list {
+  .slider-item {
+    padding: 0.24rem 0;
+  }
+
+  .news-item {
+    height: 0.6rem;
+    display: flex;
+    align-items: center;
+    a {
+      flex-grow: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin: 0 0.24rem;
+    }
+    &::before {
+      content: '';
+      font-size: 0.2rem;
+      border: 1px solid;
+      padding: 0 0.1rem;
+      white-space: nowrap;
+      border-radius: 0.05rem;
+    }
+    &.hot::before {
+      content: '热门';
+      color: #ff3636;
+      border-color: #ff3636;
+    }
+    &.news::before {
+      content: '新闻';
+      color: #1e96ab;
+      border-color: #1e96ab;
+    }
+    &.notice::before {
+      content: '公告';
+      color: #f09a37;
+      border-color: #f09a37;
+    }
+    &.match::before {
+      content: '赛事';
+      color: #4d9cff;
+      border-color: #4d9cff;
+    }
+    &.activity::before {
+      content: '活动';
+      color: #ff3636;
+      border-color: #ff3636;
+    }
+  }
+}
+
+// 英雄区域
+.hero-list {
+  .block-title {
+    flex-wrap: wrap;
+    img {
+      width: 100%;
+      border-radius: 0.1rem;
+      margin-top: 0.24rem;
+    }
+  }
+  .slider-item {
+    text-align: center;
+    padding: 0.24rem 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.24rem;
+    img {
+      width: 1.172rem;
+      height: 1.172rem;
+      border-radius: 0.1rem;
+    }
+  }
+}
+
+// 精彩视频
+.video-list {
+  &.block-container {
+    .block-menu {
+      justify-content: flex-start;
+      span {
+        margin-right: 0.8rem;
+      }
+    }
+  }
+
+  .slider-item {
+    padding: 0.24rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.24rem;
+    img {
+      width: 3.29rem;
+      height: 1.8rem;
+    }
+    .title {
+      margin: 0.2rem 0 0.1rem 0;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      -webkit-line-clamp: 2; // 最大的行数
+    }
+    .aside {
+      color: @gray;
+      font-size: 0.2rem;
+      display: flex;
+      justify-content: space-between;
+      .spr {
+        vertical-align: -0.03rem;
+      }
+    }
+  }
+}
+
+.more {
+  background: #fefefe;
+  display: block;
+  color: #7a7a80;
+  text-align: center;
+  font-size: 0.24rem;
+  line-height: 0.7rem;
+}

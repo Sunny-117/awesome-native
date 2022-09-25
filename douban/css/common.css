@@ -1,0 +1,97 @@
+@import "https://at.alicdn.com/t/font_1213967_ldkyd4k7rg.css";
+/* 多页面共享的CSS代码 */
+
+body {
+    font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    background: #41ac52;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.btn:disabled {
+    background: rgba(66, 189, 86, .5);
+    cursor: not-allowed;
+}
+
+/* 评分 */
+
+.star-bg {
+    display: inline-block;
+    width: 55px;
+    height: 11px;
+    background: url("../img/star-bg.png") no-repeat left top/100%;
+}
+
+.star50{
+    background-position:0 0; 
+}
+
+.star45{
+    background-position:0 -11px; 
+}
+
+.star40{
+    background-position:0 -22px; 
+}
+
+.star35{
+    background-position:0 -33px; 
+}
+
+.star30{
+    background-position:0 -44px; 
+}
+
+.star25{
+    background-position:0 -55px; 
+}
+
+.star20{
+    background-position:0 -66px; 
+}
+
+.star15{
+    background-position:0 -77px; 
+}
+
+.star10{
+    background-position:0 -88px; 
+}
+
+.star05{
+    background-position:0 -99px; 
+}
+
+.star00{
+    background-position:0 -110px; 
+}
+
+
+.star .number{
+    font-size: 12px;
+    margin-left: 7px;
+    color: #e09015;
+}

@@ -1,0 +1,159 @@
+// 弹窗的通用样式
+.pop_container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .pop_inner {
+    position: relative;
+    .pop_top {
+      background: url(../assets/pop_top_bg.png) no-repeat;
+      background-size: 6.53rem 1.09rem;
+      width: 6.53rem;
+      height: 1.09rem;
+    }
+    .pop_mid {
+      background: url(../assets/pop_cir_bg.png) repeat-y;
+      background-size: 6.53rem 6.55rem;
+      width: 6.53rem;
+      margin-top: -1px;
+      font-size: 0.24rem;
+      .pop_content {
+        background: url(../assets/b_pop_bg.png) left bottom no-repeat;
+        background-size: 6.53rem 5.41rem;
+        img {
+          display: block;
+          margin: 0 auto;
+          width: 50%;
+        }
+        .pop_button {
+          width: 3.81rem;
+          height: 0.89rem;
+          display: block;
+          margin: 0.5rem auto 0;
+          background: url(../assets/pop_btn_spr.png) no-repeat;
+          background-size: 3.81rem 9.65rem;
+        }
+      }
+    }
+    .pop_bottom {
+      background: url(../assets/pop_bot.png) no-repeat;
+      background-size: 6.53rem 1.13rem;
+      width: 6.53rem;
+      height: 1.13rem;
+    }
+    .pop_title {
+      position: absolute;
+      color: #fff;
+      font-size: 0.4rem;
+      text-align: center;
+      width: 100%;
+      left: 0;
+      top: -0.5rem;
+      letter-spacing: 0.04rem;
+    }
+    .pop_close {
+      width: 0.65rem;
+      height: 0.65rem;
+      border: 3px solid #fff;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      line-height: 0.65rem;
+      font-size: 0.4rem;
+      position: absolute;
+      right: -0.24rem;
+      top: 0.28rem;
+      border-radius: 50%;
+    }
+  }
+}
+
+#popAttend {
+  .pop_platform {
+    .pop_login {
+      display: flex;
+      justify-content: center;
+      .pop_wx,
+      .pop_qq {
+        width: 1.96rem;
+        height: 2.84rem;
+        margin: 0 0.16rem;
+        background-size: 1.96rem 2.84rem;
+        position: relative;
+        &.selected::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: url(../assets/pop_cover.png) no-repeat;
+          background-size: 1.96rem 2.84rem;
+        }
+      }
+      // 微信
+      .pop_wx {
+        background-image: url(../assets/pop_login_sel_wx.jpg);
+      }
+      // qq
+      .pop_qq {
+        background-image: url(../assets/pop_login_sel_qq.jpg);
+      }
+    }
+  }
+}
+
+#popFAQ {
+  .pop_faq {
+    font-size: 0.24rem;
+    width: 85%;
+    height: 7.2rem;
+    margin: 0 auto;
+    overflow-y: scroll;
+    line-height: 0.35rem;
+    font-weight: bold;
+    li {
+      margin-bottom: 0.2rem;
+    }
+    .pop_q,
+    a {
+      margin-bottom: 0.1rem;
+      color: #896144;
+    }
+  }
+}
+
+#popVideo {
+  .pop_inner {
+    width: 7rem;
+    height: 5.4rem;
+    border: 1px solid #7d623e;
+    video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+    .pop_close {
+      top: -0.4rem;
+    }
+  }
+}
+
+#popDetail {
+  p {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 0.24rem;
+    line-height: 0.4rem;
+    padding-bottom: 0.6rem;
+  }
+}

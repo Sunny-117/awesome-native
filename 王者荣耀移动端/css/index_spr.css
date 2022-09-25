@@ -1,0 +1,134 @@
+/* 精灵图 */
+.spr {
+  background: url(../assets/index_spr.png) no-repeat;
+  background-size: 7.5rem;
+  display: inline-block;
+}
+
+/* logo */
+.spr_logo {
+  background-position: 0 -6.16rem;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+/* 立即下载 */
+.spr_download {
+  background-position: -1.18rem -6.18rem;
+  width: 1.2rem;
+  height: 0.48rem;
+}
+
+/* 菜单项 */
+.spr_baoliaozhan {
+  background-position: -3.76rem -1.16rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_gushizhan {
+  background-position: -5.64rem -1.14rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_zhoubianshangcheng {
+  background-position: -1.88rem 0.1rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_tiyanfu {
+  background-position: 0.04rem -1.14rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_xinrenzhuanqu {
+  background-position: -5.64rem 0.1rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_rongyaochuancheng {
+  background-position: -1.85rem -1.14rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_wangzheyingdi {
+  background-position: -3.76rem 0.12rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_gongzhonghao {
+  background-position: 0.7rem -8.2rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_banbenjieshao {
+  width: 1.875rem;
+  height: 0.7rem;
+  background: url(../assets/version-icon.png) 0.66rem 0.1rem no-repeat;
+  background-size: 0.55rem;
+}
+.spr_duijuhuanjing {
+  background: url(../assets/djhj.png) 0.55rem 0.1rem no-repeat;
+  background-size: 0.8rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_gongchuangjihua {
+  background: url(../assets/ipgc.png) 0.6rem 0 no-repeat;
+  background-size: 0.7rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+.spr_chuangyihudongying {
+  background: url(../assets/cyhdy.png) 0.6rem 0 no-repeat;
+  background-size: 0.7rem;
+  width: 1.875rem;
+  height: 0.7rem;
+}
+
+/* 展开/折叠 */
+.spr_expand {
+  width: 0.2rem;
+  height: 0.2rem;
+  background-position: -2.8rem -4.64rem;
+  transform: rotate(180deg);
+}
+.spr_collapse {
+  width: 0.2rem;
+  height: 0.2rem;
+  background-position: -2.8rem -4.64rem;
+}
+
+/* 新闻资讯 */
+.spr_news {
+  width: 0.27rem;
+  height: 0.3rem;
+  background-position: 0 -4.44rem;
+}
+
+/* 更多 */
+.spr_more {
+  width: 0.4rem;
+  height: 0.34rem;
+  background-position: -3.38rem -5rem;
+}
+
+/* 英雄 */
+.spr_hero {
+  height: 0.26rem;
+  background-position: -3.36rem -5.34rem;
+  width: 0.27rem;
+}
+
+/* 视频 */
+.spr_video {
+  height: 0.24rem;
+  background-position: 0 -5rem;
+  width: 0.27rem;
+}
+
+/* 视频播放量 */
+.spr_videonum {
+  width: 0.25rem;
+  height: 0.25rem;
+  background-position: -2.34rem -4.64rem;
+}

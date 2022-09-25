@@ -1,0 +1,95 @@
+.menu_container {
+  color: #fff;
+  .menu_title {
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #202629;
+    height: 0.98rem;
+    .menu_logo {
+      float: left;
+      margin: 0.13rem 0 0 0.28rem;
+      img {
+        width: 1.59rem;
+        height: 0.5rem;
+      }
+    }
+    .menu_attend {
+      float: right;
+      width: 1.4rem;
+      height: 0.51rem;
+      line-height: 0.51rem;
+      text-align: center;
+      font-size: 0.24rem;
+      border: 3px #ffe537 solid;
+      margin-top: 0.15rem;
+      margin-right: 0.5rem;
+    }
+    // 开关
+    .menu_switch {
+      float: right;
+      width: 0.44rem;
+      height: 0.02rem;
+      margin-right: 0.2rem;
+      margin-top: 0.5rem;
+      background: #fff;
+      transition: 0.5s;
+      &::before {
+        content: "";
+        display: block;
+        height: 0.02rem;
+        background: #fff;
+        margin-top: -0.08rem;
+        transition: 0.5s;
+      }
+      &::after {
+        content: "";
+        display: block;
+        height: 0.02rem;
+        background: #fff;
+        margin-top: 0.14rem;
+        transition: 0.5s;
+      }
+      &.menu_switch--expand {
+        background: transparent;
+        &::before {
+          transform: rotate(45deg);
+          margin-top: 0;
+          background: #bc3129;
+        }
+        &::after {
+          transform: rotate(-45deg);
+          margin-top: -0.016rem;
+          background: #bc3129;
+        }
+      }
+    }
+  }
+  .menu_nav {
+    z-index: 20;
+    position: fixed;
+    top: 0.98rem;
+    right: 0;
+    font-size: 0.3rem;
+    background: #1e1e1e;
+    text-align: center;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: 0.5s;
+    li {
+      border-top: 1px solid #2c2c2c;
+      height: 1.36rem;
+      line-height: 1.36rem;
+      overflow: hidden;
+    }
+
+    &.menu_nav--expand {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+    }
+  }
+}

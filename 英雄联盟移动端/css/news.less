@@ -1,0 +1,87 @@
+.news_container {
+  height: 100%;
+  background: url(../assets/news_bg.jpg) no-repeat center bottom #fff;
+  background-size: 100%;
+  .news_bar {
+    background: #f7d82e;
+    font-size: 0.26rem;
+    height: 0.53rem;
+    font-weight: bold;
+    line-height: 0.53rem;
+    display: flex;
+    justify-content: center;
+    .news_title {
+      width: 1.29rem;
+      height: 0.53rem;
+      margin: 0 0.2rem;
+      text-align: center;
+      &.selected {
+        color: #fff;
+        background: url(../assets/diamond-bg.png) no-repeat;
+        background-size: 100%;
+      }
+    }
+  }
+  .news_list {
+    width: 6.78rem;
+    margin: 0 auto;
+    li {
+      width: 100%;
+      height: 1.3rem;
+      border-bottom: 0.03rem solid #e5e3d6;
+      padding-top: 0.25rem;
+      box-sizing: border-box;
+      padding-left: 0.52rem;
+      font-size: 0.26rem;
+      position: relative;
+      &::after {
+        content: "";
+        width: 0.15rem;
+        height: 0.81rem;
+        background: url(../assets/decorate.png) no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 0.25rem;
+        left: 0.22rem;
+      }
+      span {
+        display: block;
+        width: 0.92rem;
+        height: 0.34rem;
+        background: #202629;
+        font-size: 0.2rem;
+        line-height: 0.34rem;
+        text-align: center;
+        color: #fff;
+        margin-bottom: 0.12rem;
+      }
+      a {
+        font-size: 0.26rem;
+        height: 0.3rem;
+        color: #202629;
+        line-height: 0.3rem;
+        // 避免文字超出
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        display: block;
+        text-align: left;
+        font-weight: bold;
+        padding-top: 0.1rem;
+      }
+      p {
+        font-size: 0.21rem;
+        color: #9e9c8e;
+        line-height: 0.34rem;
+        height: 0.34rem;
+        position: absolute;
+        top: 0.25rem;
+        right: 0;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
