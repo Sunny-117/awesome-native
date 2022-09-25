@@ -1,0 +1,227 @@
+body,
+h2,
+h3,
+p {
+  margin: 0;
+}
+button {
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+body {
+  padding-top: 80px;
+  /* 处理最上方图片固定定位 */
+  overflow-x: hidden;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+#head {
+  width: 100vw;
+  /* vw */
+  height: 80px;
+  padding: 0 10vw;
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+
+  display: flex;
+  justify-content: space-between;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  /* 滚动时始终在最上方 */
+}
+#head .logo {
+  display: flex;
+  align-items: center;
+}
+#head .logo img {
+  height: 50px;
+}
+#head nav {
+  display: flex;
+}
+#head nav ul {
+  display: flex;
+}
+#head nav li {
+  line-height: 80px;
+  padding: 0 1.2vw;
+  position: relative;
+}
+#head nav li a {
+  color: #777;
+}
+#head nav li:after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  background: #222;
+  transition: 0.8s ease-in-out;
+}
+#head nav li:hover:after {
+  width: 100%;
+}
+
+#head nav button {
+  width: 50px;
+  height: 50px;
+  background: url(../images/btn.png) no-repeat center;
+  display: none;
+}
+
+@media all and (max-width: 768px) {
+  #head {
+    height: 50px;
+  }
+  #head .logo img {
+    height: 40px;
+  }
+  #head nav li {
+    line-height: 50px;
+  }
+  body {
+    padding-top: 50px;
+  }
+}
+
+@media all and (max-width: 576px) {
+  #head nav button {
+    display: block;
+  }
+  #head nav ul {
+    height: 0;
+    /* 不能display:none,因为有交互 */
+    overflow: hidden;
+    transition: 0.5s;
+    flex-wrap: wrap;
+    /* 相对定位的应用 */
+    position: relative;
+    top: 50px;
+    /* 如果是margin-top会有传递性，不好 */
+  }
+  #head nav li {
+    width: 100%;
+    background: #eee;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+  }
+}
+
+#pic {
+  width: 100vw;
+  height: 36vw;
+  position: relative;
+  overflow: hidden;
+}
+#pic ul {
+  width: 300vw;
+  display: flex;
+  position: absolute;
+  left: 0;
+}
+#pic li {
+  width: 100vw;
+  height: 36vw;
+  /* 这里的意义是为了图片适应 */
+}
+#pic li img {
+  width: 100%;
+}
+
+#project {
+  margin: 50px 0;
+}
+#project .title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #bbb;
+}
+#project .title p {
+  font-weight: bold;
+}
+#project .list {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#project .list div {
+  margin: 15px 0;
+  padding: 20px 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+#project .list img {
+  width: 90%;
+  opacity: 0.9;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+#project .list img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+#project .list p {
+  margin-top: 6px;
+}
+
+@media all and (min-width: 768px) {
+  #project .list {
+    width: 720px;
+  }
+  #project .list div {
+    width: 46%;
+  }
+}
+
+@media all and (min-width: 992px) {
+  #project .list {
+    width: 960px;
+  }
+  #project .list div {
+    width: 30%;
+  }
+}
+/* 存在样式覆盖 */
+@media all and (min-width: 1200px) {
+  #project .list {
+    width: 1140px;
+  }
+  #project .list div {
+    width: 22%;
+  }
+}
+
+#footer {
+  position: relative;
+  height: 500px;
+  background: url(../images/bottom.jpg) no-repeat center;
+  background-size: 100%;
+  /* background-size: cover; */
+}
+#footer:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}

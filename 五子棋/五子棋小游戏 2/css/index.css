@@ -1,0 +1,71 @@
+/* 整体容器样式 */
+
+#container {
+	border: 1px solid rgb(207, 188, 188);
+	width: 500px;
+	height: 500px;
+	margin: 50px auto;
+}
+
+/* 棋盘背景 */
+
+.chessboardBg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(247, 230, 183);
+	/* position: absolute;
+	z-index: 1; */
+}
+
+/* 棋盘样式 */
+
+.chessboard {
+	/* 注意棋盘的宽度不是 100%，而是 92%，这样棋盘能有一个边框效果 */
+	width: 92%;
+	height: 92%;
+	/* border-collapse 属性设置表格的边框是否被合并为一个单一的边框，还是象在标准的 HTML 中那样分开显示 */
+	border-collapse: collapse;
+}
+
+.chessboard td {
+	border: 1px solid black;
+	position: relative;
+}
+
+/* 棋子公共类 */
+.chess{
+	border: 1px solid lightgray;
+	border-radius: 50%;
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	left: -50%;
+	top: -50%;
+	color: lightgray;
+	font-size: 12px;
+	font-weight: bold;
+	/* 让文字居中 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 白色棋子 */
+
+.white {
+	background-color: white;
+}
+
+/* 黑色棋子 */
+
+.black {
+	background-color: black;
+}
+
+/* 获胜一方 */
+
+.win {
+	border: 1px solid red;
+	box-shadow: 0 0 3px 2px red;
+}

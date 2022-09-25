@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    margin: 100px auto 0;
+    width: 400px;
+    height: auto;
+    border: 1px solid #222;
+}
+
+.content-container {
+    width: 400px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn {
+    position: relative;
+    z-index: 1;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #222;
+}
+
+.content-box {
+    width: 400px;
+    height: 600px;
+    position: relative;
+    top: -150px;
+}
+
+.row {
+    width: 400px;
+    height: 150px;
+}
+
+.row div {
+    width: 99px;
+    border: 1px solid #222;
+    height: 149px;
+    border-top-width: 0;
+    border-left-width: 0;
+    cursor: pointer;
+    float: left;
+}
+
+.row div:last-child {
+    border-right: none;
+}
+
+.count {
+    border-top: 1px solid #222;
+    width: 400px;
+    height: 50px;
+    font: 700 36px/50px '微软雅黑';
+    text-align: center;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位格式移动端</title>
+</head>
+<body>
+    <div class="box">
+        <!-- 滚动页面 -->
+        <div class="roll">滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构
+            <br/>滚动代码结构8
+            <br/>滚动代码结构7
+            <br/>滚动代码结构6
+            <br/>滚动代码结构5
+            <br/>滚动代码结构4
+            <br/>滚动代码结构3
+            <br/>滚动代码结构2
+            <br/>滚动代码结构1
+            <br/>1
+            <br/>2
+        </div>
+        <!-- 底部固定菜单 -->
+        <footer>底部结构代码</footer>
+    </div>
+
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        footer{
+            background: #00f36d;
+            width: 100%;
+            font-size:4vh;
+        }
+        /*css定位方式（固定）
+        .roll{
+            padding-bottom: 5vh;
+        }
+        footer{
+            position: fixed;
+            bottom: 0;
+            z-index: 999;
+        }
+        */
+        /*css定位方式（相对）  
+        .box{
+            position: relative;
+            height: 100%;
+        }
+        .roll{
+            position: absolute;
+            bottom: 5vh;
+            width: 100%;
+            top:0;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            height: auto;
+        }
+        footer{
+            position: absolute;
+            bottom: 0;
+        }
+        */
+        /* 弹性布局 */
+        .box{
+            display: flex;
+            display: -webkit-flex;
+            height: 100%;
+            flex-direction: column;
+        }
+        .roll{
+            flex: 1;
+            width: 100%;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            height: auto;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,27 @@
+num = 0;
+setInterval(fun1,2000)
+
+fun1{
+  exect() Ö´ÐÐº¯Êý
+  num %= arr.length
+}
+
+exect{
+  num
+}
+
+div
+  div img
+  div img
+  div img
+
+
+<img src="xxx">
+<div class="" index="0">
+
+var xxx= dyb
+xxx.index =
+var i = xxx.index
+-----------------
+num = 0
+num %= 3  num = 0%3 1%3 2%3 3%3

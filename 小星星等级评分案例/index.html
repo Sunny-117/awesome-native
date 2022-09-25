@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-小星星等级评价</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- 王昭惠 -->
+  <!-- 
+    小星星字体图标地址：https://fontawesome.com/icons/star?style=solid
+   -->
+  <div class="container">
+    <h2>纯CSS实现</h2>
+    <div class="stars1">
+      <input type="checkbox" name="star" id="star1">
+      <label for="star1" class="fas fa-star"></label>
+
+      <input type="checkbox" name="star" id="star2">
+      <label for="star2" class="fas fa-star"></label>
+
+      <input type="checkbox" name="star" id="star3">
+      <label for="star3" class="fas fa-star"></label>
+
+      <input type="checkbox" name="star" id="star4">
+      <label for="star4" class="fas fa-star"></label>
+
+      <input type="checkbox" name="star" id="star5">
+      <label for="star5" class="fas fa-star"></label>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>JS实现</h2>
+    <ul class="stars2">
+      <li class="star" data-value='0'><span class="fas fa-star"></span></li>
+      <li class="star" data-value='1'><span class="fas fa-star"></span></li>
+      <li class="star" data-value='2'><span class="fas fa-star"></span></li>
+      <li class="star" data-value='3'><span class="fas fa-star"></span></li>
+      <li class="star" data-value='4'><span class="fas fa-star"></span></li>
+    </ul>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

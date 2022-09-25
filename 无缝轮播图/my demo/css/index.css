@@ -1,0 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.banner {
+  position: relative;
+  width: 520px;
+  height: 260px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.imgs {
+  width: 2600px;
+  height: 520px;
+}
+.imgs img {
+  float: left;
+}
+.point {
+  position: absolute;
+  left: 50%;
+  padding: 0 10px;
+  bottom: 10px;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 20px;
+  /* background-color: gray; */
+  z-index: 99;
+  text-align: center;
+}
+.point span {
+  cursor: pointer;
+  width: 10px;
+  display: inline-block;
+  height: 10px;
+  border-radius: 50%;
+  background-color: gray;
+}
+.point .active {
+  background-color: #f40;
+}
+.direction {
+  /* text-align: center; */
+  color: #fff;
+  line-height: 40px;
+}
+.direction .left {
+  padding-right: 10px;
+  text-align: right;
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 0 20px 20px 0;
+  background-color: gray;
+  cursor: pointer;
+}
+.direction .left:hover {
+  background-color: red;
+}
+.direction .right:hover {
+  background-color: red;
+}
+.direction .right {
+  padding-left: 10px;
+  text-align: left;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 20px 0px 0px 20px;
+  background-color: gray;
+  cursor: pointer;
+}

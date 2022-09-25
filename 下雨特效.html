@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rain</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #cavs {
+        background: #000000;
+      }
+      body {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="cavs"></canvas>
+    <script>
+      var cavs = document.getElementById("cavs"); //获取到了画板
+      var ctx = cavs.getContext("2d"); //canvasRenderingContext2d  3d webgl  threejs 笔触
+      var w = (cavs.width = window.innerWidth);
+      var h = (cavs.height = window.innerHeight); //屏幕的宽高
+      window.onresize = function() {
+        var w = (cavs.width = window.innerWidth);
+        var h = (cavs.height = window.innerHeight); //屏幕的宽高
+      };
+      var count = 30;
+      var RainArr = [];//存放雨滴对象的
+      //画一个圆形
+      //ctx.beginPath();//开启一个路径
+      // ctx.arc(200,200,50,0,2*Math.PI,false);
+      // 圆心的坐标 x  y  ，半径   ，起始角度 ， 2*Math.pi ,false 顺时针  true 逆时针
+      // ctx.strokeStyle='red';
+      // ctx.closePath();//闭合路径
+      // ctx.stroke();//开始绘制 默认黑
+
+      function Rain() {
+        //构造函数
+      }
+
+      Rain.prototype = {
+        init: function() {
+          //初始化
+          this.x = random(1, w);
+          this.y = 0; //坐标y  坐标x
+          this.r = 1; //半经
+          this.ySpeed = random(4, 7); //加速度
+          this.rSpeed = 1;
+          this.t = 1; //透明度
+          this.ts = 0.96; //透明度系数
+          this.l = random(h * 0.8, h * 0.9);
+          this.maxR = 50;
+        },
+        draw: function() {
+          if (this.y > this.l) {
+            ctx.beginPath(); //开启一个路径
+            ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+            // 圆心的坐标 x  y  ，半径   ，起始角度 ， 2*Math.pi ,false 顺时针  true 逆时针
+            ctx.strokeStyle = "rgba(0,255,255," + this.t + ")";
+            ctx.closePath(); //闭合路径
+            ctx.stroke(); //开始绘制 默认黑
+          } else {
+            ctx.fillStyle = colorRandom(this.t);//随机颜色
+            ctx.fillRect(this.x, this.y, 2, 10); // 坐标x y  ，width height
+          }
+          this.updeta(); //坐标更新
+        },
+        //坐标更新
+        updeta: function() {
+          if (this.y > this.l) {
+            // init.ronund();
+            if (this.t > 0.03) {
+              this.r += this.rSpeed;
+              if (this.r > this.maxR) {
+                this.t *= this.ts;
+              }
+            } else {
+              // return;//思考
+              this.init(); //重新初始化
+            }
+            // init.r+=2;
+          } else {
+            this.y += this.ySpeed;
+            // init.draw();
+          }
+        }
+      };
+
+      // var one = new Rain();//生产一个雨滴
+      //     one.init();
+      //5-10 随机数  random（5，10）
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+      }
+
+      //开始运动
+      function move() {
+        ctx.fillStyle = "rgba(0,0,0,0.1)";
+        ctx.fillRect(0, 0, w, h); // 先绘制
+        for (var i = 0; i < RainArr.length; i++){
+          RainArr[i].draw();
+        }
+         
+        // 调用动画
+        window.requestAnimationFrame(move);
+      }
+
+    
+
+      function createRain() {
+        for (var i = 0; i < count; i++) {
+          (function(j) {
+            setTimeout(function() {
+              var rain = new Rain();
+              rain.init();
+              RainArr.push(rain);
+            }, j * 200);
+          })(i);
+        }
+      }
+      createRain(); //有时间间隔的创造小雨滴对象
+      move();
+
+      // 封装一个随机的颜色
+      function colorRandom(t){
+        var r = Math.floor(Math.random()*255);
+        var g = Math.floor(Math.random()*255);
+        var b = Math.floor(Math.random()*255);
+        return "rgba("+ r+","+ g +","+ b +","+ t +")"
+
+      }
+      //填充矩形
+      //探究动画原理
+      // var init = {
+      //   y: 0,
+      //   x: 200,
+      //   r: 1,
+      //   t: 1, //透明度
+      //   draw: function() {
+      //     ctx.fillStyle = "#ffffff";
+      //     ctx.fillRect(this.x, this.y, 2, 10); // 坐标x y  ，width height
+      //   },
+      //   ronund: function() {
+      //     ctx.beginPath(); //开启一个路径
+      //     ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+      //     // 圆心的坐标 x  y  ，半径   ，起始角度 ， 2*Math.pi ,false 顺时针  true 逆时针
+      //     ctx.strokeStyle = "rgba(0,255,255," + this.t + ")";
+      //     ctx.closePath(); //闭合路径
+      //     ctx.stroke(); //开始绘制 默认黑
+      //   }
+      // };
+      // //  var y = 0;
+      // ctx.fillStyle = "#ffffff";
+      // ctx.fillRect(200, 0, 2, 10); // 坐标x y  ，width height
+
+      // //开始运动
+      // function move() {
+      //   ctx.fillStyle = "rgba(0,0,0,0.1)";
+      //   ctx.fillRect(0, 0, w, h); // 先绘制
+
+      //   if (init.y > h - 150) {
+      //     init.ronund();
+      //     if (init.t > 0.03) {
+      //       init.r += 1;
+      //       if (init.r > 50) {
+      //         init.t *= 0.96;
+      //       }
+      //     } else {
+      //       return;
+      //     }
+      //     // init.r+=2;
+      //   } else {
+      //     init.y += 2;
+      //     init.draw();
+      //   }  
+
+      //   window.requestAnimationFrame(move);
+      // }
+
+      /***
+      1，每秒60次刷新屏幕， 1000/60 === 167.ms刷新一下屏幕
+      2,settimeout 设置时间间隔不断的改变，产生动画， 低端机器出现卡吨，抖动现象
+
+      setTimeout执行时间不确定， 放进异步队列 ，主线程执行完之后才去检查它的执行，刷新率受屏幕的分辨率
+      和屏幕尺寸影响，不同的设备刷新率不同 ，而settimeout只能设置一个固定的时间，而这个时间一定与和屏幕的刷新率时间相同
+
+      这样会产生步调不一样，所以出现卡吨 跳帧的情况
+
+      举了个例子：
+
+      如果设置 settimeout  每个10ms 图像向左移动 1px  
+                        屏幕HZ    setTimeout
+
+    （1）  0ms的时候      未刷新      未移动
+    （2）  10ms的时候     未刷新      left = 1px 
+    （3）  16.7ms         显示left=1px   未移动
+    （4）  20ms          未刷新       left = 2px
+     （5）30ms           未刷新       left = 3px
+      （6）33.4ms        显示left = 3px   未移动
+
+      产生掉帧现象
+  
+
+
+      */
+      
+    </script>
+  </body>
+</html>

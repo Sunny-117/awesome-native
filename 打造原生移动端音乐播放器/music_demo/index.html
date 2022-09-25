@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        body{
+            background: #a3a3a3;
+        }
+        .name{
+            font-size:20px;
+            height: 100px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .img{
+            margin:  0 auto;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        .img img{
+            display: block;
+            width:80%;
+            height: auto;
+            margin:  0 auto;
+        }
+
+        /* 动画样式 */
+        .rainbow{
+            animation: 6s rainbow infinite linear;
+        }
+        @keyframes rainbow{
+            0%{transform: rotate(0deg);}
+           100%{transform: rotate(360deg);}
+        }
+        .time{
+            width: 100%;
+            height: 30px;
+            overflow: hidden;
+            line-height: 30px;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+        .now_time{
+            float: left;
+        }
+        .all_time{
+            float:right;
+        }
+        .gc_show{
+            width: 100%;
+            height: 6px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+        .time_progress{
+            width:100%;
+            height: 6px;
+        }
+        .progress{
+            width: 100%;
+            height: 6px;
+            background-color: black;
+            position: relative;
+        }
+        .bar{
+            position: absolute;
+            top:0;
+            left: 0;
+            height: 6px;
+            background: #09f;
+            display: block;
+        }
+        .btn{
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top:-8px;
+        }
+        .contros{
+            width: 90%;
+            height: 60px;
+            margin:  0 auto;
+            overflow: hidden;
+            line-height: 60px;
+        }
+        .button{
+            font-size:20px;
+            width:50%;
+            height: 50px;
+            margin: 0 auto;
+            display: block;
+            margin-top: 10px;
+            background-color: blue;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <audio src="lan_zhi_ling_yin.mp3" id="my_audio"></audio>
+    <h1 class="name">音乐的名字</h1>
+    <!-- 唱片 -->
+    <div class="img">
+        <img src="images/lianpu.png" alt="img">
+    </div>
+    <!-- 歌曲显示区域 -->
+    <div class="gc_show">--歌曲显示区域--</div>
+    <!-- 时间轴 -->
+    <div class="time">
+        <span class="now_time" id="now_time">00:00</span>
+        <span class="all_time" id="all_time">00:00</span>
+    </div>
+    <!-- 进度条 -->
+    <div class="time_progress">
+        <div class="progress">
+            <p class="bar" id="bar"></p>
+            <div class="btn" id="btn"></div>
+        </div>
+    </div>
+    <!-- 按钮 -->
+    <div class="contros">
+        <button class="button" onclick="playPause()">暂停/播放</button>
+    </div>
+
+    <script>
+        // 获取audio的js对象
+        var my_audio = document.getElementById("my_audio");
+        //获取进度条的宽度
+        var p_all = $(".progress").width();
+
+        // 暂停和播放的事件
+        function playPause(){
+            if(my_audio.paused){
+                my_audio.play();//播放
+                // 旋转唱片
+                $(".img img").addClass("rainbow");
+            }else{
+                my_audio.pause();
+                $(".img img").removeClass("rainbow");
+            }
+        }
+
+        // h5标签事件
+        my_audio.onplay = function(){
+            console.log("1111");
+            //$(".img img").addClass("rainbow");
+        }
+        my_audio.onpause = function(){
+            console.log("222");
+            //$(".img img").removeClass("rainbow");
+        }
+        //audio播放的时候实时获取当前播放时间
+        my_audio.ontimeupdate = function(){
+           //console.log( my_audio.currentTime)
+            document.getElementById("now_time").innerHTML = timeFormat( my_audio.currentTime);
+            //当前进度条的改变
+            //currenttime:当前播放时长；duration：音乐总总长
+            now_long = my_audio.currentTime / my_audio.duration * p_all;
+            $(".bar").css({width:now_long});
+            var btn_l = now_long -10 + "px";
+            $(".btn").css({left:btn_l});
+            addListenTouch();
+        }
+
+        timeFormat = function(seconds){
+            var m = Math.floor(seconds/60) < 10 ? "0" + Math.floor(seconds/60) : Math.floor(seconds/60)
+            var s = Math.floor(seconds-(m * 60)) < 10 ? "0" + Math.floor(seconds-(m * 60)) : Math.floor(seconds-(m * 60))
+            return m + ":" + s;
+        }
+
+        //手动拖拽进度条
+        function addListenTouch(){
+           var btn = document.getElementById("btn");
+           btn.addEventListener("touchstart",touchStart,false);
+           btn.addEventListener("touchmove",touchMove,false);
+           btn.addEventListener("touchend",touchEnd,false);
+        }
+
+        function touchStart(e){
+            e.preventDefault();
+            console.log(e);
+            var touch = e.touches[0]
+            startX = touch.pageX;
+            my_audio.pause();
+            document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration)
+        }       
+        
+        function touchMove(e){
+            e.preventDefault();
+            var touch = e.touches[0];
+            x = touch.pageX - startX;//差值，滑动的距离值
+            var widthBar = now_long + x;
+            if(widthBar < p_all){
+                $("#btn").css({left:widthBar-10+"px"});
+                $("#bar").css({width:widthBar});
+            }
+            //当前的换算后的时间
+            var yu = widthBar / p_all * my_audio.duration;//当前蓝色宽度 / 总宽度 * 现在的位置
+            document.getElementById("now_time").innerHTML = timeFormat(yu);
+
+        }      
+
+        function touchEnd(e){
+            e.preventDefault();
+            now_long = parseInt(btn.style.left);//获取左边边距
+            var touch = e.touches[0];
+            var dragPaddingLeft = btn.style.left;
+            var change = dragPaddingLeft.replace("px","");
+            numDragpaddingLeft = parseInt(change);
+            var currentTime = (numDragpaddingLeft / (p_all -20) * my_audio.duration);
+            my_audio.play();
+            document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);
+            my_audio.currentTime = currentTime;
+        }      
+    </script>
+</body>
+</html>

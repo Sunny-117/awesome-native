@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-动态切换的多步骤注册表单</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <style>
+    :root {
+      /* 背景色起始颜色 */
+      --startColor: #e96f1eb9;
+      /* 背景色结束颜色 */
+      --endColor: #9b59b699;
+      /* 步骤小卡片元素阴影颜色 */
+      --stepShadow: #00000066;
+      /* 输入框边框颜色 */
+      --inputBdColor: #ccc;
+      /* 主色调 */
+      --mainColor: #277cae;
+      /* h2颜色 */
+      --h2Color: #2C3E50;
+      /* h3颜色 */
+      --h3Color: #666;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    body {
+      /* 渐变生成的是一张图片 */
+      background: linear-gradient(var(--startColor), var(--endColor)) no-repeat;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .main {
+      width: 400px;
+      margin: 50px auto;
+      text-align: center;
+      display: none;
+    }
+    ul.bar {
+      overflow: hidden;
+    }
+    ul.bar li {
+      float: left;
+      width: 33.33%;
+      position: relative;
+    }
+    ul.bar li span {
+      font-size: 12px;
+    }
+    ul.bar li span.num {
+      display: block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      background: #fff;
+      margin: 0 auto 5px;
+      border-radius: 3px;
+      color: var(--mainColor);
+    }
+    ul.bar li span.txt {
+      color: #fff;
+    }
+    ul.bar li.active span.num {
+      background: var(--mainColor);
+      color: #fff;
+    }
+    ul.bar li.active::after {
+      background: var(--mainColor);
+    }
+    ul.bar li::after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      height: 2px;
+      background: #fff;
+      left: -50%;
+      top: 10px;
+      z-index: -1;
+    }
+    ul.bar li:nth-child(1)::after {
+      display: none;
+    }
+    .steps {
+      width: 320px;
+      margin: 30px auto;
+      /* outline: 1px solid blue; */
+      position: relative;
+    }
+    .steps .step {
+      background-color: #fff;
+      margin-bottom: 50px;
+      box-shadow: 1px 1px 15px 1px var(--stepShadow);
+      padding: 20px 30px;
+      position: absolute;
+      width: 100%;
+      transition: 0.5s;
+    }
+    .steps .step h2.title {
+      font-size: 15px;
+      color: var(--h2Color);
+      margin-bottom: 10px;
+    }
+    .steps .step h3.subtitle {
+      font-size: 13px;
+      color: var(--h3Color);
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+    .steps .step input,
+    .steps .step textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 3px;
+      border: 1px solid var(--inputBdColor);
+    }
+    .steps .step input.btn {
+      width: 100px;
+      background-color: var(--mainColor);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <div class="main">
+
+    <ul class="bar">
+      <li>
+        <span class="num">1</span>
+        <span class="txt">步骤1</span>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <span class="txt">步骤2</span>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <span class="txt">步骤3</span>
+      </li>
+    </ul>
+
+    <form class="steps">
+      <!-- 步骤1 -->
+      <div class="step">
+        <h2 class="title">基本信息</h2>
+        <h3 class="subtitle">步骤1</h3>
+
+        <input type="text" name='email' placeholder="邮箱">
+        <input type="password" name='pwd' placeholder="密码" autocomplete>
+        <input type="password" name='repwd' placeholder="确认密码" autocomplete>
+
+        <input type="button" class="btn next" value="下一步">
+      </div>
+
+      <!-- 步骤2 -->
+      <div class="step">
+        <h2 class="title">社交账号</h2>
+        <h3 class="subtitle">步骤2</h3>
+
+        <input type="text" name='weixin' placeholder="微信">
+        <input type="text" name='weibo' placeholder="微博">
+        <!-- <input type="text" name='qq' placeholder="QQ"> -->
+
+        <input type="button" class="btn prev" value="上一步">
+        <input type="button" class="btn next" value="下一步">
+      </div>
+
+      <!-- 步骤3 -->
+      <div class="step">
+        <h2 class="title">认证信息</h2>
+        <h3 class="subtitle">步骤3</h3>
+
+        <!-- <input type="text" name='uname' placeholder="姓名"> -->
+        <!-- <input type="text" name='phone' placeholder="手机号"> -->
+        <textarea type="text" name='address' placeholder="详细地址"></textarea>
+
+        <input type="button" class="btn prev" value="上一步">
+        <input type="submit" class="btn submit" value="提交">
+      </div>
+    </form>
+  </div>
+  <script>
+    /* 
+    1、步骤 currentIndex
+    2、bar lis
+    3、小卡片 steps
+    4、main block
+    */
+    var currentIndex = 0
+    var lis = document.querySelectorAll('.bar li')
+    var steps = document.querySelectorAll('.step')
+    var main = document.querySelector('.main')
+
+    /* 设置进度条状态函数 */
+    function setBarStatus() {
+      for(var i = 0; i < lis.length; i++) {
+        if(i <= currentIndex) {
+          lis[i].classList.add('active')
+        } else {
+          lis[i].classList.remove('active')
+        }
+      }
+    }
+
+    /* 设置步骤小卡片状态函数 */
+    function setStepStatus() {
+      for(var i = 0; i < steps.length; i++) {
+        if(i == currentIndex) {
+          steps[i].style.display = 'block'
+        } else {
+          steps[i].style.display = 'none'
+        }
+      }
+    }
+
+    /* 渲染函数 */
+    function render() {
+      setBarStatus()
+      setStepStatus()
+      /* 准备bar和step */
+    }
+
+    /* 下一步函数 */
+    function next() {
+      if(currentIndex == 2) return
+      currentIndex++
+      render()
+      nextAnimation(currentIndex)
+    }
+    /* 下一步动画 */
+    function nextAnimation(i) {
+      steps[i - 1].style.display = 'block'
+      steps[i - 1].style.opacity = '0'
+      steps[i - 1].style.transform = 'scale(0.8)'
+      
+      steps[i].style.opacity = '0'
+      steps[i].style.left = '50%'
+      document.body.clientHeight /* 触发浏览器渲染 */
+      steps[i].style.opacity = '1'
+      steps[i].style.left = '0%'
+      
+    }
+
+    /* 上一步函数 */
+    function prev() {
+      if(currentIndex == 0) return
+      currentIndex--
+      render()
+      prevAnimation(currentIndex)
+    }
+    /* 下一步动画 */
+    function prevAnimation(i) {
+      steps[i + 1].style.display = 'block'
+      steps[i + 1].style.left = '50%'
+      steps[i + 1].style.opacity = '0'
+
+      
+      steps[i].style.transform = 'scale(0.8)'
+      steps[i].style.opacity = '0'
+      document.body.clientHeight /* 触发浏览器渲染 */
+      steps[i].style.transform = 'scale(1)'
+      steps[i].style.opacity = '1'
+
+    }
+
+
+    /* 初始化函数 */
+    function init() {
+      render()
+      main.style.display = 'block'
+      main.addEventListener('click', function(e){
+        if(e.target.classList.contains('next')) {
+          next()
+        } else if(e.target.classList.contains('prev')) {
+          prev()
+        }
+      })
+    }
+    init()
+  </script>
+</body>
+</html>

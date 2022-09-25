@@ -1,0 +1,274 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	overflow: hidden;
+}
+li{
+	list-style: none;
+}
+
+#wrapper{
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+#imgWrap li{
+	width:100%;
+	height:100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+
+
+	transition: 0.5s;
+}
+#imgWrap li img{
+	opacity: 0;
+	position: absolute;
+	left: 50%;
+}
+#imgWrap li span{
+	position: absolute;
+	width: 95px;
+	height: 25px;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	line-height: 25px;
+	border: 1px solid #fff;
+	position: absolute;
+	left: 50%;
+	margin-left: -48px;
+	font-size: 12px;
+	opacity: 0;
+}
+
+
+#imgWrap li.active{
+	opacity: 1;	
+}
+#imgWrap li.active img{
+	transform: translateY(30px);
+	opacity: 1;
+	transition: 0.8s 0.5s;
+}
+#imgWrap li.active span{
+	opacity: 1;
+	transition: 0.8s 1s;
+}
+
+
+#imgWrap li:nth-child(1){
+	background: url("../images/bg_shoulei.jpg") center;
+	background-size: cover;
+}
+
+#imgWrap li:nth-child(1) img{
+	margin-left: -137px;
+	top: 75px;
+}
+#imgWrap li:nth-child(1) span{
+	top: 193px;
+	color: #000;
+	border: 1px solid #000;
+}
+#imgWrap li:nth-child(2){
+	background: url("../images/bg_xnet.jpg") center;
+	background-size: cover;
+}
+#imgWrap li:nth-child(2) img{
+	margin-left: -22px;
+	top: 136px;
+}
+#imgWrap li:nth-child(2) span{
+	top: 448px;
+}
+
+#imgWrap li:nth-child(3){
+	background: url("../images/bg_member.jpg") center;
+	background-size: cover;
+}
+#imgWrap li:nth-child(3) img{
+	margin-left: -147px;
+	top: 121px;
+}
+#imgWrap li:nth-child(3) span{
+	top: 215px;
+}
+#imgWrap li:nth-child(4){
+	background: url("../images/bg_xav.jpg") center;
+	background-size: cover;
+}
+#imgWrap li:nth-child(4) img{
+	margin-left: -164px;
+	top: 74px;
+}
+#imgWrap li:nth-child(4) span{
+	top: 155px;
+}
+
+/* 右侧导航 */
+nav{
+	width: 162px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+nav #more{
+	width: 136px;
+	height: 38px;
+	line-height: 38px;
+	color: #fff;
+	text-indent: 70px;
+	font-weight: normal;
+	font-size: 16px;
+	position: absolute;
+	right: 10px;
+	top: 20px;
+	z-index: 2;
+	cursor: pointer;
+	border: 2px solid rgba(255,255,255,0);
+	background: url("../images/ico_01.png") no-repeat 34px 9px;
+}
+nav #more:hover{
+	border: 2px solid rgba(255,255,255,0.5);
+}
+nav div{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: rgba(0,0,0,0.5);
+	/* z-index: 1; */
+
+
+	transform: translateX(162px);
+	transition: 0.3s;
+}
+nav ul{
+	margin-top: 102px;
+}
+nav li{
+	height: 70px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 24px;
+	color: #fff;
+}
+nav span{
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #4edcff;
+	position: absolute;
+	left: 18px;
+	top: 108px;
+	display: none;
+
+
+	transition: 0.3s;
+}
+
+
+/* footer */
+.footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+
+
+	transform: translateY(100px);
+	transition: 0.5s;
+}
+/*btn*/
+#btn{
+	width:260px;
+	height: 44px;
+	position: relative;
+	margin: 0 auto 15px auto;
+	padding-bottom: 10px;
+	border-bottom: 3px solid rgba(255,255,255,0.2);
+	font-size: 0;
+}
+#btn li{
+	width: 45px;
+	height: 44px;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 10px;
+}
+#btn li:nth-child(1){
+	background: url("../images/ic_spr.png") 0 0;
+}
+#btn li:nth-child(1):hover,#btn li:nth-child(1).active{
+	background: url("../images/ic_spr.png") 0 -69px;
+}
+#btn li:nth-child(2){
+	background: url("../images/ic_spr.png") -67px 0;
+}
+#btn li:nth-child(2):hover,#btn li:nth-child(2).active{
+	background: url("../images/ic_spr.png") -67px -69px;
+}
+#btn li:nth-child(3){
+	background: url("../images/ic_spr.png") -143px 0;
+}
+#btn li:nth-child(3):hover,#btn li:nth-child(3).active{
+	background: url("../images/ic_spr.png") -143px -69px;
+}
+#btn li:nth-child(4){
+	background: url("../images/ic_spr.png") -259px 0;
+}
+#btn li:nth-child(4):hover,#btn li:nth-child(4).active{
+	background: url("../images/ic_spr.png") -259px -69px;
+}
+#btn span{
+	display: inline-block;
+	width: 65px;
+	height: 3px;
+	overflow: hidden;
+	background: #fff;
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+}
+
+.message{
+	padding-top: 10px;
+	background: rgba(0,0,0,0.5);
+}
+.message p{
+	color: #b2b2b2;
+	font: 12px/24px "宋体";
+}
+.message a{
+	color: #b2b2b2;
+	text-decoration: none;
+}
+
+.footer .safe_links a {
+    display: inline-block;
+    color: #b2b2b2;
+    position: relative;
+    width: 67px;
+    font-size: 12px;
+    line-height: 14px;
+    height: 28px;
+    padding: 5px 0 5px 40px;
+    border: 1px solid #ccc;
+    position: relative;
+    margin: 0 7px;
+}
+.footer .safe_links a img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 38px;
+}

@@ -1,0 +1,30 @@
+body,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #333;
+}
+
+#game {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#start {
+    width: 80px;
+    height: 40px;
+}
+
+span {
+    margin: 20px;
+    color: white;
+}
+
+.letter {
+    position: absolute;
+    color: yellow;
+    font: bold 30px "Arial";
+}

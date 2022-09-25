@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+body {
+  display: flex;
+  /* 主轴方向居中对齐 */
+  justify-content: center;
+  /* 交叉方向居中对齐 */
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background: #222;
+}
+.container {
+  width: 600px;
+  border: 1px solid #444;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* stars1 */
+input {
+  display: none;
+}
+h2 {
+  letter-spacing: 9px;
+  color: #eee;
+}
+.stars1 {
+  display: flex;
+  /* 反转很重要，保证鼠标经过的这个元素之前的元素验收改变 */
+  flex-direction: row-reverse;
+}
+.stars1 label {
+  font-size: 40px;
+  color: #eee;
+  padding: 10px;
+  cursor: pointer;
+}
+.stars1 label:hover,
+.stars1 label:hover ~ label{
+  color: gold;
+}
+input:checked ~ label {
+  color: gold;
+}
+
+/* stars2 */
+ul.stars2 li.star {
+  display: inline-block;
+  cursor: pointer;
+  padding: 6px;
+  /* background-color: blue; */
+}
+ul.stars2 li.star span {
+  font-size: 40px;
+  color: #eee;
+  /* background-color: red; */
+}
+ul.stars2 li.star.hover span,
+ul.stars2 li.star.checked span {
+  color: gold;
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 99%;
+            margin: 8px auto;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        .box li {
+            vertical-align: top;
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 50px;
+            margin: 5px;
+        }
+        
+        .box li.change {
+            background-color: red;
+            color: #fff;
+            font-weight: bolder;
+        }
+        
+        .wrapper button {
+            display: inline-block;
+        }
+        
+        .wrapper button {
+            border: none;
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+            margin-top: 20px;
+            font-weight: bolder;
+            color: #333;
+            background-color: #eee;
+        }
+        
+        .wrapper .choose {
+            position: relative;
+            width: 200px;
+            height: 180px;
+            border-radius: 10px;
+            margin: 12px auto;
+            border: 1px solid #000;
+        }
+        
+        .wrapper .choose img {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .niu {
+            font-size: 24px;
+            margin: 0px 0px;
+        }
+        
+        .name {
+            position: absolute;
+            font-size: 29px;
+            top: 43px;
+            left: 71px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="box"></ul>
+        <button class="start">开始点名</button>
+        <button class="stop">停止</button>
+        <div class="choose">
+            <span class="niu">幸运的你</span>
+            <img src="img1/1.gif" width="100">
+            <span class="name"></span>
+        </div>
+    </div>
+</body>
+
+<script>
+    // 获取页面的元素对象
+    var boxUl = document.getElementsByClassName('box')[0];
+    var start = document.getElementsByClassName('start')[0];
+    var stop = document.getElementsByClassName('stop')[0];
+    var oLi = document.getElementsByTagName('li');
+    //将插入名字存入数组
+    var arr = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
+    //html 字符串拼接
+    var str = '';
+    // 通过for循环来拼接
+    for (var i = 0; i < arr.length; i++) {
+        str += "<li>" + arr[i] + "</li>"
+    }
+    //将拼接后的html字符串插入到dom结构中
+    boxUl.innerHTML = str;
+    //声明timer
+    var timer = null;
+
+    //点击停止
+    stop.onclick = function() {
+        //清除timer
+        clearInterval(timer);
+        // 找到选中的元素
+        var choise = document.getElementsByClassName('change')[0];
+        //找到选中元素的内容
+        var name = choise.innerText;
+        //同时为选中位置添加内容
+        var nameSpan = document.getElementsByClassName('name')[0];
+        nameSpan.innerText = name + "号";
+    }
+
+    //开始操作
+    start.onclick = function() {
+        //清除timer
+        clearInterval(timer);
+
+        timer = setInterval(function() {
+            //根据数组长度方位生成随机数
+            var i = Math.floor(Math.random() * arr.length)
+                //先通过for清空所有class名
+            for (var j = 0; j < oLi.length; j++) {
+                oLi[j].className = "";
+            }
+            oLi[i].className = "change";
+        }, 100)
+    }
+</script>
+
+</html>

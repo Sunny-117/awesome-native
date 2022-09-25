@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+body {
+    background-color: #000;
+}
+
+.container {
+    width: 600px;
+    height: 400px;
+    border: 1px solid #000;
+    margin: 150px auto 0;
+    background-image: url('../img/1.jpg');
+}
+
+p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -30px;
+}
+
+.wrapper {
+    width: 490px;
+    height: 160px;
+    margin: 100px auto;
+    padding-top: 40px;
+    padding-left: 40px;
+}
+
+.time-item {
+    width: 65px;
+    height: 120px;
+    float: left;
+    overflow: hidden;
+}
+
+.time {
+    width: 30px;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    float: left;
+    color: #fff;
+}
+
+ul>li {
+    font-size: 0;
+}
+
+ul {
+    transition: all .5s linear;
+}

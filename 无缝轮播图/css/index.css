@@ -1,0 +1,81 @@
+.banner {
+    width: 520px;
+    height: 280px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+.banner .imgs{
+    overflow: hidden;
+}
+
+.banner .imgs img{
+    width: 520px;
+    height: 280px;
+    display: block;
+}
+
+.banner .imgs a{
+    float: left;
+}
+
+.banner .dots{
+    position: absolute;
+    background: rgba(255,255,255,.3);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 12px;
+    padding: 2px 4px;
+    border-radius: 8px;
+}
+
+.banner .dots span{
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin: 2px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.banner .dots span.active{
+    background: #f40;
+}
+
+.banner:hover .arrow{
+    display: block;
+}
+
+.banner .arrow{
+    display: none;
+}
+
+.banner .arrow .item{
+    position: absolute;
+    top: 100px;
+    background: rgba(0,0,0,.3);
+    color: #fff;
+    width: 20px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.banner .arrow .item:hover{
+    background: rgba(0,0,0,.5);
+}
+
+.banner .arrow .left{
+    left: 0;
+    border-radius: 0 17px 17px 0;
+}
+
+.banner .arrow .right{
+    right: 0;
+    border-radius: 17px 0 0 17px;
+    padding-left: 7px;
+    box-sizing: border-box;
+}
+

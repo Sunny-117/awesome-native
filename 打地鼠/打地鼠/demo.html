@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #game{
+            width: 600px;
+            height: 650px;
+            margin: 10px auto;
+            border: 1px solid gray;
+            flex-wrap: wrap;
+            background-image: url(images/timg.jpg);
+            background-size: 100% 100%;
+            cursor: url('images/chuizi.png'),auto;
+        }
+        #box{
+            width: 100%;
+            height: 450px;
+            margin-top: 150px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        #box>.hole{
+            width: 33%;
+            height: 33%;
+            text-align: center;
+        }
+        #box>.hole>img{
+            width: 70%;
+            height: auto;
+            margin-top: -35px;
+            visibility: hidden;
+        }
+        #start{
+            display: block;
+            margin: 10px auto;
+            width: 160px;
+            height: 30px;
+            border: none;
+            background: rgb(165,42,42);
+            color: white;
+            border-radius: 20px;
+            outline: none;
+        }
+        #inf{
+            width: 600px;
+            margin: 5px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        #inf>div{
+            width: 200px;
+            height: 30px;
+            background: yellow;
+            text-align: center;
+            border-radius: 20px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <div id="box">
+            <div class="hole"><img src="images/mouse.png" alt="" class="imgs"></div>
+            <div class="hole"><img src="images/mouse.png" alt="" class="imgs"></div>
+            <div class="hole"><img src="images/mouse.png" alt="" class="imgs"></div>
+            <div class="hole"><img src="images/mouse.png" alt="" class="imgs"></div>
+            <div class="hole"><img src="images/mouse.png" alt="" class="imgs"></div>
+            <div class="hole"><img src="images/mouse.png" alt="" class="imgs"></div>
+            <div class="hole"><img src="images/mouse.png" alt="" class="imgs"></div>
+            <div class="hole"><img src="images/mouse.png" alt="" class="imgs"></div>
+            <div class="hole"><img src="images/mouse.png" alt="" class="imgs"></div>
+        </div>
+        <button id="start">开始游戏</button>
+    </div>
+    <div id="inf">
+        <div>还剩<span id="time">0</span>秒</div>
+        <div>当前得分<span id="fra">0</span>分</div>
+    </div>
+    
+    <script>
+        var start = document.querySelector("#start");
+        var imgs = document.querySelectorAll(".imgs");
+        var time = document.querySelector("#time");
+        var fra = document.querySelector("#fra");
+        var count = 0;
+        start.onclick = function(){
+            this.style.background = "#ccc";
+            var zhi = 10;
+            var timer = setInterval(function(){
+                zhi--;
+                time.innerHTML = zhi;
+                if(zhi==0){
+                    clearInterval(timer);
+                    start.style.background = "rgb(165,42,42)";
+                }
+                var index = Math.floor(Math.random()*imgs.length);
+                for(var i=0;i<imgs.length;i++){
+                    imgs[i].style.visibility = "hidden";
+                }
+                imgs[index].style.visibility = "visible";
+                setTimeout(function () {
+                    imgs[index].style.visibility = "hidden";
+                },800);
+            },1000)
+        }
+
+        for(var i=0;i<imgs.length;i++){
+            imgs[i].onclick = function(){
+                this.src = "images/mouse2.png";
+                var that = this;
+                setTimeout(function(){
+                    that.src = "images/mouse.png"
+                },200)
+                count++;
+                fra.innerHTML = count;
+            }
+        }
+    </script>
+</body>
+</html>

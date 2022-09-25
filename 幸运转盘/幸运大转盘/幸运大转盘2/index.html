@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/rotary.css" />
+</head>
+
+<body>
+    <!--转盘-->
+    <div class="rotary_box">
+        <div class="rotary_fuzhu"></div>
+    </div>
+    <div class="rotary_wrap">
+        <a href="javascript:" class="looper_close" title="Close this thing"></a>
+        <div class="rotaryArrow" title="Began to draw" id="rotaryArrow"></div>
+        <div class="result">
+            <li class="top_rotary">
+                <a href="javascript:" id="resultBtn" title="close"><img src="http://hzh.tedu.cn/hd/chacha.png"></a>
+            </li>
+            <div class="form">
+                <form id="form" name="form" action="" target="actionframe" enctype="multipart/form-data" method="post">
+                    <p class="rotary_title">留下您的联系方式即可上门领奖！</p>
+                    <div class="input">
+                        <span class="prize">奖品：</span>
+                        <input class="inp" type="text" style="cursor:not-allowed" readonly id="resultTxt">
+                        <input type="hidden" name="jp" id="resultTxt1">
+                    </div>
+                    <div class="input">
+                        <span>姓名：</span>
+                        <input class="inp" id="name" type="text" name="name">
+                    </div>
+                    <div class="input">
+                        <span>手机：</span>
+                        <input class="inp" id="tel" type="text" name="tel">
+                    </div>
+                    <div class="input">
+                        <input class="submit" type="submit" value="立即领取">
+                    </div>
+                </form>
+                <iframe name="actionframe" type="hidden" style="display: none;" width="0" height="0"></iframe>
+            </div>
+        </div>
+    </div>
+    <!--end-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jqueryrotate.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>

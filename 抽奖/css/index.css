@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wapper{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 100px auto;
+}
+.pan{
+    width: 100%;
+    height: 100%;
+}
+.pan img{
+    width: 100%;
+    height: 100%;
+}
+.btn{
+    position: absolute;
+    width: 130px;
+    height:130px;
+    left: 50%;
+    top: 50%;
+    margin-left: -65px;
+    margin-top: -65px;
+    cursor: pointer;
+}
+.btn img{
+    position: absolute;
+    width: 100%;
+    top:-23px;
+}
