@@ -1,0 +1,465 @@
+* {
+  margin: 0; /* 覆盖浏览器默认样式 */
+  padding: 0; /* 覆盖浏览器默认样式 */
+  list-style: none; /* 覆盖浏览器默认样式，去掉列表左侧的编号 */
+  box-sizing: border-box; /* 所有元素使用边框盒度量宽高 */
+}
+a {
+  text-decoration: none; /* 覆盖浏览器默认样式，去掉超链接的下划线 */
+  color: inherit; /* 覆盖浏览器默认样式，让超链接的颜色继承父元素 */
+}
+a:hover {
+  color: #e10200; /* 统一设置超链接的鼠标悬停效果 */
+}
+body {
+  min-width: 1200px; /* PC端页面的常见做法，设置页面的最小宽度 */
+}
+
+html {
+  /* 平滑滚动 */
+  scroll-behavior: smooth;
+}
+
+/* 头部区域 */
+.header {
+  width: 990px;
+  height: 112px;
+  background: url(../img/topnav_bg.png);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -495px;
+  z-index: 1;
+}
+.header .logo {
+  position: absolute;
+  background: url(../img/logo.png);
+  width: 73px;
+  height: 94px;
+  top: 0;
+  left: 50%;
+  margin-left: -36.5px;
+}
+.header .logo h1 {
+  display: none;
+}
+.header .nav {
+  margin-top: 12px;
+  font-size: 15px;
+}
+.header .nav li {
+  float: left;
+  padding: 0 15px 0 19px;
+  background: url(../img/icon.png) 0 8px;
+}
+.header .nav-left {
+  float: left;
+  margin-left: 94px;
+}
+.header .nav-right {
+  float: right;
+  margin-right: 94px;
+}
+
+.bell {
+  position: absolute;
+  background: url(../img/bell.png);
+  width: 59px;
+  height: 107px;
+  right: 40px;
+  top: 54px;
+  transform-origin: center top;
+  animation: swing 5s infinite;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+/* 浮萍区域 */
+.flows {
+  position: relative;
+}
+.flows .summer {
+  width: 100%;
+  display: block;
+}
+.flows .item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.flows .summer1 {
+  background: url(../img/summer1.png);
+  width: 93px;
+  height: 122px;
+  margin-left: -538px;
+  animation: flow1 5s infinite;
+}
+@keyframes flow1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.flows .summer2 {
+  background: url(../img/summer2.png);
+  width: 200px;
+  height: 314px;
+  margin-left: -348px;
+  animation: flow2 5s infinite;
+}
+@keyframes flow2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.flows .summer3 {
+  background: url(../img/summer3.png);
+  width: 245px;
+  height: 236px;
+  margin-left: -202px;
+  animation: flow3 5s infinite;
+}
+@keyframes flow3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.flows .summer4 {
+  background: url(../img/summer4.png);
+  width: 108px;
+  height: 97px;
+  margin-left: 69px;
+  animation: flow3 5s 2s infinite;
+}
+
+.flows .summer5 {
+  background: url(../img/summer5.png);
+  width: 60px;
+  height: 62px;
+  margin-left: 298px;
+  animation: flow2 5s infinite;
+}
+.flows .summer6 {
+  background: url(../img/summer6.png);
+  width: 257px;
+  height: 215px;
+  margin-left: 137px;
+  animation: flow6 5s infinite;
+}
+@keyframes flow6 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* 新闻区域 */
+.news-container {
+  background: url(../img/title-1.png) no-repeat center top;
+  padding-top: 251px;
+  margin-top: -133px;
+  position: relative;
+  z-index: 1;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.news-container .news-list {
+  width: 1000px;
+  margin: 0 auto;
+  background: url(../img/line.png) no-repeat right top;
+}
+.news-container .news-list li {
+  float: left;
+  width: 33.33333%;
+  background: url(../img/line.png) no-repeat;
+  padding: 10px 44px;
+  height: 283px;
+}
+.news-container .news-list .time {
+  text-align: center;
+  font-size: 14px;
+  color: #e10200;
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+}
+.news-container .news-list .title {
+  margin: 19px auto;
+  text-align: center;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.news-container .news-list .desc {
+  font-size: 12px;
+  color: #767676;
+  line-height: 20px;
+  height: 140px;
+  overflow: hidden;
+}
+
+.news-container .treasure-list {
+  width: 1000px;
+  margin: 0 auto;
+  background: url(../img/taihedian.jpg) no-repeat center top;
+  padding-top: 38px;
+}
+.news-container .treasure-list li {
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+}
+.news-container .treasure-list img {
+  width: 306px;
+  height: 198px;
+  margin-bottom: 16px;
+  margin-top: 45px;
+}
+
+/* 地图区域 */
+.map {
+  background: url(../img/title-2.png) no-repeat center 27px,
+    url(../img/taihe.png) no-repeat center center;
+  position: relative;
+  height: 869px;
+}
+.map .teacher {
+  background: url(../img/teacher.png);
+  width: 141px;
+  height: 158px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -70.5px;
+  margin-top: -79px;
+}
+.map .teacher.left {
+  background-position: 0 -158px;
+}
+.map .item-list {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -230px;
+  border-radius: 50%;
+}
+.map .item-list li {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 170px;
+  height: 160px;
+  margin-left: -85px;
+  margin-top: -80px;
+}
+
+/* 更多区域 */
+.more {
+  width: 1000px;
+  margin: 0 auto;
+  background: url(../img/title-3.jpg) no-repeat center top;
+  padding-top: 130px;
+  margin-top: 30px;
+}
+
+.more .app {
+  float: left;
+  padding-left: 58px;
+  background: url(../img/stitle-1.png) no-repeat;
+  width: 568px;
+  font-size: 14px;
+  text-align: center;
+}
+.more .app li {
+  float: left;
+  margin: 0 8px 28px 8px;
+}
+.more .app img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.more .attend {
+  float: right;
+  width: 398px;
+  padding: 0 40px 0 103px;
+  background: url(../img/stitle-2.png) no-repeat left top,
+    url(../img/sina.png) no-repeat right top,
+    url(../img/weixin.png) no-repeat 60px 382px;
+}
+
+.more .store {
+  width: 568px;
+  float: left;
+  background: url(../img/stitle-3.png) no-repeat left top,
+    url(../img/line2.jpg) no-repeat 60px top;
+  padding-left: 83px;
+  padding-top: 30px;
+  margin-top: 10px;
+}
+.more .store li {
+  float: left;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 170px;
+  height: 42px;
+  margin-right: 50px;
+  margin-bottom: 45px;
+  position: relative;
+  line-height: 42px;
+  text-indent: 30px;
+}
+.more .store li img {
+  position: absolute;
+  left: -20px;
+  top: 0px;
+  transition: 0.2s;
+}
+.more .store li:hover img {
+  left: -30px;
+}
+
+/* 页脚区域 */
+.footer {
+  background: url(../img/footer_bg.png) no-repeat center top #960300;
+  padding-top: 180px;
+}
+.footer .container {
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 30px;
+  position: relative;
+}
+.footer .logo-bottom {
+  float: left;
+  background: url(../img/icon.png) right top;
+  width: 72px;
+  height: 86px;
+  margin-right: 30px;
+}
+
+.footer .aside {
+  float: left;
+  font-size: 12px;
+  color: #e8918f;
+}
+
+.footer .friend-link {
+  background: url(../img/icon.png) no-repeat 95px -317px #a81b18;
+  width: 115px;
+  height: 28px;
+  line-height: 28px;
+  text-indent: 8px;
+  cursor: pointer;
+  position: relative;
+}
+.footer .options {
+  position: absolute;
+  bottom: 28px;
+  background: #c30;
+  color: #fff;
+  width: 180px;
+  line-height: 40px;
+  display: none;
+}
+.footer .friend-link:hover .options {
+  display: block;
+  background: #c30;
+}
+.footer .options a:hover {
+  color: #fff;
+}
+.footer .options li:hover {
+  background: #bc9d45;
+}
+
+.footer .inner-link {
+  color: #d1b97e;
+  margin: 10px 0;
+}
+.footer .inner-link a:hover {
+  color: #fc0;
+}
+.footer .inner-link a {
+  float: left;
+  margin-right: 8px;
+}
+.footer .inner-link a::before {
+  content: '·';
+}
+.footer .container .house {
+  position: absolute;
+  background: url(../img/bottomhouse.png) no-repeat;
+  width: 248px;
+  height: 250px;
+  right: 0;
+  bottom: 0;
+}
+
+/* 广告 */
+.adv {
+  position: fixed;
+  right: 8px;
+  top: 50%;
+  margin-top: -93px;
+  z-index: 10;
+}
+
+/* 回到顶部 */
+.to-top {
+  position: fixed;
+  right: 8px;
+  bottom: 28px;
+  background: url(../img/top.png);
+  width: 61px;
+  height: 61px;
+  opacity: 0.5;
+}
+.to-top:hover {
+  opacity: 1;
+}
