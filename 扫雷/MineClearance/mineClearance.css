@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    cursor: url(mine_img/mouse.ico),pointer;
+}
+ul,li {
+    list-style: none;
+}
+.mc_wrapper {
+    position: relative;
+    width: 800px;
+    height: 700px;
+    margin: 100px auto;
+    /*border: 1px dotted black;*/
+    overflow: hidden;
+}
+#mc_start {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    left: 50%;
+    margin-left: -200px;
+    top: 50%;
+    margin-top: -150px;
+}
+#mc_start h1 {
+    height: 100px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 100px;
+}
+#mc_start .btn_start {
+    display: block;
+    width: 300px;
+    height: 80px;
+    font-size: 30px;
+    margin: 50px auto;
+}
+#mc_level {
+    position: absolute;
+    opacity: 0;
+    width: 400px;
+    height: 400px;
+    left: 50%;
+    margin-left: -200px;
+    top: 1000px;
+    margin-top: -200px;
+}
+#mc_level h2 {
+    height: 100px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    line-height: 100px;
+    margin-bottom: 20px;
+}
+#mc_level button {
+    display: block;
+    width: 300px;
+    height: 60px;
+    font-size: 25px;
+    margin: 0 auto 30px;
+}
+button:hover {
+    color: dodgerblue;
+    font-weight: bold;
+}
+.mc_wrapper #mc_pri_game,#mc_mid_game,#mc_exp_game {
+    position: absolute;
+    left: 50%;
+    border:1px black solid;
+    bottom: -400px;
+}
+.mc_wrapper #mc_pri_game {
+    margin-left: -100px;
+    width: 198px;
+    height: 198px;
+}
+.mc_wrapper #mc_mid_game {
+    margin-left: -176px;
+    width: 352px;
+    height: 352px;
+}
+.mc_wrapper #mc_exp_game {
+    margin-left: -331px;
+    width: 660px;
+    height: 352px;
+}
+.mc_wrapper .mc_row {
+    float: left;
+    height: 20px;
+    margin-bottom: 2px;
+}
+.mc_wrapper #mc_pri_game .mc_row {
+    width: 198px;
+}
+.mc_wrapper #mc_mid_game .mc_row {
+    width: 352px;
+}
+.mc_wrapper #mc_exp_game .mc_row {
+    width: 660px;
+}
+.mc_wrapper .white,.mc_row .mc_cell,.mc_cell_light,
+.number1,.number2,.number3,.number4,.number5,.number6,.number7,.number8,
+.number1_wrong,.number2_wrong,.number3_wrong,.number4_wrong,.number5_wrong,.number6_wrong,.number7_wrong,.number8_wrong,
+.bomb,.bomb_wrong,.bomb0,.flag,.flag_light,.mark,.mark_light
+ {
+    float: left;
+    width: 20px;
+    height: 20px;
+    border: 1px black solid;
+}
+.mc_wrapper .mc_row .mc_cell {
+    background-image: url("mine_img/s.jpg");
+}
+.mc_wrapper .mc_row .mc_cell_light {
+    background-image: url("mine_img/s_light0.jpg");
+}
+.mc_wrapper .mc_row .white {
+    background-color: #fff;
+}
+.mc_wrapper .mc_row .number1 {
+    background-image: url("mine_img/1.jpg");
+}
+.mc_wrapper .mc_row .number1_wrong {
+    background-image: url("mine_img/1_wrong.gif");
+}
+.mc_wrapper .mc_row .number2 {
+    background-image: url("mine_img/2.jpg");
+}
+.mc_wrapper .mc_row .number2_wrong {
+    background-image: url("mine_img/2_wrong.gif");
+}
+.mc_wrapper .mc_row .number3 {
+    background-image: url("mine_img/3.jpg");
+}
+.mc_wrapper .mc_row .number3_wrong {
+    background-image: url("mine_img/3_wrong.gif");
+}
+.mc_wrapper .mc_row .number4 {
+    background-image: url("mine_img/4.jpg");
+}
+.mc_wrapper .mc_row .number4_wrong {
+    background-image: url("mine_img/4_wrong.gif");
+}
+.mc_wrapper .mc_row .number5 {
+    background-image: url("mine_img/5.jpg");
+}
+.mc_wrapper .mc_row .number5_wrong {
+    background-image: url("mine_img/5_wrong.gif");
+}
+.mc_wrapper .mc_row .number6 {
+    background-image: url("mine_img/6.jpg");
+}
+.mc_wrapper .mc_row .number6_wrong {
+    background-image: url("mine_img/6_wrong.gif");
+}
+.mc_wrapper .mc_row .number7 {
+    background-image: url("mine_img/7.jpg");
+}
+.mc_wrapper .mc_row .number7_wrong {
+    background-image: url("mine_img/7_wrong.gif");
+}
+.mc_wrapper .mc_row .number8 {
+    background-image: url("mine_img/8.jpg");
+}
+.mc_wrapper .mc_row .number8_wrong {
+    background-image: url("mine_img/8_wrong.gif");
+}
+.mc_wrapper .mc_row .bomb {
+    background-image: url("mine_img/bomb.jpg");
+}
+.mc_wrapper .mc_row .bomb_wrong {
+    background-image: url("mine_img/bomb_w.jpg");
+}
+.mc_wrapper .mc_row .bomb0 {
+    background-image: url("mine_img/bomb0.jpg");
+}
+.mc_wrapper .mc_row .flag {
+    background-image: url("mine_img/flag.jpg");
+}
+.mc_wrapper .mc_row .flag_light {
+    background-image: url("mine_img/flag_light0.jpg");
+}
+.mc_wrapper .mc_row .mark {
+    background-image: url("mine_img/mark.jpg");
+}
+.mc_wrapper .mc_row .mark_light {
+    background-image: url("mine_img/mark_light0.jpg");
+}
+.mc_wrapper #mc_game_time,#mc_game_mine {
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+    height: 160px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+}
+.mc_wrapper #mc_game_time {
+    top: -160px;
+}
+.mc_wrapper #mc_game_time p {
+    width: 200px;
+    height: 80px;
+}
+.mc_wrapper #mc_game_time span {
+    display: block;
+    width: 200px;
+    height: 80px;
+}
+.mc_wrapper #mc_game_mine {
+    bottom: -160px;
+}
+.mc_wrapper #mc_game_mine p {
+    width: 200px;
+    height: 80px;
+}
+.mc_wrapper #mc_game_mine span {
+    display: block;
+    width: 200px;
+    height: 80px;
+}
+.mc_wrapper h4 {
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    top: -500px;
+    left: 50%;
+    margin-left: -150px;
+    font-size: 50px;
+    line-height: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+.mc_wrapper #mc_gameover_win {
+    color: gold;
+}
+.mc_wrapper #mc_gameover_lose {
+    color: darkred;
+}
+.mc_wrapper #mc_gameover_time {
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    left: 50%;
+    margin-top: 100px;
+    margin-left: -75px;
+    top: -400px;
+}
+.mc_wrapper #mc_gameover_time span {
+    display: inline-block;
+    position: absolute;
+    height: 50px;
+    text-align: center;
+}
+.mc_wrapper #mc_gameover_time .mc_go_t1 {
+    width: 70px;
+}
+.mc_wrapper #mc_gameover_time .mc_go_t2 {
+    width: 80px;
+    right: 0;
+}
+.mc_wrapper #mc_gameover_choose {
+    position: absolute;
+    bottom: -400px;
+    width: 300px;
+    height: 160px;
+    left: 50%;
+    margin-left: -150px;
+}
+.mc_wrapper #mc_gameover_choose button {
+    width: 200px;
+    height: 50px;
+    margin: 20px 50px 0;
+    font-size: 20px;
+}

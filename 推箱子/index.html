@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #game {
+            margin: 0 auto;
+            position: relative;
+            /* 里面的元素相对于她定位 */
+        }
+
+        #game .item {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            background-size: 100% 100%;
+            /* 用JS控制坐标 */
+        }
+
+        #game .wall {
+            background-image: url("./imgs/wall.jpg");
+        }
+
+        #game .box {
+            background-image: url("./imgs/box.png");
+        }
+
+        #game .player {
+            background-image: url("./imgs/player.png");
+        }
+
+        /* 正确状态的箱子 */
+        #game .correct-box {
+            background-image: url("./imgs/over_box.png");
+        }
+
+        #game .correct {
+            border: 2px solid rgb(24, 151, 24);
+            /* 设置下面的属性之后，宽高影响的范围是边框盒 */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 存放游戏中的所有元素 -->
+    <div id="game">
+
+    </div>
+
+    <script src="./module/index.js" type="module"></script>
+    <!-- type="module"当成模块 -->
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#game {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#btnGroup {
+  display: none;
+  position: absolute;
+  width: 140px;
+  z-index: 100;
+  top: 55%;
+  left: 50%;
+  margin-left: -70px;
+}
+
+#btnGroup li {
+  color: #222;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid rgba(0,0,0,.7);
+  border-radius: 10px 10px;
+  margin-bottom: 5px;
+}
+
+
+.bombBtn,
+.ctrlBtn {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  background-color: transparent;
+  border: 0;
+}
+
+.bombBtn {
+  width: 100px;
+  height: 50px;
+  left: 0;
+  bottom: 0;
+}
+
+.ctrlBtn {
+  width: 50px;
+  height: 40px;
+  left: 0;
+  top: 0;
+}
+
+.ctrl {
+  position: absolute;
+  width: 140px;
+  background-color: transparent;
+  left: 50%;
+  top: 50%;
+  margin-left: -70px;
+  margin-top: -40px;
+  display: none;
+}
+.ctrl>span {
+  display: block;
+  border: 2px solid #444;
+  background-color: #bbb;
+  border-radius: 15px 15px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 18px;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.rank,
+.rule,
+.set {
+  position: absolute;
+  width: 300px;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 10px 10px; 
+  top: 10%;
+  left: 50%;
+  margin-left: -150px; 
+  background-color: #ccc;
+  text-align: center;
+}
+
+.set {
+  top: 15%;
+}
+
+.rank li{
+  width: 200px;
+  margin: 0 auto;
+  text-align: right;
+}
