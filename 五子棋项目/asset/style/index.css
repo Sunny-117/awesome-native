@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  font-size: 14px;
+  line-height: 1.15;
+}
+
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif,
+    sans-serif;
+  min-height: 100%;
+  background-color: #2c3e50;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.scene .choose {
+  display: flex;
+}
+
+.scene .choose .circle, .scene .choose .cross, .scene .resize .zoomout, .scene .resize .zoomin {
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 34px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.scene .choose .circle:active, .scene .choose .cross:active, .scene .resize .zoomout:active, .scene .resize .zoomin:active {
+  transform: scale(1.5);
+}
+
+.scene .choose .circle {
+  color: #e74c3c;
+}
+
+.scene .choose .cross {
+  color: #2ecc71;
+}
+
+.scene .choose .info {
+  font-size: 18px;
+  color: #ffff66;
+  /* color: #ffb366; */
+  line-height: 34px;
+  font-style: italic;
+  flex: 1;
+  text-align: center;
+}
+
+.scene .resize {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.scene .resize .zoomout, .scene .resize .zoomin {
+  color: #ffb366;
+}
+
+.board {
+  display: block;
+  background-color: #2c3e50;
+  /* background-color: #577a9e; */
+  /* rgba(87, 122, 158, 0.4) */
+}
