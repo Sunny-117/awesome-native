@@ -41,7 +41,7 @@ HTML5, CSS3 特效
 
 ### medium
 
-实用类的，比如 MusicPlayer, Banner ...
+实用类的，比如 MusicPlayer, Banner, 购物车...
 
 
 ### hard
