@@ -25,11 +25,18 @@
 
 ## Content
 
+> 特点
+
 ⚡️ 目录按照项目难度划分，分为easy, medium, hard <br/>
 🔥 每一个项目都配有相应的实现思路文档 <br/>
 🚀 每一个项目都有其在线的预览地址 <br/>
 
 ### easy
+
+主要涵盖 HTML、CSS 静态页面和少量(简单) JavaScript 
+
+
+
 
 
 ### medium
