@@ -27,7 +27,7 @@
 
 > 特点
 
-⚡️ 目录按照项目难度划分，分为easy, medium, hard <br/>
+⚡️ 目录按照项目难度划分，分为easy, medium, hard。额外，新加了**经典案例**，可以优先食用<br/>
 🔥 每一个项目都配有相应的实现思路文档 <br/>
 🚀 每一个项目都有其在线的预览地址 <br/>
 
@@ -48,6 +48,11 @@ HTML5, CSS3 特效
 ### hard
 
 游戏类
+
+### js_classic_cases
+
+js 精华的效果
+
 
 
 ## 🤝 Contributing
