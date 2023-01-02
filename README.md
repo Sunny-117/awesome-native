@@ -35,11 +35,14 @@
 
 主要涵盖 HTML、CSS 静态页面和少量(简单) JavaScript 
 
-
+HTML5, CSS3 特效
 
 
 
 ### medium
+
+实用类的，比如 MusicPlayer, Banner ...
+
 
 ### hard
 
