@@ -1,0 +1,27 @@
+@import url('https://at.alicdn.com/t/c/font_3555577_me2a6tdmvu8.css');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 0.125vw;
+}
+body {
+  font-size: 35rem;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  font-family: 'Microsoft Yahei', 'sans-serif';
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.iconfont {
+  font-size: inherit;
+}

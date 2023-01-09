@@ -1,0 +1,20 @@
+.add-to-car {
+  position: fixed;
+  color: #fff;
+  font-size: 23rem;
+  line-height: 40rem;
+  text-align: center;
+  z-index: 9;
+  margin-left: -20rem;
+  margin-top: -20rem;
+  left: 0;
+  top: 0;
+}
+
+.add-to-car .iconfont {
+  width: 40rem;
+  height: 40rem;
+  background: #4a90e1;
+  border-radius: 50%;
+  display: block;
+}

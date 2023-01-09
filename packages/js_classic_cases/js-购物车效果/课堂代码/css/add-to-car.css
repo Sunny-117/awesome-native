@@ -1,0 +1,24 @@
+.add-to-car {
+  position: fixed;
+  color: #fff;
+  font-size: 23rem;
+  line-height: 40rem;
+  text-align: center;
+  z-index: 9;
+  margin-left: -20rem;
+  margin-top: -20rem;
+  left: 0;
+  top: 0;
+  transition: 0.5s linear;
+  /* 横向匀速 */
+}
+
+.add-to-car .iconfont {
+  width: 40rem;
+  height: 40rem;
+  background: #4a90e1;
+  border-radius: 50%;
+  display: block;
+  /* 纵向抛物线 重力抛物线时间函数 */
+  transition: 0.5s cubic-bezier(0.5, -0.5, 1, 1);
+}
