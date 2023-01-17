@@ -1,0 +1,46 @@
+.tiny-collapse {
+  .collapse-item {
+    border-top: 1px solid #ddd;
+    &:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+    &.active {
+      .collapse-header {
+        &::after {
+          transform: rotate(135deg);
+        }
+      }
+    }
+  }
+  .collapse-header {
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    color: #333;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 40px;
+    cursor: pointer;
+    &::after {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-top: 1px solid #333;
+      border-right: 1px solid #333;
+      margin-left: auto;
+      transform: rotate(45deg);
+      transition: all 0.3s;
+    }
+  }
+  .collapse-panel {
+    font-size: 14px;
+    color: #666;
+    overflow: hidden;
+    padding-bottom: 16px;
+    box-sizing: border-box;
+    &.animate {
+      transition: all 0.3s;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.tiny-tree {
+  .tree-node {
+    font-size: 14px;
+    margin: 6px 0;
+    .node-content {
+      display: flex;
+      align-items: center;
+      .node-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 12px;
+        height: 12px;
+        margin-right: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+        user-select: none;
+        &.hide {
+          visibility: hidden;
+        }
+        &.open {
+          transform: rotate(90deg);
+        }
+      }
+      .node-title {
+        line-height: 20px;
+        color: #333;
+        cursor: pointer;
+        padding: 0 4px;
+        border-radius: 3px;
+        &:hover {
+          background-color: #eee;
+        }
+        &.selected {
+          background-color: #ddd;
+        }
+      }
+    }
+    .node-children {
+      padding-left: 18px;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+  }
+}

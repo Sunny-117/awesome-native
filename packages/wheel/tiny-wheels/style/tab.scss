@@ -1,0 +1,58 @@
+.tiny-tabs {
+  overflow: hidden;
+  .tab-header {
+    position: relative;
+    display: flex;
+    font-size: 13px;
+    line-height: 30px;
+    font-weight: 500;
+    border-bottom: 2px solid #ddd;
+    .tab-item {
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+      cursor: pointer;
+      flex-shrink: 0;
+      color: #999;
+      &:hover {
+        color: #333;
+      }
+      &.active {
+        color: #333;
+      }
+      &.disabled {
+        color: #ddd;
+        cursor: default;
+      }
+    }
+    .tab-line {
+      position: absolute;
+      top: 100%;
+      height: 2px;
+      background: #333;
+      transition: all 0.3s;
+    }
+  }
+  .tab-panels {
+    display: flex;
+    flex-direction: row;
+    transform: none;
+    .tab-panel {
+      padding: 16px 0;
+      font-size: 14px;
+      width: 100%;
+      transition: opacity .3s;
+      opacity: 1;
+      outline: 0;
+      flex-shrink: 0;
+      visibility: hidden;
+      &.active {
+        visibility: visible;
+      }
+    }
+    &.animated {
+      will-change: transform;
+      transition: transform .3s ease-in-out;
+    }
+  }
+}

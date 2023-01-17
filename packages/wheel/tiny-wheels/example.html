@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example</title>
+    <!-- <link rel="stylesheet" href="../dist/pager.min.css"> -->
+    <!-- <link rel="stylesheet" href="../dist/tiny-wheels.min.css"> -->
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 30px auto;
+        border-radius: 4px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
+        padding: 16px;
+      }
+      .container h2 {
+        margin: 20px 0;
+      }
+      .demo-panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Tabs 选项卡</h2>
+      <div class="tabs" data-tab-active="2" data-tab-disabled="3">
+        <div data-tab-name="选项卡1" data-tab-key="1">内容1</div>
+        <div data-tab-name="选项卡2" data-tab-key="2">内容2</div>
+        <div data-tab-name="选项卡3" data-tab-key="3">内容3</div>
+        <div data-tab-name="选项卡4" data-tab-key="4">内容4</div>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Collapse 折叠面板</h2>
+      <div class="collapse" data-collapse-active="2">
+        <div data-collapse-name="折叠面板1" data-collapse-key="1">
+          折叠内容
+        </div>
+        <div data-collapse-name="折叠面板2" data-collapse-key="2">
+          折叠内容
+        </div>
+        <div data-collapse-name="折叠面板3" data-collapse-key="3">
+          折叠内容
+        </div>
+        <div data-collapse-name="折叠面板4" data-collapse-key="4">
+          折叠内容
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Pager 分页</h2>
+      <div class="pager"></div>
+    </div>
+    <div class="container">
+      <h2>Carousel 走马灯</h2>
+      <div class="carousel">
+        <div class="carousel-panel">
+          <div class="demo-panel">0</div>
+        </div>
+        <div class="carousel-panel">
+          <div class="demo-panel">1</div>
+        </div>
+        <div class="carousel-panel">
+          <div class="demo-panel">2</div>
+        </div>
+        <div class="carousel-panel">
+          <div class="demo-panel">3</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Tree 树形控件</h2>
+      <div class="tree tiny-tree"></div>
+    </div>
+    <script src="./dist/index.js"></script>
+    <script>
+      new TinyWheels.Tabs({
+        element: document.querySelector('.tabs'),
+        animated: true,
+        callback: ($tab, key) => {
+          console.log($tab, key)
+        }
+      })
+      new TinyWheels.Collapse({
+        element: document.querySelector('.collapse'),
+        accordion: false,
+        callback: ($item, key, keys) => {
+          console.log($item, key, keys)
+        }
+      })
+      new TinyWheels.Pager({
+        element: document.querySelector('.pager'),
+        total: 200,
+        size: 20,
+        current: 1,
+        callback: number => {
+          console.log(number)
+        }
+      })
+      new TinyWheels.Carousel({
+        element: document.querySelector('.carousel'),
+        height: '200px',
+        index: 1,
+        interval: 2000,
+        autoplay: true
+      })
+      const treeDatas = [
+        {
+          title: '标题-1',
+          expand: true,
+          children: [
+            {
+              title: '标题-2',
+              selected: true
+            },
+            {
+              title: '标题-3',
+              children: [
+                {
+                  title: '标题-4'
+                },
+                {
+                  title: '标题-5',
+                  children: [
+                    {
+                      title: '标题-6'
+                    },
+                    {
+                      title: '标题-7'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              title: '标题-8',
+              children: [
+                {
+                  title: '标题-9'
+                },
+                {
+                  title: '标题-10',
+                  children: [
+                    {
+                      title: '标题-11',
+                      children: [
+                        {
+                          title: '标题-12'
+                        }
+                      ]
+                    },
+                    {
+                      title: '标题-13'
+                    },
+                    {
+                      title: '标题-14'
+                    }
+                  ]
+                },
+                {
+                  title: '标题-15'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      new TinyWheels.Tree({
+        element: document.querySelector('.tree'),
+        data: treeDatas,
+        multiple: true,
+        toggle: node => {
+          console.log(node)
+        },
+        select: (nodes, node) => {
+          console.log(nodes, node)
+        }
+      })
+    </script>
+  </body>
+</html>

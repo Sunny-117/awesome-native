@@ -1,0 +1,52 @@
+.tiny-pager {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .pager-prev,
+  .pager-item,
+  .pager-more,
+  .pager-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 8px;
+  }
+  .pager-prev,
+  .pager-item,
+  .pager-next {
+    &:hover {
+      border-color: #666;
+    }
+  }
+  .pager-prev,
+  .pager-next {
+    &.disabled {
+      color: #ddd;
+      cursor: not-allowed;
+      &:hover {
+        border-color: #ddd;
+      }
+    }
+  }
+  .pager-item {
+    &.active {
+      border-color: #666;
+    }
+  }
+  .pager-next {
+    margin-right: 0;
+  }
+  .pager-more {
+    border-color: transparent;
+    cursor: default;
+  }
+}

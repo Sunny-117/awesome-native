@@ -1,0 +1,23 @@
+{
+  "id": "1760826",
+  "name": "tiny-wheels",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "tiny-wheels",
+  "glyphs": [
+    {
+      "icon_id": "9457370",
+      "name": "ios-arrow-down",
+      "font_class": "ios-arrow-down",
+      "unicode": "e701",
+      "unicode_decimal": 59137
+    },
+    {
+      "icon_id": "9457380",
+      "name": "ios-arrow-forward",
+      "font_class": "ios-arrow-forward",
+      "unicode": "e703",
+      "unicode_decimal": 59139
+    }
+  ]
+}
